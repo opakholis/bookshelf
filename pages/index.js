@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
-import image from 'next/image';
 
 // import { NotionRenderer } from 'react-notion';
 
