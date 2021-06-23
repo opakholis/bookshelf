@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --write \"./**/*.{js,jsx}\""
   },
   "dependencies": {
     "next": "^11.0.1",
@@ -19,6 +20,14 @@
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.5",
+    "prettier": "^2.3.1",
     "tailwindcss": "^2.2.2"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
   }
 }
