@@ -20,7 +20,7 @@ export default function Home({ finished, reading }) {
       <SEO />
       <main className="container mx-auto py-6">
         <section className="mb-20">
-          <h1 className="font-semibold text-xl mb-6">Sedang dibaca</h1>
+          <h1 className="mb-6 text-xl font-semibold">Sedang dibaca</h1>
           <Slider {...settings}>
             {reading.map(
               ({ Cover: image, Name: title, Author: author, Genres, id }) => {
@@ -28,7 +28,7 @@ export default function Home({ finished, reading }) {
                   <div key={id}>
                     <div className="flex flex-row">
                       <div className="relative mr-24">
-                        <div className="absolute rounded-full bg-blue-200 w-72 h-72" />
+                        <div className="absolute w-72 h-72 bg-blue-200 rounded-full" />
                         <div className="ml-11">
                           <Image
                             src={image[0].url}
@@ -38,9 +38,9 @@ export default function Home({ finished, reading }) {
                           />
                         </div>
                       </div>
-                      <div className="space-y-5 w-1/2">
+                      <div className="w-1/2 space-y-5">
                         <TruncateMarkup lines={2}>
-                          <h2 className="font-semibold text-5xl tracking-tight">
+                          <h2 className="text-5xl font-semibold tracking-tight">
                             {title}
                           </h2>
                         </TruncateMarkup>
@@ -48,7 +48,7 @@ export default function Home({ finished, reading }) {
                         <p className="pt-6">
                           {Genres.map((genre, id) => (
                             <span
-                              className="bg-blue-200 mr-3 py-1 px-2 rounded text-gray-900 text-sm"
+                              className="mr-3 px-2 py-1 text-gray-900 text-sm bg-blue-200 rounded"
                               key={id}
                             >
                               {genre}
@@ -64,7 +64,7 @@ export default function Home({ finished, reading }) {
           </Slider>
         </section>
         <section className="">
-          <h1 className="font-semibold text-xl mb-6">Telah dibaca</h1>
+          <h1 className="mb-6 text-xl font-semibold">Telah dibaca</h1>
           <div className="flex space-x-5">
             {finished.map(
               ({
@@ -77,7 +77,7 @@ export default function Home({ finished, reading }) {
                 return (
                   <div
                     key={id}
-                    className="flex w-[275px] bg-yellow-100 rounded-2xl space-x-4 p-6"
+                    className="w-[275px] flex p-6 bg-yellow-100 rounded-2xl space-x-4"
                   >
                     <div className="flex-2">
                       <Image
@@ -89,10 +89,10 @@ export default function Home({ finished, reading }) {
                     </div>
                     <dl className="flex-1">
                       <TruncateMarkup lines={2}>
-                        <dt className="font-medium text-lg mb-1">{title}</dt>
+                        <dt className="mb-1 text-lg font-medium">{title}</dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
-                        <dt className="text-sm text-gray-500 mb-4">{author}</dt>
+                        <dt className="mb-4 text-gray-500 text-sm">{author}</dt>
                       </TruncateMarkup>
                       <dt>{rating}</dt>
                     </dl>
