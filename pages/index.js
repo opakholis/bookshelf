@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import TruncateMarkup from 'react-truncate-markup';
 
 // import { NotionRenderer } from 'react-notion';
 
@@ -14,24 +15,26 @@ export default function Home({ finished, reading }) {
 
       <main className="container mx-auto py-6">
         <section className="mb-20">
-          <h1 className="font-semibold text-xl mb-6">Sedang dibaca &rarr;</h1>
+          <h1 className="font-semibold text-xl mb-6">Sedang dibaca</h1>
           {reading.map(
             ({ Cover: image, Name: title, Author: author, Genres, id }) => {
               return (
                 <div key={id} className="flex">
                   <div className="relative flex items-center w-1/3">
                     <div className="absolute rounded-full bg-blue-200 w-72 h-72" />
-                    <div className="shadow-xl ml-9">
+                    <div className="ml-9">
                       <Image
                         src={image[0].url}
-                        width={218}
-                        height={328}
+                        width={400 / 2}
+                        height={600 / 2}
                         className="rounded-lg"
                       />
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h2 className="font-semibold text-6xl">{title}</h2>
+                    <TruncateMarkup lines={1}>
+                      <h2 className="font-semibold text-4xl">{title}</h2>
+                    </TruncateMarkup>
                     <h3 className="text-xl text-gray-500 uppercase">
                       {author}
                     </h3>
@@ -52,7 +55,7 @@ export default function Home({ finished, reading }) {
           )}
         </section>
         <section className="">
-          <h1 className="font-semibold text-xl mb-6">Telah dibaca &rarr;</h1>
+          <h1 className="font-semibold text-xl mb-6">Telah dibaca</h1>
           <div className="flex space-x-5">
             {finished.map(
               ({
@@ -65,17 +68,23 @@ export default function Home({ finished, reading }) {
                 return (
                   <div
                     key={id}
-                    className="flex p-4 bg-yellow-100 rounded-2xl space-x-4"
+                    className="flex w-[275px] bg-yellow-100 rounded-2xl space-x-4 p-6"
                   >
-                    <Image
-                      src={image[0].url}
-                      width={218 / 2}
-                      height={328 / 2}
-                      className="rounded-xl"
-                    />
-                    <dl>
-                      <dt className="font-semibold text-lg mb-1">{title}</dt>
-                      <dt className="text-gray-600 mb-4">{author}</dt>
+                    <div className="flex-2">
+                      <Image
+                        src={image[0].url}
+                        width={400 / 4}
+                        height={600 / 4}
+                        className="rounded-lg"
+                      />
+                    </div>
+                    <dl className="flex-1">
+                      <TruncateMarkup lines={2}>
+                        <dt className="font-medium text-lg mb-1">{title}</dt>
+                      </TruncateMarkup>
+                      <TruncateMarkup lines={2}>
+                        <dt className="text-sm text-gray-500 mb-4">{author}</dt>
+                      </TruncateMarkup>
                       <dt>{rating}</dt>
                     </dl>
                   </div>
