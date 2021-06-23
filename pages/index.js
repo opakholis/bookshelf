@@ -30,8 +30,8 @@ export default function Home({ finished, reading }) {
             {reading.map(
               ({ Cover: image, Name: title, Author: author, Genres, id }) => {
                 return (
-                  <>
-                    <div key={id} className="flex flex-row">
+                  <div key={id}>
+                    <div className="flex flex-row">
                       <div className="relative mr-24">
                         <div className="absolute rounded-full bg-blue-200 w-72 h-72" />
                         <div className="ml-11">
@@ -62,7 +62,7 @@ export default function Home({ finished, reading }) {
                         </p>
                       </div>
                     </div>
-                  </>
+                  </div>
                 );
               }
             )}
