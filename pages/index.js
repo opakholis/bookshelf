@@ -93,7 +93,7 @@ export default function Home({ finished, reading }) {
 
 export async function getStaticProps() {
   const res = await fetch(
-    'https://notion-api.splitbee.io/v1/table/a07be24ad99a4805b46d24d339bbc474'
+    `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKS}`
   );
   const data = await res.json();
 
