@@ -1,11 +1,21 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import TruncateMarkup from 'react-truncate-markup';
+import Slider from 'react-slick';
 
 // import { NotionRenderer } from 'react-notion';
 
 export default function Home({ finished, reading }) {
-  console.log(finished);
+  const settings = {
+    infinite: true,
+    autoplay: true,
+    speed: 600,
+    autoplaySpeed: 10000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+  };
+
   return (
     <>
       <Head>
@@ -16,43 +26,47 @@ export default function Home({ finished, reading }) {
       <main className="container mx-auto py-6">
         <section className="mb-20">
           <h1 className="font-semibold text-xl mb-6">Sedang dibaca</h1>
-          {reading.map(
-            ({ Cover: image, Name: title, Author: author, Genres, id }) => {
-              return (
-                <div key={id} className="flex">
-                  <div className="relative flex items-center w-1/3">
-                    <div className="absolute rounded-full bg-blue-200 w-72 h-72" />
-                    <div className="ml-9">
-                      <Image
-                        src={image[0].url}
-                        width={400 / 2}
-                        height={600 / 2}
-                        className="rounded-lg"
-                      />
+          <Slider {...settings}>
+            {reading.map(
+              ({ Cover: image, Name: title, Author: author, Genres, id }) => {
+                return (
+                  <>
+                    <div key={id} className="flex flex-row">
+                      <div className="relative mr-24">
+                        <div className="absolute rounded-full bg-blue-200 w-72 h-72" />
+                        <div className="ml-11">
+                          <Image
+                            src={image[0].url}
+                            width={400 / 2}
+                            height={600 / 2}
+                            className="rounded-2xl"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-5 w-1/2">
+                        <TruncateMarkup lines={2}>
+                          <h2 className="font-semibold text-5xl tracking-tight">
+                            {title}
+                          </h2>
+                        </TruncateMarkup>
+                        <h3 className="text-gray-500 uppercase">{author}</h3>
+                        <p className="pt-6">
+                          {Genres.map((genre, id) => (
+                            <span
+                              className="bg-blue-200 mr-3 py-1 px-2 rounded text-gray-900 text-sm"
+                              key={id}
+                            >
+                              {genre}
+                            </span>
+                          ))}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="space-y-4">
-                    <TruncateMarkup lines={1}>
-                      <h2 className="font-semibold text-4xl">{title}</h2>
-                    </TruncateMarkup>
-                    <h3 className="text-xl text-gray-500 uppercase">
-                      {author}
-                    </h3>
-                    <p className="pt-6">
-                      {Genres.map((genre, id) => (
-                        <span
-                          className="bg-blue-200 mr-3 py-1 px-2 rounded text-gray-900"
-                          key={id}
-                        >
-                          {genre}
-                        </span>
-                      ))}
-                    </p>
-                  </div>
-                </div>
-              );
-            }
-          )}
+                  </>
+                );
+              }
+            )}
+          </Slider>
         </section>
         <section className="">
           <h1 className="font-semibold text-xl mb-6">Telah dibaca</h1>
