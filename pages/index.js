@@ -1,9 +1,8 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import TruncateMarkup from 'react-truncate-markup';
 import Slider from 'react-slick';
 
-// import { NotionRenderer } from 'react-notion';
+import SEO from '@/components/SEO';
 
 export default function Home({ finished, reading }) {
   const settings = {
@@ -18,11 +17,7 @@ export default function Home({ finished, reading }) {
 
   return (
     <>
-      <Head>
-        <title>Opa's Bookshelves</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <SEO />
       <main className="container mx-auto py-6">
         <section className="mb-20">
           <h1 className="font-semibold text-xl mb-6">Sedang dibaca</h1>
