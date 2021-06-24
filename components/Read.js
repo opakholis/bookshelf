@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import TruncateMarkup from 'react-truncate-markup';
 
+import Rating from '@/components/Rating';
+
 export default function Read({ data }) {
   const [sorting, setSorting] = useState('finished');
 
@@ -44,7 +46,7 @@ export default function Read({ data }) {
                         <dt className="mb-4 text-gray-500 text-sm">{author}</dt>
                       </TruncateMarkup>
                     </div>
-                    <dt>{rating}</dt>
+                    <Rating rating={rating} />
                   </dl>
                 </Card>
               );
