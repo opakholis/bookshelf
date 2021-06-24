@@ -22,6 +22,7 @@ export default function Read({ data }) {
             ({
               Cover: image,
               Name: title,
+              Summary: summary,
               Author: author,
               Rating: rating,
               id,
@@ -38,9 +39,14 @@ export default function Read({ data }) {
                   </figure>
 
                   <dl className="flex flex-1 flex-col justify-between">
-                    <div>
+                    <div className="mt-2">
                       <TruncateMarkup lines={2}>
-                        <dt className="text-md mb-1 font-medium">{title}</dt>
+                        <dt className="mb-2 text-lg font-medium leading-tight">
+                          {title}
+                        </dt>
+                      </TruncateMarkup>
+                      <TruncateMarkup lines={1}>
+                        <dt className="mb-3 text-gray-600">{summary}</dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
                         <dt className="mb-4 text-gray-500 text-sm">{author}</dt>

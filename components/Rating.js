@@ -4,7 +4,7 @@ const MAX_RATING = 5;
 
 export default function Rating({ rating }) {
   return (
-    <div className="flex mb-1">
+    <div className="flex mb-4">
       {Array.from(Array(MAX_RATING).keys()).map((_, i) => (
         <Star
           key={String(i)}
