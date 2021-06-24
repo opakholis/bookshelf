@@ -22,7 +22,7 @@ export default function Reading({ data }) {
             return (
               <SwiperSlide key={id} className="flex flex-row w-3/4">
                 <div className="relative mr-24">
-                  <div className="absolute w-72 h-72 bg-blue-200 rounded-full" />
+                  <div className="absolute w-72 h-72 bg-blue-100 rounded-full backdrop-blur-2xl" />
                   <div className="ml-11">
                     <Image
                       src={image[0].url}
