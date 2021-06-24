@@ -1,7 +1,7 @@
 @import 'tailwindcss/tailwind.css';
 @import 'react-notion/src/styles.css';
-@import 'slick-carousel/slick/slick.css';
-@import 'slick-carousel/slick/slick-theme.css';
+@import 'swiper/swiper.min.css';
+@import 'swiper/components/pagination/pagination.min.css';
 
 @font-face {
   font-family: 'Inter';
