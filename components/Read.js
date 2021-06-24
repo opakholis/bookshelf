@@ -18,46 +18,37 @@ export default function Read({ data }) {
             }
             return b.Date - a.Date;
           })
-          .map(
-            ({
-              Cover: image,
-              Name: title,
-              Summary: summary,
-              Author: author,
-              Rating: rating,
-              id,
-            }) => {
-              return (
-                <Card key={id}>
-                  <figure className="flex-2">
-                    <Image
-                      src={image[0].url}
-                      width={400 / 4}
-                      height={600 / 4}
-                      className="rounded-lg object-cover"
-                    />
-                  </figure>
+          .map(({ cover, name, summary, author, rating, id }) => {
+            return (
+              <Card key={id}>
+                <figure className="flex-2">
+                  <Image
+                    src={cover[0].url}
+                    width={400 / 4}
+                    height={600 / 4}
+                    className="rounded-lg object-cover"
+                  />
+                </figure>
 
-                  <dl className="flex flex-1 flex-col justify-between">
-                    <div className="mt-2">
-                      <TruncateMarkup lines={2}>
-                        <dt className="mb-2 text-lg font-medium leading-tight">
-                          {title}
-                        </dt>
-                      </TruncateMarkup>
-                      <TruncateMarkup lines={1}>
-                        <dt className="mb-3 text-gray-600">{summary}</dt>
-                      </TruncateMarkup>
-                      <TruncateMarkup lines={2}>
-                        <dt className="mb-4 text-gray-500 text-sm">{author}</dt>
-                      </TruncateMarkup>
-                    </div>
-                    <Rating rating={rating} />
-                  </dl>
-                </Card>
-              );
-            }
-          )}
+                <dl className="flex flex-1 flex-col justify-between">
+                  <div className="mt-2">
+                    <TruncateMarkup lines={2}>
+                      <dt className="mb-2 text-lg font-medium leading-tight">
+                        {name}
+                      </dt>
+                    </TruncateMarkup>
+                    <TruncateMarkup lines={1}>
+                      <dt className="mb-3 text-gray-600">{summary}</dt>
+                    </TruncateMarkup>
+                    <TruncateMarkup lines={2}>
+                      <dt className="mb-4 text-gray-500 text-sm">{author}</dt>
+                    </TruncateMarkup>
+                  </div>
+                  <Rating rating={rating} />
+                </dl>
+              </Card>
+            );
+          })}
       </div>
     </section>
   );

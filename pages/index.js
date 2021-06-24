@@ -34,8 +34,8 @@ export async function getStaticProps() {
     };
   }
 
-  const finished = data.filter((book) => book.Status == 'Finished');
-  const reading = data.filter((book) => book.Status == 'Reading');
+  const finished = data.filter((book) => book.status == 'Finished');
+  const reading = data.filter((book) => book.status == 'Reading');
 
   return {
     props: {
