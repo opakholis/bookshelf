@@ -2,7 +2,7 @@ import Avatar from './Avatar';
 
 export default function Sidebar() {
   return (
-    <aside className="h-[93vh] sticky top-6 m-6 w-72 bg-white rounded-3xl">
+    <aside className="h-[93vh] sticky top-6 hidden m-6 w-72 bg-white rounded-3xl lg:block">
       <div className="flex flex-col px-6">
         <div className="flex flex-col items-center my-5">
           <Avatar />

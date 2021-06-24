@@ -8,7 +8,7 @@ export default function Read({ data }) {
   return (
     <section className="flex flex-col mt-4">
       <h1 className="mb-6 text-2xl font-semibold">Selesai dibaca</h1>
-      <div className="grid gap-5 grid-cols-3">
+      <div className="grid gap-5 grid-cols-1 lg:grid-cols-3">
         {data
           ?.sort((a, b) => {
             if (sorting === 'finished') {
