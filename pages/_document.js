@@ -43,7 +43,7 @@ class MyDocument extends Document {
             name="msapplication-config"
           />
         </Head>
-        <body className="bg-blue-50">
+        <body className="text-gray-900 bg-blue-50">
           <Main />
           <NextScript />
         </body>
