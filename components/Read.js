@@ -7,7 +7,7 @@ export default function Read({ data }) {
 
   return (
     <section className="flex flex-col mt-4">
-      <h1 className="mb-6 text-2xl font-semibold">Telah dibaca</h1>
+      <h1 className="mb-6 text-2xl font-semibold">Selesai dibaca</h1>
       <div className="grid gap-5 grid-cols-3">
         {data
           ?.sort((a, b) => {
@@ -36,14 +36,14 @@ export default function Read({ data }) {
                   </figure>
 
                   <dl className="flex flex-1 flex-col justify-between">
-                    <dd>
+                    <div>
                       <TruncateMarkup lines={2}>
                         <dt className="text-md mb-1 font-medium">{title}</dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
                         <dt className="mb-4 text-gray-500 text-sm">{author}</dt>
                       </TruncateMarkup>
-                    </dd>
+                    </div>
                     <dt>{rating}</dt>
                   </dl>
                 </Card>
@@ -55,7 +55,7 @@ export default function Read({ data }) {
   );
 }
 
-export function Card({ children, key }) {
+export function Card({ children }) {
   const colors = [
     'bg-yellow-100',
     'bg-blue-100',
@@ -68,10 +68,7 @@ export function Card({ children, key }) {
   const color = colors[Math.floor(Math.random() * colors.length)];
 
   return (
-    <div
-      key={key}
-      className={[color, 'flex p-5 rounded-2xl space-x-4'].join(' ')}
-    >
+    <div className={[color, 'flex p-5 rounded-2xl space-x-4'].join(' ')}>
       {children}
     </div>
   );
