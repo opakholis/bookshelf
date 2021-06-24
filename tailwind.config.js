@@ -12,8 +12,13 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.blueGray,
-      yellow: colors.amber,
+      yellow: colors.yellow,
       blue: colors.sky,
+      pink: colors.pink,
+      purple: colors.fuchsia,
+      teal: colors.emerald,
+      violet: colors.violet,
+      cyan: colors.cyan,
     },
     extend: {
       fontFamily: {
