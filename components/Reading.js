@@ -71,7 +71,7 @@ export default function Reading({ data }) {
                 {/* <p>Terakhir membaca: {book?.last_updated}</p> */}
 
                 <a href={book?.link} target="_blank" rel="noopener noreferrer">
-                  <button className="bg-blue-400/75 flex items-center justify-center py-3 w-1/3 text-white font-medium rounded-md focus:ring-2">
+                  <button className="bg-blue-400/75 hover:bg-blue-500/75 flex items-center justify-center px-1 py-2 w-1/3 text-white font-medium rounded-md outline-none transition duration-200 focus:ring-2">
                     Ayo Baca <ArrowRight className="ml-1 w-4" />
                   </button>
                 </a>
