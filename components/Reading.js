@@ -4,15 +4,17 @@ import TruncateMarkup from 'react-truncate-markup';
 import SwiperCore, { Autoplay } from 'swiper/core';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { ArrowRight } from 'react-feather';
+import { Book } from 'react-feather';
+import { shimmer, toBase64 } from 'utils/shimmer';
 
 SwiperCore.use([Autoplay]);
 
 export default function Reading({ data }) {
   console.log(data);
   return (
-    <section className="mb-20">
+    <section className="relative mb-20">
       <h1 className="my-6 text-2xl font-semibold">Sedang dibaca</h1>
+      
       <Swiper
         slidesPerView={'auto'}
         autoplay={{
@@ -23,12 +25,18 @@ export default function Reading({ data }) {
         {data.map((book, id) => (
           <SwiperSlide key={id} className="flex flex-col md:flex-row md:w-3/4">
             <section className="relative mr-24">
-              <div className="absolute hidden w-72 h-72 bg-blue-100 rounded-full backdrop-blur-2xl md:block" />
+              <div className="bg-blue-100/40 z-[-1] absolute hidden w-72 h-72 rounded-full md:block" />
               <div className="w-30 h-30 md:ml-11">
                 <Image
                   src={book?.cover[0].url}
                   width={400 / 2}
                   height={600 / 2}
+                  alt={book?.name}
+                  objectFit="cover"
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(200, 300)
+                  )}`}
                   className="w-30 h-30 rounded-2xl"
                 />
               </div>
@@ -69,10 +77,10 @@ export default function Reading({ data }) {
                   />
                 </div>
                 {/* <p>Terakhir membaca: {book?.last_updated}</p> */}
-
                 <a href={book?.link} target="_blank" rel="noopener noreferrer">
                   <button className="bg-blue-400/75 hover:bg-blue-500/75 flex items-center justify-center px-1 py-2 w-1/3 text-white font-medium rounded-md outline-none transition duration-200 focus:ring-2">
-                    Ayo Baca <ArrowRight className="ml-1 w-4" />
+                    <Book className="mr-2 w-4" />
+                    Ayo Baca
                   </button>
                 </a>
               </div>
