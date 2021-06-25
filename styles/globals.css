@@ -34,6 +34,10 @@ html {
   @apply hidden;
 }
 
+.rc-slider-track {
+  @apply bg-blue-400/75;
+}
+
 .rc-slider-track,
 .rc-slider-rail {
   @apply h-2 rounded-full;
