@@ -5,8 +5,8 @@ import SwiperCore, { Autoplay } from 'swiper/core';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Book } from 'react-feather';
-import { shimmer, toBase64 } from 'utils/shimmer';
 
+import { shimmer, toBase64 } from '@/utils/shimmer';
 import Highlight from '@/components/Highlight';
 
 SwiperCore.use([Autoplay]);
