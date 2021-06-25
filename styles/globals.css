@@ -1,7 +1,7 @@
 @import 'tailwindcss/tailwind.css';
 @import 'react-notion/src/styles.css';
 @import 'swiper/swiper.min.css';
-@import 'swiper/components/pagination/pagination.min.css';
+@import 'rc-slider/assets/index.css';
 
 @font-face {
   font-family: 'Inter';
@@ -28,4 +28,13 @@ html {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.rc-slider-handle {
+  @apply hidden;
+}
+
+.rc-slider-track,
+.rc-slider-rail {
+  @apply h-2 rounded-full;
 }
