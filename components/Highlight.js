@@ -13,6 +13,7 @@ export default function Highlight({ children, delay, color }) {
       color={color}
       animationDuration={1000}
       animationDelay={delay}
+      padding={[2, 4]}
     >
       {children}
     </RoughNotation>
