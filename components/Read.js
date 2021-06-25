@@ -24,33 +24,38 @@ export default function Read({ data }) {
           .map(({ cover, name, summary, author, rating, id }) => {
             return (
               <Card key={id}>
-                <figure className="flex-2">
-                  <Image
-                    src={cover[0].url}
-                    alt={name}
-                    objectFit="cover"
-                    width={400 / 4}
-                    height={600 / 4}
-                    className="rounded-lg"
-                  />
-                </figure>
-
-                <dl className="flex flex-1 flex-col justify-between">
-                  <div className="mt-2">
-                    <TruncateMarkup lines={2}>
-                      <dt className="mb-2 text-lg font-medium leading-tight">
-                        {name}
-                      </dt>
-                    </TruncateMarkup>
-                    <TruncateMarkup lines={1}>
-                      <dt className="mb-3 text-gray-600">{summary}</dt>
-                    </TruncateMarkup>
-                    <TruncateMarkup lines={2}>
-                      <dt className="mb-4 text-gray-500 text-sm">{author}</dt>
-                    </TruncateMarkup>
+                <div className="w-[100px] h-[150px] flex-2 mr-1">
+                  <div className="rounded-xl shadow-lg">
+                    <Image
+                      src={cover[0].url}
+                      alt={name}
+                      width={400 / 4}
+                      height={600 / 4}
+                      layout="responsive"
+                      className="rounded-lg"
+                    />
                   </div>
-                  <Rating rating={rating} />
-                </dl>
+                </div>
+                <div className="flex-1">
+                  <dl className="flex flex-col justify-between h-full">
+                    <div className="pt-2">
+                      <TruncateMarkup lines={2}>
+                        <dt className="text-md mb-1 font-medium leading-tight">
+                          {name}
+                        </dt>
+                      </TruncateMarkup>
+                      <TruncateMarkup lines={2}>
+                        <dt className="text-gray-500/90 mb-2 text-sm">
+                          {summary}
+                        </dt>
+                      </TruncateMarkup>
+                      <TruncateMarkup lines={2}>
+                        <dt className="pb-4 text-gray-600 text-sm">{author}</dt>
+                      </TruncateMarkup>
+                    </div>
+                    <Rating rating={rating} className="flex pb-2" />
+                  </dl>
+                </div>
               </Card>
             );
           })}
