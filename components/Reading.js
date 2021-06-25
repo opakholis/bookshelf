@@ -32,25 +32,27 @@ export default function Reading({ data }) {
           <SwiperSlide key={id} className="flex flex-col md:flex-row md:w-3/4">
             <section className="relative mr-24">
               <div className="bg-blue-100/40 z-[-1] absolute hidden w-72 h-72 rounded-full md:block" />
-              <div className="w-30 h-30 md:ml-11">
-                <Image
-                  src={book?.cover[0].url}
-                  width={400 / 2}
-                  height={600 / 2}
-                  alt={book?.name}
-                  objectFit="cover"
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    shimmer(200, 300)
-                  )}`}
-                  className="w-30 h-30 rounded-2xl"
-                />
+              <div className="md:ml-11">
+                <div className="rounded-2xl">
+                  <Image
+                    src={book?.cover[0].url}
+                    width={400 / 2}
+                    height={600 / 2}
+                    alt={book?.name}
+                    objectFit="cover"
+                    placeholder="blur"
+                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                      shimmer(200, 300)
+                    )}`}
+                    className="rounded-2xl"
+                  />
+                </div>
               </div>
             </section>
             <section className="flex flex-col justify-between w-4/5 md:w-1/2">
-              <div className="space-y-1 md:space-y-2">
+              <div className="w-3/4 space-y-1 md:space-y-2">
                 <TruncateMarkup lines={2}>
-                  <h2 className="text-lg font-semibold tracking-tight md:text-xl lg:text-4xl">
+                  <h2 className="text-lg font-bold tracking-tight md:text-xl lg:text-3xl">
                     {book?.name}
                   </h2>
                 </TruncateMarkup>
@@ -59,7 +61,7 @@ export default function Reading({ data }) {
                     {book?.summary}
                   </h2>
                 </TruncateMarkup>
-                <h4 className="text-gray-500 text-base uppercase md:text-lg">
+                <h4 className="md:text-md text-gray-500 text-base uppercase">
                   {book?.author}
                 </h4>
                 <div>
