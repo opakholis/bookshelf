@@ -32,7 +32,7 @@ export default function Read({ data }) {
                       width={400 / 4}
                       height={600 / 4}
                       layout="responsive"
-                      className="rounded-md md:rounded-lg"
+                      className="rounded-lg md:rounded-xl"
                     />
                   </div>
                 </div>
@@ -50,7 +50,7 @@ export default function Read({ data }) {
                         </dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
-                        <dt className="text-gray-600 text-sm md:pb-4">
+                        <dt className="text-[13px] text-gray-500 md:pb-4">
                           {author}
                         </dt>
                       </TruncateMarkup>
@@ -82,7 +82,7 @@ export function Card({ children }) {
     <div
       className={[
         color,
-        'flex flex-col md:flex-row p-4 md:p-5 rounded-lg md:rounded-2xl space-y-2 md:space-x-4',
+        'flex flex-col md:flex-row p-4 md:p-5 rounded-xl md:rounded-2xl space-y-2 md:space-x-4',
       ].join(' ')}
     >
       {children}

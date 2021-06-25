@@ -23,9 +23,9 @@ export default function Reading({ data }) {
         </Highlight>
       </h1>
       <section className="relative lg:hidden">
-        <div className="border-gray-200/80 flex p-5 w-full border rounded-2xl space-x-5">
+        <div className="border-gray-200/80 flex p-4 w-full border rounded-xl space-x-5">
           <div>
-            <div className="w-[80px] h-[120px] rounded-xl shadow-lg">
+            <div className="w-[80px] h-[120px] rounded-lg shadow-lg">
               <Image
                 src={reading.cover[0].url}
                 width={400}
@@ -37,12 +37,14 @@ export default function Reading({ data }) {
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(
                   shimmer(80, 120)
                 )}`}
-                className="rounded-xl"
+                className="rounded-lg"
               />
             </div>
           </div>
-          <div className="flex flex-col justify-center space-y-2">
-            <h1 className="font-medium">{reading.name}</h1>
+          <div className="flex flex-col justify-center w-full space-y-2">
+            <h1 className="text-[15px] font-medium leading-tight">
+              {reading.name}
+            </h1>
             <h3 className="text-[13px] text-gray-500">{reading.author}</h3>
             <div className="w-11/12">
               <Slider
