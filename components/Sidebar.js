@@ -1,4 +1,4 @@
-import Avatar from './Avatar';
+import Avatar from '@/components/icons/Avatar';
 
 export default function Sidebar() {
   return (
@@ -15,19 +15,19 @@ export default function Sidebar() {
           <div className="space-y-1">
             <h2>Masih dipikirin</h2>
             <div className="animate-pulse">
-              <div className="bg-pink-200 h-4 rounded" />
+              <div className="h-4 bg-pink-200 rounded" />
             </div>
           </div>
           <div className="space-y-1">
             <h2>WIP</h2>
             <div className="animate-pulse">
-              <div className="bg-violet-200 h-4 rounded" />
+              <div className="h-4 bg-violet-200 rounded" />
             </div>
           </div>
           <div className="space-y-1">
             <h2>Lagi cari ide</h2>
             <div className="animate-pulse">
-              <div className="bg-purple-200 h-4 rounded" />
+              <div className="h-4 bg-purple-200 rounded" />
             </div>
           </div>
         </section>
