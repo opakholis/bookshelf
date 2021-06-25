@@ -13,7 +13,7 @@ SwiperCore.use([Autoplay]);
 
 export default function Reading({ data }) {
   return (
-    <section className="relative mb-20">
+    <section className="relative hidden mb-20 md:block">
       <h1 className="my-6 font-medium">
         Sedang{' '}
         <Highlight delay={1000} color="#fff176">

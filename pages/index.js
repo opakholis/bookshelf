@@ -13,10 +13,10 @@ export default function Home({ finished, reading }) {
         <Sidebar />
         <Pattern />
         <main className="flex-1">
-          <div className="px-5">
+          <div className="px-7 md:px-5">
             <Reading data={reading} />
           </div>
-          <div className="mb-6 px-5">
+          <div className="mb-6 px-7 md:px-5">
             <Read data={finished} />
           </div>
         </main>
