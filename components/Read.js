@@ -6,10 +6,13 @@ import Rating from '@/components/Rating';
 
 export default function Read({ data }) {
   const [sorting, setSorting] = useState('finished');
-
+  console.log(data.length);
   return (
     <section className="flex flex-col mt-4">
-      <h1 className="mb-6 font-medium">Selesai dibaca</h1>
+      <h1 className="mb-6 font-medium">
+        Selesai Dibaca<span className="text-xs font-normal"> • </span>
+        <span className="text-sm font-normal">{data?.length} Buku</span>
+      </h1>
       <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {data
           ?.sort((a, b) => {
