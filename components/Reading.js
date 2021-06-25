@@ -12,7 +12,6 @@ import Highlight from '@/components/Highlight';
 SwiperCore.use([Autoplay]);
 
 export default function Reading({ data }) {
-  console.log(data);
   return (
     <section className="relative mb-20">
       <h1 className="my-6 font-medium">
