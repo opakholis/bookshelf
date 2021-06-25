@@ -2,9 +2,9 @@ import { Star } from 'react-feather';
 
 const MAX_RATING = 5;
 
-export default function Rating({ rating }) {
+export default function Rating({ rating, className }) {
   return (
-    <div className="flex mb-4">
+    <div className={className}>
       {Array.from(Array(MAX_RATING).keys()).map((_, i) => (
         <Star
           key={String(i)}
