@@ -42,3 +42,12 @@ html {
 .rc-slider-rail {
   @apply h-2 rounded-full;
 }
+
+.slider-thin > .rc-slider-track,
+.slider-thin > .rc-slider-rail {
+  @apply h-1.5 rounded-full;
+}
+
+svg.rough-annotation {
+  z-index: -2;
+}
