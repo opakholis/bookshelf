@@ -21,7 +21,7 @@ export default function SEO() {
       <meta property="og:site_name" content="Opa Kholis Majid" />
       <meta property="og:description" content={meta.description} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@opakholis_" />
+      <meta name="twitter:site" content="@opakholis" />
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.image} />
