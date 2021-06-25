@@ -24,15 +24,15 @@ export default function Read({ data }) {
           .map(({ cover, name, summary, author, rating, id }) => {
             return (
               <Card key={id}>
-                <div className="md:w-[100px] md:h-[150px] md:flex-2 md:mr-1">
-                  <div className="rounded-xl shadow-lg">
+                <div className="md:w-[100px] md:h-[150px] md:flex-2 px-2 md:mr-1 md:px-0">
+                  <div className="rounded-lg shadow-md md:rounded-xl md:shadow-lg">
                     <Image
                       src={cover[0].url}
                       alt={name}
                       width={400 / 4}
                       height={600 / 4}
                       layout="responsive"
-                      className="rounded-lg"
+                      className="rounded-md md:rounded-lg"
                     />
                   </div>
                 </div>
