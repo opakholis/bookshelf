@@ -56,7 +56,7 @@ export default function Reading({ data }) {
               />
               <Persentase
                 book={reading}
-                className="ml-4 text-gray-500 text-xs"
+                className="ml-2 text-gray-500 text-xs"
               />
             </div>
           </div>

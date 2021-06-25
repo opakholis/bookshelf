@@ -25,15 +25,17 @@ export default function Read({ data }) {
             return (
               <Card key={id}>
                 <div>
-                  <div className="md:w-[100px] md:h-[150px] px-2 rounded-lg shadow-md md:mr-1 md:px-0 md:rounded-xl md:shadow-lg">
-                    <Image
-                      src={cover[0].url}
-                      alt={name}
-                      width={400 / 4}
-                      height={600 / 4}
-                      layout="responsive"
-                      className="md:w-[100px] md:h-[150px] rounded-lg md:rounded-xl"
-                    />
+                  <div className="md:w-[100px] md:h-[150px] px-2 rounded-lg md:mr-1 md:px-0 md:rounded-xl">
+                    <div className="rounded-lg shadow-md md:rounded-xl md:shadow-lg">
+                      <Image
+                        src={cover[0].url}
+                        alt={name}
+                        width={400 / 4}
+                        height={600 / 4}
+                        layout="responsive"
+                        className="md:w-[100px] md:h-[150px] rounded-lg md:rounded-xl"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div>
