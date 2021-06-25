@@ -3,12 +3,15 @@ import Reading from '@/components/Reading';
 import Read from '@/components/Read';
 import Sidebar from '@/components/Sidebar';
 
+import Pattern from '@/components/icons/Pattern';
+
 export default function Home({ finished, reading }) {
   return (
     <>
       <SEO />
-      <section className="flex">
+      <section className="relative flex">
         <Sidebar />
+        <Pattern />
         <main className="flex-1">
           <div className="px-5">
             <Reading data={reading} />
