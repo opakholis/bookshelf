@@ -6,14 +6,14 @@ import Rating from '@/components/Rating';
 
 export default function Read({ data }) {
   const [sorting, setSorting] = useState('finished');
-  console.log(data.length);
+
   return (
     <section className="flex flex-col mt-4">
       <h1 className="mb-6 font-medium">
         Selesai Dibaca<span className="text-xs font-normal"> • </span>
         <span className="text-sm font-normal">{data?.length} Buku</span>
       </h1>
-      <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         {data
           ?.sort((a, b) => {
             if (sorting === 'finished') {
@@ -24,7 +24,7 @@ export default function Read({ data }) {
           .map(({ cover, name, summary, author, rating, id }) => {
             return (
               <Card key={id}>
-                <div className="w-[100px] h-[150px] flex-2 mr-1">
+                <div className="md:w-[100px] md:h-[150px] md:flex-2 md:mr-1">
                   <div className="rounded-xl shadow-lg">
                     <Image
                       src={cover[0].url}
@@ -38,22 +38,24 @@ export default function Read({ data }) {
                 </div>
                 <div className="flex-1">
                   <dl className="flex flex-col justify-between h-full">
-                    <div className="pt-2">
+                    <div className="flex flex-col items-center justify-center pt-1 text-center md:items-start md:justify-start md:pt-2 md:text-left">
                       <TruncateMarkup lines={2}>
-                        <dt className="text-md mb-1 font-medium leading-tight">
+                        <dt className="text-[15px] md:text-[17px] mb-1 font-medium leading-tight">
                           {name}
                         </dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
-                        <dt className="text-gray-500/90 mb-2 text-sm">
+                        <dt className="text-gray-500/90 hidden mb-2 text-sm md:block">
                           {summary}
                         </dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
-                        <dt className="pb-4 text-gray-600 text-sm">{author}</dt>
+                        <dt className="text-gray-600 text-sm md:pb-4">
+                          {author}
+                        </dt>
                       </TruncateMarkup>
                     </div>
-                    <Rating rating={rating} className="flex pb-2" />
+                    <Rating rating={rating} className="hidden pb-2 md:flex" />
                   </dl>
                 </div>
               </Card>
@@ -77,7 +79,12 @@ export function Card({ children }) {
   const color = colors[Math.floor(Math.random() * colors.length)];
 
   return (
-    <div className={[color, 'flex p-5 rounded-2xl space-x-4'].join(' ')}>
+    <div
+      className={[
+        color,
+        'flex flex-col md:flex-row p-4 md:p-5 rounded-lg md:rounded-2xl space-y-2 md:space-x-4',
+      ].join(' ')}
+    >
       {children}
     </div>
   );
