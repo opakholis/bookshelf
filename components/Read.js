@@ -9,7 +9,7 @@ export default function Read({ data }) {
 
   return (
     <section className="flex flex-col mt-4">
-      <h1 className="mb-6 text-2xl font-semibold">Selesai dibaca</h1>
+      <h1 className="mb-6 font-medium">Selesai dibaca</h1>
       <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {data
           ?.sort((a, b) => {
@@ -24,9 +24,11 @@ export default function Read({ data }) {
                 <figure className="flex-2">
                   <Image
                     src={cover[0].url}
+                    alt={name}
+                    objectFit="cover"
                     width={400 / 4}
                     height={600 / 4}
-                    className="rounded-lg object-cover"
+                    className="rounded-lg"
                   />
                 </figure>
 

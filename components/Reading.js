@@ -7,14 +7,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Book } from 'react-feather';
 import { shimmer, toBase64 } from 'utils/shimmer';
 
+import Highlight from '@/components/Highlight';
+
 SwiperCore.use([Autoplay]);
 
 export default function Reading({ data }) {
   console.log(data);
   return (
     <section className="relative mb-20">
-      <h1 className="my-6 text-2xl font-semibold">Sedang dibaca</h1>
-      
+      <h1 className="my-6 font-medium">
+        Sedang{' '}
+        <Highlight delay={1000} color="#fff176">
+          dibaca
+        </Highlight>
+      </h1>
+
       <Swiper
         slidesPerView={'auto'}
         autoplay={{
