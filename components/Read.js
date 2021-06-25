@@ -24,19 +24,19 @@ export default function Read({ data }) {
           .map(({ cover, name, summary, author, rating, id }) => {
             return (
               <Card key={id}>
-                <div className="md:w-[100px] md:h-[150px] md:flex-2 px-2 md:mr-1 md:px-0">
-                  <div className="rounded-lg shadow-md md:rounded-xl md:shadow-lg">
+                <div>
+                  <div className="md:w-[100px] md:h-[150px] px-2 rounded-lg shadow-md md:mr-1 md:px-0 md:rounded-xl md:shadow-lg">
                     <Image
                       src={cover[0].url}
                       alt={name}
                       width={400 / 4}
                       height={600 / 4}
                       layout="responsive"
-                      className="rounded-lg md:rounded-xl"
+                      className="md:w-[100px] md:h-[150px] rounded-lg md:rounded-xl"
                     />
                   </div>
                 </div>
-                <div className="flex-1">
+                <div>
                   <dl className="flex flex-col justify-between h-full">
                     <div className="flex flex-col items-center justify-center pt-1 text-center md:items-start md:justify-start md:pt-2 md:text-left">
                       <TruncateMarkup lines={2}>
@@ -50,9 +50,7 @@ export default function Read({ data }) {
                         </dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
-                        <dt className="text-[13px] text-gray-500 md:pb-4">
-                          {author}
-                        </dt>
+                        <dt className="text-[13px] text-gray-500">{author}</dt>
                       </TruncateMarkup>
                     </div>
                     <Rating rating={rating} className="hidden pb-2 md:flex" />
@@ -82,7 +80,7 @@ export function Card({ children }) {
     <div
       className={[
         color,
-        'flex flex-col md:flex-row p-4 md:p-5 rounded-xl md:rounded-2xl space-y-2 md:space-x-4',
+        'flex flex-col md:flex-row p-4 md:p-5 rounded-xl md:rounded-2xl space-y-1 md:space-x-4',
       ].join(' ')}
     >
       {children}

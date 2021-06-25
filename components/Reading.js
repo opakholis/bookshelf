@@ -8,6 +8,7 @@ import { Book } from 'react-feather';
 
 import { shimmer, toBase64 } from '@/utils/shimmer';
 import Highlight from '@/components/Highlight';
+import Persentase from '@/utils/persentase';
 
 SwiperCore.use([Autoplay]);
 
@@ -46,12 +47,16 @@ export default function Reading({ data }) {
               {reading.name}
             </h1>
             <h3 className="text-[13px] text-gray-500">{reading.author}</h3>
-            <div className="w-11/12">
+            <div className="flex items-center w-11/12">
               <Slider
                 className="slider-thin"
                 startPoint={0}
                 max={reading.total_page}
                 value={reading.current_page}
+              />
+              <Persentase
+                book={reading}
+                className="ml-4 text-gray-500 text-xs"
               />
             </div>
           </div>
@@ -118,11 +123,15 @@ export default function Reading({ data }) {
                 <div className="mb-2">
                   <div className="py-4 w-1/2">
                     <p className="mb-1 font-medium">Progres </p>
-                    <Slider
-                      startPoint={0}
-                      max={book?.total_page}
-                      value={book?.current_page}
-                    />
+                    <div className="flex items-center">
+                      <Slider
+                        className="mr-2"
+                        startPoint={0}
+                        max={book?.total_page}
+                        value={book?.current_page}
+                      />
+                      <Persentase book={book} />
+                    </div>
                   </div>
                   {/* <p>Terakhir membaca: {book?.last_updated}</p> */}
                   <a
