@@ -17,9 +17,9 @@ export default function Read({ data }) {
         {data
           ?.sort((a, b) => {
             if (sorting === 'finished') {
-              return new Date(b.Date).getTime() - new Date(a.Date).getTime();
+              return new Date(b.date).getTime() - new Date(a.date).getTime();
             }
-            return b.Date - a.Date;
+            return b.date - a.date;
           })
           .map(({ cover, name, summary, author, rating, id }) => {
             return (
