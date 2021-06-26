@@ -43,10 +43,15 @@ export default function Reading({ data }) {
             </div>
           </div>
           <div className="flex flex-col justify-center w-full space-y-2">
-            <h1 className="text-[15px] font-medium leading-tight">
+            <h1 className="text-[15px] font-medium leading-tight md:text-lg">
               {reading.name}
             </h1>
-            <h3 className="text-[13px] text-gray-500">{reading.author}</h3>
+            <h2 className="text-[13px] hidden text-gray-400 md:block">
+              {reading.summary}
+            </h2>
+            <h3 className="text-[13px] text-gray-500 md:text-base">
+              {reading.author}
+            </h3>
             <div className="flex items-center w-11/12">
               <Slider
                 className="slider-thin"
@@ -71,13 +76,10 @@ export default function Reading({ data }) {
           }}
         >
           {data.map((book, id) => (
-            <SwiperSlide
-              key={id}
-              className="flex flex-col md:flex-row md:w-3/4"
-            >
+            <SwiperSlide key={id} className="flex flex-row w-3/4">
               <section className="relative mr-24">
-                <div className="bg-blue-100/40 z-[-1] absolute hidden w-72 h-72 rounded-full md:block" />
-                <div className="md:ml-11">
+                <div className="bg-blue-100/40 z-[-1] absolute w-72 h-72 rounded-full" />
+                <div className="ml-11">
                   <div className="rounded-2xl">
                     <Image
                       src={book?.cover[0].url}
@@ -94,19 +96,17 @@ export default function Reading({ data }) {
                   </div>
                 </div>
               </section>
-              <section className="flex flex-col justify-between w-4/5 md:w-1/2">
-                <div className="w-3/4 space-y-1 md:space-y-2">
+              <section className="flex flex-col justify-between w-1/2">
+                <div className="w-3/4 space-y-2">
                   <TruncateMarkup lines={2}>
-                    <h2 className="text-lg font-bold tracking-tight md:text-xl lg:text-3xl">
+                    <h2 className="text-xl font-bold tracking-tight lg:text-3xl">
                       {book?.name}
                     </h2>
                   </TruncateMarkup>
                   <TruncateMarkup lines={2}>
-                    <h2 className="text-gray-500 text-sm md:text-base">
-                      {book?.summary}
-                    </h2>
+                    <h2 className="text-gray-500 text-base">{book?.summary}</h2>
                   </TruncateMarkup>
-                  <h4 className="md:text-[17px] text-gray-500 text-base uppercase">
+                  <h4 className="text-[17px] text-gray-500 text-base uppercase">
                     {book?.author}
                   </h4>
                   <div>
