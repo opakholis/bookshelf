@@ -57,7 +57,7 @@ export default function Read({ data }) {
                     </div>
                     <Rating
                       rating={rating}
-                      className="hidden md:flex md:pb-1 md:text-gray-500 md:text-sm lg:pb-2"
+                      className="hidden md:block md:pb-1 md:text-gray-500 md:text-sm lg:flex lg:pb-2"
                     />
                   </dl>
                 </div>

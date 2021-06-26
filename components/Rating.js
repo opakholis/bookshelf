@@ -5,7 +5,7 @@ const MAX_RATING = 5;
 export default function Rating({ rating, className }) {
   return (
     <div className={className}>
-      <section className="flex md:hidden">
+      <section className="md:hidden lg:flex">
         {Array.from(Array(MAX_RATING).keys()).map((_, i) => (
           <Star
             key={String(i)}
@@ -17,7 +17,7 @@ export default function Rating({ rating, className }) {
           />
         ))}
       </section>
-      <section className="flex items-center">
+      <section className="flex items-center lg:hidden">
         <Star className="w-5 text-yellow-300 fill-current stroke-0" />
         <span className="ml-1 font-medium">{rating}</span>/{MAX_RATING}
       </section>
