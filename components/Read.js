@@ -13,7 +13,7 @@ export default function Read({ data }) {
         Selesai Dibaca<span className="text-xs font-normal"> • </span>
         <span className="text-sm font-normal">{data?.length} Buku</span>
       </h1>
-      <div className="grid gap-5 grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 grid-cols-2 md:grid-cols-3">
         {data
           ?.sort((a, b) => {
             if (sorting === 'finished') {
@@ -25,7 +25,7 @@ export default function Read({ data }) {
             return (
               <Card key={id}>
                 <div>
-                  <div className="md:w-[100px] md:h-[150px] px-2 rounded-lg md:mr-1 md:px-0 md:rounded-xl">
+                  <div className="md:w-[100px] md:h-[150px] px-2 rounded-md md:mr-1 md:px-0 md:rounded-xl">
                     <div className="rounded-lg shadow-md md:rounded-xl md:shadow-lg">
                       <Image
                         src={cover[0].url}
@@ -40,14 +40,14 @@ export default function Read({ data }) {
                 </div>
                 <div>
                   <dl className="flex flex-col justify-between h-full">
-                    <div className="flex flex-col items-center justify-center pt-1 text-center md:items-start md:justify-start md:pt-2 md:text-left">
+                    <div className="flex flex-col items-center justify-center pt-1 text-center md:items-start md:justify-start md:pt-1 md:text-left lg:pt-2">
                       <TruncateMarkup lines={2}>
-                        <dt className="text-[15px] md:text-[17px] mb-1 font-medium leading-tight">
+                        <dt className="text-[15px] lg:text-[17px] mb-1 font-medium leading-tight md:mb-2 lg:mb-1">
                           {name}
                         </dt>
                       </TruncateMarkup>
                       <TruncateMarkup lines={2}>
-                        <dt className="text-gray-500/90 hidden mb-2 text-sm md:block">
+                        <dt className="text-gray-500/90 hidden mb-2 text-sm lg:block">
                           {summary}
                         </dt>
                       </TruncateMarkup>
@@ -55,7 +55,10 @@ export default function Read({ data }) {
                         <dt className="text-[13px] text-gray-500">{author}</dt>
                       </TruncateMarkup>
                     </div>
-                    <Rating rating={rating} className="hidden pb-2 md:flex" />
+                    <Rating
+                      rating={rating}
+                      className="hidden md:flex md:pb-1 md:text-gray-500 md:text-sm lg:pb-2"
+                    />
                   </dl>
                 </div>
               </Card>
@@ -82,7 +85,7 @@ export function Card({ children }) {
     <div
       className={[
         color,
-        'flex flex-col md:flex-row p-4 md:p-5 rounded-xl md:rounded-2xl space-y-1 md:space-x-4',
+        'flex flex-col md:flex-row p-4 lg:p-5 rounded-xl md:rounded-2xl space-y-1 md:space-x-2 lg:space-x-4',
       ].join(' ')}
     >
       {children}
