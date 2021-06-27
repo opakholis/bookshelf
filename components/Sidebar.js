@@ -1,4 +1,5 @@
 import Avatar from '@/components/icons/Avatar';
+import { HEADLINE, NAME } from '@/utils/constant';
 
 export default function Sidebar() {
   return (
@@ -6,9 +7,9 @@ export default function Sidebar() {
       <div className="flex flex-col px-6">
         <div className="flex flex-col items-center my-5 text-center">
           <Avatar />
-          <h1 className="mb-1 mt-5 text-lg font-medium">Opa Kholis Majid</h1>
+          <h1 className="mb-1 mt-5 text-lg font-medium">{NAME}</h1>
           <h3 className="relative w-3/4 text-gray-400 text-sm italic">
-            Tidak menyukai buku fisik karena ribet!
+            {HEADLINE}
           </h3>
         </div>
         <section className="mt-10 space-y-8">

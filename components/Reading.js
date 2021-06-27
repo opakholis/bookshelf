@@ -17,7 +17,7 @@ export default function Reading({ data }) {
 
   return (
     <section className="relative mb-10 lg:mb-20">
-      <h1 className="my-6 font-medium">
+      <h1 className="mb-3 mt-6 font-medium lg:mb-6">
         Sedang{' '}
         <Highlight delay={1000} color="#fff176">
           Dibaca
