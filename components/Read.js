@@ -9,7 +9,7 @@ export default function Read({ data }) {
 
   return (
     <section className="flex flex-col mt-4">
-      <h1 className="mb-6 font-medium">
+      <h1 className="mb-4 font-medium md:mb-6">
         Selesai Dibaca<span className="text-xs font-normal"> • </span>
         <span className="text-sm font-normal">{data?.length} Buku</span>
       </h1>
