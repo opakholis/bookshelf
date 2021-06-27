@@ -5,7 +5,7 @@ import TruncateMarkup from 'react-truncate-markup';
 import Rating from '@/components/Rating';
 
 export default function Read({ data }) {
-  const [sorting, setSorting] = useState('finished');
+  const [sorting] = useState('finished');
 
   return (
     <section className="flex flex-col mt-4">
