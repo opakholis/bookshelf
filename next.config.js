@@ -1,5 +1,5 @@
 module.exports = {
-  webpack5: true,
+  reactStrictMode: true,
   images: {
     domains: ['www.notion.so'],
   },
