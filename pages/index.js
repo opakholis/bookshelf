@@ -8,17 +8,17 @@ import Avatar from '@/components/icons/Avatar';
 export default function Home({ finished, reading }) {
   return (
     <Container>
-      <div className="pt-5 px-5 lg:hidden">
+      <div className="pt-5 lg:hidden">
         <section className="via-red-500 from-cyan-400/75 to-violet-400/80 p-3 bg-gradient-to-r rounded-xl">
           <div className="flex flex-col items-center justify-center">
             <div className="relative mb-1">
               <Avatar className="w-14 h-14 rounded-full" />
             </div>
-            <div className="text-center">
+            <div className="text-shadow text-center">
               <h1 className="text-white text-lg font-medium tracking-wide">
                 {NAME}
               </h1>
-              <h2 className="text-white/90 text-sm">{HEADLINE}</h2>
+              <h2 className="text-white/90 text-sm italic">{HEADLINE}</h2>
             </div>
           </div>
         </section>
