@@ -15,7 +15,7 @@ export default function Read({ data }) {
           Selesai Dibaca<span className="text-xs font-normal"> • </span>
           <span className="text-sm font-normal">{data?.length} Buku</span>
         </h1>
-        <button className="mb-4">Lihat semua &rarr;</button>
+        <button className="mb-4 text-sm">Lihat semua &rarr;</button>
       </div>
       <div className="grid gap-5 grid-cols-2 md:grid-cols-3">
         {data?.sort((a, b) => {
