@@ -40,7 +40,9 @@ export default function Container({ children, ...customMeta }) {
       <section className="relative flex">
         <Sidebar />
         <Pattern />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 mx-auto px-7 w-full max-w-screen-xl">
+          {children}
+        </main>
       </section>
     </div>
   );

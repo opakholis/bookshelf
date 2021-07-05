@@ -3,7 +3,7 @@ import { HEADLINE, NAME } from '@/utils/constant';
 
 export default function Sidebar() {
   return (
-    <aside className="h-[93.7vh] min-w-[285px] sticky top-5 hidden m-5 w-72 bg-white rounded-3xl lg:block">
+    <aside className="h-[93.7vh] min-w-[255px] sticky top-5 hidden m-5 w-72 bg-white rounded-3xl lg:block">
       <div className="flex flex-col px-6">
         <div className="flex flex-col items-center my-5 text-center">
           <Avatar />

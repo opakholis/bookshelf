@@ -23,10 +23,10 @@ export default function Home({ finished, reading }) {
           </div>
         </section>
       </div>
-      <div className="px-7 md:px-5">
+      <div>
         <Reading data={reading} />
       </div>
-      <div className="mb-6 px-7 md:px-5">
+      <div className="mb-6">
         <Read data={finished} />
       </div>
     </Container>
