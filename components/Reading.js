@@ -19,7 +19,7 @@ export default function Reading({ data }) {
 
       <section>
         <Swiper
-          slidesPerView={1}
+          slidesPerView={'auto'}
           spaceBetween={20}
           freeMode={true}
           breakpoints={{
@@ -30,13 +30,13 @@ export default function Reading({ data }) {
               slidesPerView: 2,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 'auto',
             },
           }}
           className="w-full"
         >
           {data.map((book, id) => (
-            <SwiperSlide key={id} className="p-3 bg-white rounded-lg">
+            <SwiperSlide key={id} className="w-[312px] p-3 bg-white rounded-lg">
               <div className="flex flex-row space-x-4">
                 <section className="relative">
                   <div className="md:w-[50px] md:h-[75px]">
@@ -56,11 +56,11 @@ export default function Reading({ data }) {
                     </div>
                   </div>
                 </section>
-                <section className="flex flex-col justify-center w-full space-y-1">
+                <section className="flex flex-col justify-center w-10/12 space-y-1.5">
                   <TruncateMarkup lines={1}>
                     <h2 className="font-medium">{book?.name}</h2>
                   </TruncateMarkup>
-                  <div className="flex items-center justify-between text-gray-600 text-sm">
+                  <div className="flex items-center justify-between text-gray-400 text-xs">
                     <p>
                       {book.current_page} / {book.total_page}
                     </p>
