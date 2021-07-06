@@ -5,7 +5,6 @@ import TruncateMarkup from 'react-truncate-markup';
 import Rating from '@/components/Rating';
 
 export default function Read({ data }) {
-  console.log(`data`, data.slice(0, 5));
   const [sorting] = useState('finished');
 
   return (
@@ -17,60 +16,56 @@ export default function Read({ data }) {
         </h1>
         <button className="mb-4 text-sm">Lihat semua &rarr;</button>
       </div>
-      <div className="grid gap-5 grid-cols-2 md:grid-cols-3">
+      <div className="grid gap-5 grid-cols-2 lg:grid-cols-3">
         {data?.sort((a, b) => {
           if (sorting === 'finished') {
             return new Date(b.date).getTime() - new Date(a.date).getTime();
           }
           return b.date - a.date;
         }) &&
-          data
-            ?.slice(0, 6)
-            .map(({ cover, name, summary, author, rating, id }) => {
-              return (
-                <Card key={id}>
-                  <div>
-                    <div className="md:w-[100px] md:h-[150px] px-2 rounded-md md:mr-1 md:px-0 md:rounded-xl">
-                      <div className="rounded-lg shadow-md md:rounded-xl md:shadow-lg">
-                        <Image
-                          src={cover[0].url}
-                          alt={name}
-                          width={400 / 4}
-                          height={600 / 4}
-                          layout="responsive"
-                          className="md:w-[100px] md:h-[150px] rounded-lg md:rounded-xl"
-                        />
-                      </div>
+          data?.slice(0, 6).map(({ cover, name, author, rating, id }) => {
+            return (
+              <section
+                className="flex flex-col p-4 bg-white rounded-xl shadow-sm space-y-1 md:flex-row md:rounded-2xl md:space-x-2 lg:p-5 lg:space-x-4"
+                key={id}
+              >
+                <div>
+                  <div className="md:w-[83px] md:h-[125px] px-2 rounded-md md:mr-1 md:px-0 md:rounded-xl">
+                    <div className="rounded-lg drop-shadow-md md:rounded-xl">
+                      <Image
+                        src={cover[0].url}
+                        alt={name}
+                        width={400 / 4}
+                        height={600 / 4}
+                        layout="responsive"
+                        className="md:w-[83px] md:h-[125px] rounded-lg"
+                      />
                     </div>
                   </div>
-                  <div>
-                    <dl className="flex flex-col justify-between h-full">
-                      <div className="flex flex-col items-center justify-center pt-1 text-center md:items-start md:justify-start md:pt-1 md:text-left lg:pt-2">
-                        <TruncateMarkup lines={2}>
-                          <dt className="text-[15px] lg:text-[17px] mb-1 font-medium leading-tight md:mb-2 lg:mb-1">
-                            {name}
-                          </dt>
-                        </TruncateMarkup>
-                        <TruncateMarkup lines={2}>
-                          <dt className="text-gray-500/90 hidden mb-2 text-sm lg:block">
-                            {summary}
-                          </dt>
-                        </TruncateMarkup>
-                        <TruncateMarkup lines={2}>
-                          <dt className="text-[13px] text-gray-500">
-                            {author}
-                          </dt>
-                        </TruncateMarkup>
-                      </div>
-                      <Rating
-                        rating={rating}
-                        className="hidden md:block md:pb-1 md:text-gray-500 md:text-sm lg:flex lg:pb-2"
-                      />
-                    </dl>
-                  </div>
-                </Card>
-              );
-            })}
+                </div>
+                <div>
+                  <dl className="flex flex-col justify-center h-full">
+                    <div className="flex flex-col items-center justify-center pt-1 text-center md:items-start md:justify-start md:pt-1 md:text-left lg:pt-2">
+                      <TruncateMarkup lines={2}>
+                        <dt className="text-[15px] lg:text-[17px] mb-1 font-medium leading-tight md:mb-2">
+                          {name}
+                        </dt>
+                      </TruncateMarkup>
+                      <TruncateMarkup lines={2}>
+                        <dt className="text-[13px] text-gray-500 md:mb-2">
+                          {author}
+                        </dt>
+                      </TruncateMarkup>
+                    </div>
+                    <Rating
+                      rating={rating}
+                      className="hidden md:block md:pb-1 md:text-gray-500 md:text-sm lg:flex"
+                    />
+                  </dl>
+                </div>
+              </section>
+            );
+          })}
       </div>
     </section>
   );
