@@ -15,7 +15,7 @@ export default function Container({ children, ...customMeta }) {
     ...customMeta,
   };
   return (
-    <div className="bg-blue-50/40">
+    <>
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -37,13 +37,15 @@ export default function Container({ children, ...customMeta }) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <section className="relative flex">
+      <section className="relative">
         <Sidebar />
         <Pattern />
-        <main className="flex-1 mx-auto px-7 w-full max-w-screen-xl">
-          {children}
+        <main className="lg:pl-[324px]">
+          <section className="mx-auto px-6 w-full max-w-screen-xl">
+            {children}
+          </section>
         </main>
       </section>
-    </div>
+    </>
   );
 }
