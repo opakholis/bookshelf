@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Sidebar from './Sidebar';
 import Pattern from './icons/Pattern';
 
-export default function Container({ children, ...customMeta }) {
+export default function Container({ books, children, ...customMeta }) {
   const router = useRouter();
   const meta = {
     title: 'Buku - Opa Kholis Majid',
@@ -38,7 +38,7 @@ export default function Container({ children, ...customMeta }) {
         )}
       </Head>
       <section className="relative">
-        <Sidebar />
+        <Sidebar data={books} />
         <Pattern />
         <main className="lg:pl-[324px]">
           <section className="mx-auto px-6 w-full max-w-screen-xl">
