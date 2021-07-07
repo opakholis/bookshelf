@@ -1,20 +1,17 @@
 import Image from 'next/image';
-import Slider from 'rc-slider';
-import TruncateMarkup from 'react-truncate-markup';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Book } from 'phosphor-react';
 
 import { shimmer, toBase64 } from '@/utils/shimmer';
-import Highlight from '@/components/Highlight';
 import Persentase from '@/utils/persentase';
+import ProgressBar from './ProgressBar';
 
 export default function Reading({ data }) {
   return (
     <section className="relative mb-10">
       <h1 className="mb-3 mt-6 font-medium lg:mb-6">
-        Sedang{' '}
-        <Highlight delay={1000} color="#fff176">
-          Dibaca
-        </Highlight>
+        Sedang Dibaca<span className="text-xs font-normal"> • </span>
+        <span className="text-sm font-normal">{data?.length} Buku</span>
       </h1>
 
       <section>
@@ -36,10 +33,10 @@ export default function Reading({ data }) {
           className="w-full"
         >
           {data.map((book, id) => (
-            <SwiperSlide key={id} className="w-[312px] p-3 bg-white rounded-lg">
+            <SwiperSlide key={id} className="w-[300px] p-3 bg-white rounded-lg">
               <div className="flex flex-row space-x-4">
                 <section className="relative">
-                  <div className="md:w-[50px] md:h-[75px]">
+                  <div className="w-[50px] h-[75px]">
                     <div className="rounded">
                       <Image
                         src={book?.cover[0].url}
@@ -51,25 +48,25 @@ export default function Reading({ data }) {
                         blurDataURL={`data:image/svg+xml;base64,${toBase64(
                           shimmer(50, 75)
                         )}`}
-                        className="md:w-[50px] md:h-[75px] rounded"
+                        className="w-[50px] h-[75px] rounded"
                       />
                     </div>
                   </div>
                 </section>
-                <section className="flex flex-col justify-center w-10/12 space-y-1.5">
-                  <TruncateMarkup lines={1}>
-                    <h2 className="font-medium">{book?.name}</h2>
-                  </TruncateMarkup>
+                <section className="flex flex-col justify-center w-3/4 space-y-1.5">
+                  <h2 className="font-medium truncate">{book?.name}</h2>
                   <div className="flex items-center justify-between text-gray-400 text-xs">
-                    <p>
-                      {book.current_page} / {book.total_page}
+                    <p className="flex items-center">
+                      <Book size={16} />
+                      <span className="ml-1">
+                        {book.current_page} / {book.total_page}
+                      </span>
                     </p>
                     <Persentase book={book} />
                   </div>
-                  <Slider
-                    startPoint={0}
-                    max={book?.total_page}
-                    value={book?.current_page}
+                  <ProgressBar
+                    current={book?.current_page}
+                    total={book?.total_page}
                   />
                 </section>
               </div>

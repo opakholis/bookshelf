@@ -6,7 +6,6 @@
 
 @import 'react-notion/src/styles.css';
 @import 'swiper/swiper.min.css';
-@import 'rc-slider/assets/index.css';
 
 @font-face {
   font-family: 'Inter';
@@ -50,24 +49,6 @@ html {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.rc-slider-handle {
-  @apply hidden;
-}
-
-.rc-slider-track {
-  @apply bg-blue-400/75;
-}
-
-.rc-slider-track,
-.rc-slider-rail {
-  @apply h-2 rounded-full;
-}
-
-.slider-thin > .rc-slider-track,
-.slider-thin > .rc-slider-rail {
-  @apply h-1.5 rounded-full;
 }
 
 svg.rough-annotation {
