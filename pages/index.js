@@ -5,9 +5,9 @@ import Read from '@/components/Read';
 import { HEADLINE, NAME } from '@/utils/constant';
 import Avatar from '@/components/icons/Avatar';
 
-export default function Home({ finished, reading }) {
+export default function Home({ books, reading, finished }) {
   return (
-    <Container>
+    <Container books={books}>
       <div className="pt-5 lg:hidden">
         <section className="via-red-500 from-cyan-400/75 to-violet-400/80 p-3 bg-gradient-to-r rounded-xl">
           <div className="flex flex-col items-center justify-center">
@@ -37,19 +37,20 @@ export async function getStaticProps() {
   const res = await fetch(
     `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKS}`
   );
-  const data = await res.json();
+  const books = await res.json();
 
-  if (!data) {
+  if (!books) {
     return {
       notFound: true,
     };
   }
 
-  const finished = data.filter((book) => book.status == 'Finished');
-  const reading = data.filter((book) => book.status == 'Reading');
+  const finished = books.filter((book) => book.status == 'Finished');
+  const reading = books.filter((book) => book.status == 'Reading');
 
   return {
     props: {
+      books,
       finished,
       reading,
     },
