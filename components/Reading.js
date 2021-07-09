@@ -64,7 +64,7 @@ export default function Reading({ data }) {
                   </section>
                   <section className="flex flex-col justify-center w-3/4 space-y-1.5">
                     <h2 className="font-medium truncate">{book?.name}</h2>
-                    <div className="flex items-center justify-between text-gray-400 text-xs">
+                    <div className="text-[13px] flex items-center justify-between text-gray-500">
                       <p className="flex items-center">
                         <Book size={16} />
                         <span className="ml-1">
