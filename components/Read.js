@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import TruncateMarkup from 'react-truncate-markup';
 
 import Rating from '@/components/Rating';
 
 export default function Read({ data }) {
-  const [sorting] = useState('finished');
-
   return (
     <section className="flex flex-col mt-4">
       <div className="flex items-center justify-between">
@@ -17,13 +14,12 @@ export default function Read({ data }) {
         <button className="mb-4 text-sm">Lihat semua &rarr;</button>
       </div>
       <div className="grid gap-5 grid-cols-2 lg:grid-cols-3">
-        {data?.sort((a, b) => {
-          if (sorting === 'finished') {
-            return new Date(b.date).getTime() - new Date(a.date).getTime();
-          }
-          return b.date - a.date;
-        }) &&
-          data?.slice(0, 6).map(({ cover, name, author, rating, id }) => {
+        {data
+          .sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          )
+          .slice(0, 6)
+          .map(({ cover, name, author, rating, id }) => {
             return (
               <section
                 className="flex flex-col p-4 bg-white rounded-xl shadow-sm space-y-1 md:flex-row md:rounded-2xl md:space-x-2 lg:p-5 lg:space-x-4"
