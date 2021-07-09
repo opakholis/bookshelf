@@ -3,7 +3,7 @@ export default function Pattern() {
     <svg
       className="z-[-1] absolute right-0 hidden transform translate-y-1/4 lg:block"
       width="254"
-      height="584"
+      height="514"
       fill="none"
       viewBox="0 0 254 584"
       aria-hidden="true"
