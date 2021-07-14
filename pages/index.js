@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Container from '@/components/Container';
 import Reading from '@/components/Reading';
 import Read from '@/components/Read';
@@ -24,10 +26,37 @@ export default function Home({ books, reading, finished }) {
         </section>
       </div>
       <div>
+        <h1 className="mb-3 mt-6 font-medium lg:mb-6">
+          Sedang Dibaca<span className="text-xs font-normal"> • </span>
+          <span className="text-sm font-normal">{reading?.length} Buku</span>
+        </h1>
         <Reading data={reading} />
       </div>
       <div className="mb-6">
-        <Read data={finished} />
+        <div className="flex items-center justify-between">
+          <h1 className="mb-4 font-medium md:mb-6">
+            Selesai Dibaca<span className="text-xs font-normal"> • </span>
+            <span className="text-sm font-normal">{finished?.length} Buku</span>
+          </h1>
+          <Link href="/all">
+            <a className="mb-4 hover:text-gray-500 text-sm transition-all duration-200">
+              Lihat semua &rarr;
+            </a>
+          </Link>
+        </div>
+        <div className="flex mb-6">
+          <div className="grid gap-5 grid-cols-2 lg:grid-cols-3">
+            {finished
+              .sort(
+                (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime()
+              )
+              .slice(0, 6)
+              .map((book, idx) => {
+                return <Read book={book} key={idx} />;
+              })}
+          </div>
+        </div>
       </div>
     </Container>
   );
