@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Book } from 'phosphor-react';
 
-import { shimmer, toBase64 } from '@/utils/shimmer';
 import Persentase from '@/utils/persentase';
 import ProgressBar from './ProgressBar';
 
@@ -48,10 +47,6 @@ export default function Reading({ data }) {
                           height={150}
                           alt={book?.name}
                           objectFit="cover"
-                          placeholder="blur"
-                          blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                            shimmer(50, 75)
-                          )}`}
                           className="w-[50px] h-[75px] rounded"
                         />
                       </div>
