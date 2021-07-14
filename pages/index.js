@@ -33,19 +33,19 @@ export default function Home({ books, reading, finished }) {
         <Reading data={reading} />
       </div>
       <div className="mb-6">
-        <div className="flex items-center justify-between">
-          <h1 className="mb-4 font-medium md:mb-6">
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="font-medium">
             Selesai Dibaca<span className="text-xs font-normal"> • </span>
             <span className="text-sm font-normal">{finished?.length} Buku</span>
           </h1>
           <Link href="/all">
-            <a className="mb-4 hover:text-gray-500 text-sm transition-all duration-200">
+            <a className="hover:text-gray-500 text-sm transition-all duration-200">
               Lihat semua &rarr;
             </a>
           </Link>
         </div>
-        <div className="flex mb-6">
-          <div className="grid gap-5 grid-cols-2 lg:grid-cols-3">
+        <div>
+          <div className="grid gap-7 grid-cols-1 md:grid-cols-2 lg:gap-x-5 lg:grid-cols-3">
             {finished
               .sort(
                 (a, b) =>

@@ -36,7 +36,7 @@ export default function Reading({ data }) {
             .map((book, id) => (
               <SwiperSlide
                 key={id}
-                className="w-[300px] p-3 bg-white rounded-lg"
+                className="w-[300px] border-gray-100/90 p-3 bg-white border rounded-lg"
               >
                 <div className="flex flex-row space-x-4">
                   <section className="relative">

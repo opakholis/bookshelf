@@ -8,8 +8,8 @@ export default function All({ books, finished }) {
         <h1 className="text-3xl font-bold">Buku-Buku</h1>
         <p className="text-gray-400">Yang telah dibaca</p>
       </div>
-      <div className="flex mb-6">
-        <div className="grid gap-5 grid-cols-2 lg:grid-cols-3">
+      <div>
+        <div className="grid gap-7 grid-cols-1 md:grid-cols-2 lg:gap-x-5 lg:grid-cols-3">
           {finished
             .sort(
               (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()

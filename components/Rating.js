@@ -5,7 +5,7 @@ const MAX_RATING = 5;
 export default function Rating({ rating, className }) {
   return (
     <div className={className}>
-      <section className="md:hidden lg:flex">
+      <section className="flex">
         {Array.from(Array(MAX_RATING).keys()).map((_, i) => (
           <Star
             size={16}
@@ -17,10 +17,10 @@ export default function Rating({ rating, className }) {
           />
         ))}
       </section>
-      <section className="flex items-center lg:hidden">
+      {/* <section className="flex items-center lg:hidden">
         <Star size={16} weight="fill" className="w-5 text-yellow-300" />
         <span className="ml-1 font-medium">{rating}</span>/{MAX_RATING}
-      </section>
+      </section> */}
     </div>
   );
 }

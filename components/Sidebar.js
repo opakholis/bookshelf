@@ -16,7 +16,7 @@ export default function Sidebar({ data }) {
   const FinishedBook = wasRead.filter((item) => item == 'Finished').length;
 
   return (
-    <aside className="h-[95vh] min-w-[255px] fixed bottom-5 left-5 top-5 hidden bg-white rounded-3xl lg:block">
+    <aside className="h-[95vh] min-w-[255px] border-gray-100/90 fixed bottom-5 left-5 top-5 hidden bg-white border rounded-3xl lg:block">
       <div className="flex flex-col px-6">
         <div className="flex flex-col items-center my-5 text-center">
           <Avatar />

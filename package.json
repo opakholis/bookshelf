@@ -18,7 +18,8 @@
     "react-notion": "^0.9.3",
     "react-rough-notation": "^1.0.1",
     "react-truncate-markup": "^5.1.0",
-    "swiper": "^6.7.1"
+    "swiper": "^6.7.1",
+    "timeago-react": "^3.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
