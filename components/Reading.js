@@ -9,11 +9,6 @@ import ProgressBar from './ProgressBar';
 export default function Reading({ data }) {
   return (
     <section className="relative mb-10">
-      <h1 className="mb-3 mt-6 font-medium lg:mb-6">
-        Sedang Dibaca<span className="text-xs font-normal"> • </span>
-        <span className="text-sm font-normal">{data?.length} Buku</span>
-      </h1>
-
       <section>
         <Swiper
           slidesPerView={'auto'}
