@@ -1,5 +1,5 @@
 const colors = require('tailwindcss/colors');
-const { fontFamily } = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -12,17 +12,29 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.blueGray,
-      yellow: colors.yellow,
-      blue: colors.sky,
-      pink: colors.pink,
-      purple: colors.fuchsia,
-      teal: colors.emerald,
-      violet: colors.violet,
-      cyan: colors.cyan,
+      purple: {
+        light: '#D8B4FE',
+        DEFAULT: '#C084FC',
+        dark: '#A855F7',
+      },
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', ...fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        primary: {
+          darkest: '#171923',
+          dark: '#1A202C',
+          light: '#FFFFFF',
+          lightest: '#F7FAFC',
+        },
+        groovy: {
+          purple: '#A78BFA',
+          blue: '#00C4CF',
+          red: '#FE8957',
+          orange: '#FECA07',
+        },
       },
     },
   },
