@@ -18,7 +18,7 @@ export default function ThemeChanger() {
         size={22}
         weight="fill"
         className={`${
-          resolvedTheme === 'dark' ? 'text-gray-300' : 'text-[#FAB515]'
+          resolvedTheme === 'dark' ? 'text-gray-500' : 'text-groovy-orange'
         }`}
       />
       <Switch
@@ -32,9 +32,9 @@ export default function ThemeChanger() {
         }}
         className={`${
           resolvedTheme === 'dark'
-            ? 'bg-gray-600'
-            : 'bg-gradient-to-r from-[#A78BFA] to-purple-300'
-        } relative inline-flex items-center h-6 w-11 rounded-full focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+            ? 'bg-black'
+            : 'bg-gradient-to-r to-groovy-purple from-purple-light'
+        } relative inline-flex items-center h-6 w-11 rounded-full focus:outline-none focus-visible:ring-2 dark:focus-visible:ring-groovy-purple focus-visible:ring-gray-400`}
       >
         <span className="sr-only">Enable dark mode</span>
         <span
@@ -48,7 +48,7 @@ export default function ThemeChanger() {
         size={22}
         weight="fill"
         className={`${
-          resolvedTheme === 'dark' ? 'text-gray-600' : 'text-gray-300'
+          resolvedTheme === 'dark' ? 'text-purple-dark' : 'text-gray-300'
         }`}
       />
     </div>
