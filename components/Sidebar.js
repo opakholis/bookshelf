@@ -17,7 +17,7 @@ export default function Sidebar({ data }) {
   const FinishedBook = wasRead.filter((item) => item == 'Finished').length;
 
   return (
-    <aside className="h-[95vh] min-w-[255px] border-gray-100/90 fixed bottom-5 left-5 top-5 hidden bg-white border rounded-3xl lg:block">
+    <aside className="h-[95vh] min-w-[255px] border-gray-100/90 dark:bg-primary-dark fixed bottom-5 left-5 top-5 hidden bg-white border dark:border-gray-700 rounded-3xl lg:block">
       <div className="flex flex-col px-6 h-full">
         <div className="flex flex-col items-center my-5 text-center">
           <Avatar />
@@ -34,7 +34,12 @@ export default function Sidebar({ data }) {
                 <h3 className="w-20 text-2xl font-bold tracking-tighter">
                   {data.length}
                 </h3>
-                <ProgressBar current={FinishedBook} total={data.length} />
+                <ProgressBar
+                  current={FinishedBook}
+                  total={data.length}
+                  color="#FE8957"
+                  height={8}
+                />
               </div>
             </div>
             <div className="space-y-1">
@@ -44,7 +49,12 @@ export default function Sidebar({ data }) {
                   {TotalPage.toString().slice(0, 1)}K{' '}
                   <span className="text-[16px] font-normal">++</span>
                 </h3>
-                <ProgressBar current={CurrentPage} total={TotalPage} />
+                <ProgressBar
+                  current={CurrentPage}
+                  total={TotalPage}
+                  color="#FECA07"
+                  height={8}
+                />
               </div>
             </div>
           </section>

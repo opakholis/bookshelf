@@ -12,15 +12,13 @@ export default function Rating({ rating, className }) {
             weight={i < rating ? 'fill' : 'regular'}
             key={String(i)}
             className={
-              i < rating ? 'text-yellow-300 mr-0.5' : 'text-gray-300 mr-0'
+              i < rating
+                ? 'text-groovy-orange mr-0.5'
+                : 'text-gray-300 dark:text-gray-600 mr-0.5'
             }
           />
         ))}
       </section>
-      {/* <section className="flex items-center lg:hidden">
-        <Star size={16} weight="fill" className="w-5 text-yellow-300" />
-        <span className="ml-1 font-medium">{rating}</span>/{MAX_RATING}
-      </section> */}
     </div>
   );
 }
