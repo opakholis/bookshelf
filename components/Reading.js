@@ -61,7 +61,9 @@ export default function Reading({ data }) {
                           {book.current_page} / {book.total_page}
                         </span>
                       </p>
-                      <Persentase book={book} />
+                      <span>
+                        <Persentase book={book} />
+                      </span>
                     </div>
                     <ProgressBar
                       current={book?.current_page}
