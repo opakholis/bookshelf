@@ -1,9 +1,7 @@
-export default function Persentase({ book, className }) {
-  const value1 = book?.current_page;
-  const value2 = book?.total_page;
+export default function Persentase({ book }) {
+  const getValue = (currentPage, totalPage) => {
+    return (currentPage / totalPage) * 100;
+  };
 
-  const result = (value1 / value2) * 100;
-  const finalResult = result.toFixed(0);
-
-  return <span className={className}>{finalResult}%</span>;
+  return getValue(book?.current_page, book?.total_page).toFixed(0) + '%';
 }
