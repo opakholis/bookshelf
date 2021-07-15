@@ -10,6 +10,7 @@
     "format": "prettier --write \"./**/*.{js,jsx}\""
   },
   "dependencies": {
+    "@headlessui/react": "^1.3.0",
     "next": "^11.0.1",
     "next-themes": "^0.0.15",
     "phosphor-react": "^1.3.1",
