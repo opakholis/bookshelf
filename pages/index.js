@@ -4,7 +4,7 @@ import Container from '@/components/Container';
 import Reading from '@/components/Reading';
 import Read from '@/components/Read';
 
-import { HEADLINE, NAME } from '@/utils/constant';
+import { CAPTION, NAME } from '@/utils/constant';
 import Avatar from '@/components/icons/Avatar';
 
 export default function Home({ books, reading, finished }) {
@@ -20,7 +20,7 @@ export default function Home({ books, reading, finished }) {
               <h1 className="text-white text-lg font-medium tracking-wide">
                 {NAME}
               </h1>
-              <h2 className="text-white/90 text-sm italic">{HEADLINE}</h2>
+              <h2 className="text-white/90 text-sm italic">{CAPTION}</h2>
             </div>
           </div>
         </section>
