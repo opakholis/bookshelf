@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import TimeAgo from 'timeago-react';
 import * as timeago from 'timeago.js';
-import TruncateMarkup from 'react-truncate-markup';
 
 import Rating from '@/components/Rating';
 import id from 'timeago.js/lib/lang/id_ID';
@@ -29,16 +28,12 @@ export default function Read({ book }) {
       <section className="ml-[6.8rem]">
         <div className="flex flex-col justify-between h-full">
           <div className="space-y-1">
-            <TruncateMarkup lines={2}>
-              <p className="text-[15px] lg:text-[17px] font-medium leading-tight">
-                {book.name}
-              </p>
-            </TruncateMarkup>
-            <TruncateMarkup lines={2}>
-              <p className="text-[13px] dark:text-gray-300 text-gray-500">
-                {book.author}
-              </p>
-            </TruncateMarkup>
+            <p className="lg:text-[17px] text-base font-medium leading-tight">
+              {book.name}
+            </p>
+            <p className="text-[14px] dark:text-gray-300 text-gray-500">
+              {book.author}
+            </p>
           </div>
           <div className="space-y-1">
             <Rating rating={book.rating} />
