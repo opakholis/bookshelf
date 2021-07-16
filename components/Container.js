@@ -40,7 +40,7 @@ export default function Container({ books, children, ...customMeta }) {
       <section className="relative">
         <Sidebar data={books} />
         <Pattern />
-        <main className="lg:pl-[324px]">
+        <main className="pb-[68px] md:pl-[324px] md:pb-0">
           <section className="mx-auto px-6 w-full max-w-screen-xl">
             {children}
           </section>

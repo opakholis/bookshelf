@@ -10,8 +10,8 @@ import Avatar from '@/components/icons/Avatar';
 export default function Home({ books, reading, finished }) {
   return (
     <Container books={books}>
-      <div className="pt-5 lg:hidden">
-        <section className="via-red-500 from-cyan-400/75 to-violet-400/80 p-3 bg-gradient-to-r rounded-xl">
+      <div className="pt-5 md:hidden">
+        <section className="p-3 bg-gradient-to-r rounded-xl from-groovy-purple to-groovy-blue">
           <div className="flex flex-col items-center justify-center">
             <div className="relative mb-1">
               <Avatar className="w-14 h-14 rounded-full" />
@@ -45,7 +45,7 @@ export default function Home({ books, reading, finished }) {
           </Link>
         </div>
         <div>
-          <div className="grid gap-7 grid-cols-1 md:grid-cols-2 lg:gap-x-5 lg:grid-cols-3">
+          <div className="grid gap-7 grid-cols-1 lg:gap-x-5 lg:grid-cols-2 xl:grid-cols-3">
             {finished
               .sort(
                 (a, b) =>

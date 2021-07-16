@@ -9,7 +9,7 @@ export default function All({ books, finished }) {
         <p className="text-gray-400">Yang telah dibaca</p>
       </div>
       <div>
-        <div className="grid gap-7 grid-cols-1 md:grid-cols-2 lg:gap-x-5 lg:grid-cols-3">
+        <div className="grid gap-7 grid-cols-1 lg:gap-x-5 lg:grid-cols-2 xl:grid-cols-3">
           {finished
             .sort(
               (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
