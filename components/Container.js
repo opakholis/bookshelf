@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 import Sidebar from './Sidebar';
 import Pattern from './icons/Pattern';
+import MobileNavbar from './MobileNavbar';
 
 export default function Container({ books, children, ...customMeta }) {
   const router = useRouter();
@@ -39,6 +40,7 @@ export default function Container({ books, children, ...customMeta }) {
       </Head>
       <section className="relative">
         <Sidebar data={books} />
+        <MobileNavbar />
         <Pattern />
         <main className="pb-[68px] md:pl-[324px] md:pb-0">
           <section className="mx-auto px-6 w-full max-w-screen-xl">
