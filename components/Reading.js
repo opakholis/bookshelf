@@ -1,5 +1,3 @@
-import 'swiper/swiper.min.css';
-
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Book } from 'phosphor-react';
@@ -12,7 +10,7 @@ export default function Reading({ data }) {
     <section className="relative mb-10">
       <section>
         <Swiper
-          slidesPerView={'auto'}
+          slidesPerView="auto"
           spaceBetween={20}
           freeMode={true}
           breakpoints={{

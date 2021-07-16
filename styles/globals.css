@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 @import 'react-notion/src/styles.css';
+@import 'swiper/swiper.min.css';
 
 @font-face {
   font-family: 'Inter';
