@@ -25,7 +25,7 @@ export default function Read({ book }) {
           </div>
         </div>
       </section>
-      <section className="ml-[6.8rem]">
+      <section className="ml-[7rem]">
         <div className="flex flex-col justify-between h-full">
           <div className="space-y-1">
             <p className="lg:text-[17px] text-base font-medium leading-tight">
