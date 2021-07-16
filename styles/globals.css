@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 @import 'react-notion/src/styles.css';
-@import 'swiper/swiper.min.css';
 
 @font-face {
   font-family: 'Inter';
@@ -49,8 +48,4 @@ html {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-svg.rough-annotation {
-  z-index: -2;
 }

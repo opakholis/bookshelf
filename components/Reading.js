@@ -1,3 +1,5 @@
+import 'swiper/swiper.min.css';
+
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Book } from 'phosphor-react';
