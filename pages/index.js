@@ -39,7 +39,7 @@ export default function Home({ books, reading, finished }) {
             <span className="text-sm font-normal">{finished?.length} Buku</span>
           </h1>
           <Link href="/all">
-            <a className="hover:text-gray-500 text-sm transition-all duration-200">
+            <a className="text-sm hover:opacity-75 transition-opacity duration-200">
               Lihat semua &rarr;
             </a>
           </Link>

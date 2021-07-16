@@ -10,7 +10,7 @@ export default function Read({ book }) {
   timeago.register('id', id);
 
   return (
-    <div className="h-[8.8rem] border-gray-100/90 flex flex-row p-3 w-full dark:bg-primary-dark bg-white border dark:border-gray-700 rounded-xl hover:-translate-y-1 transition-all duration-300 md:rounded-2xl lg:p-4">
+    <div className="h-[8.8rem] border-gray-100/90 flex flex-row p-3 w-full dark:bg-primary-dark bg-white border dark:border-gray-700 rounded-xl hover:-translate-y-1 transition-transform duration-300 md:rounded-2xl lg:p-4">
       <section className="relative">
         <div className="rounded-md md:rounded-xl">
           <div className="w-[92px] h-[138px] absolute bottom-1 left-1 mr-4 rounded-lg drop-shadow-md md:rounded-xl">
