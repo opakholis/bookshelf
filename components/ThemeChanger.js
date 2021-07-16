@@ -59,6 +59,7 @@ export default function ThemeChanger() {
       {/* mobile */}
       <section className="md:hidden">
         <button
+          aria-label="Switch themes"
           className="inline-flex items-center justify-center w-full focus:outline-none"
           onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
         >

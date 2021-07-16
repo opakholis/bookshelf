@@ -42,8 +42,8 @@ export default function Reading({ data }) {
                       <div className="rounded">
                         <Image
                           src={book?.cover[0].url}
-                          width={100}
-                          height={150}
+                          width={100 / 2}
+                          height={150 / 2}
                           alt={book?.name}
                           objectFit="cover"
                           className="w-[50px] h-[75px] rounded"
@@ -53,7 +53,7 @@ export default function Reading({ data }) {
                   </section>
                   <section className="flex flex-col justify-center w-3/4 space-y-1.5">
                     <h2 className="font-medium truncate">{book?.name}</h2>
-                    <div className="text-[13px] flex items-center justify-between text-gray-500">
+                    <div className="text-[13px] flex items-center justify-between dark:text-gray-400 text-gray-500">
                       <p className="flex items-center">
                         <Book size={16} />
                         <span className="ml-1">

@@ -23,14 +23,14 @@ export default function Sidebar({ data }) {
         <div className="flex flex-col items-center my-5 text-center">
           <Avatar />
           <h1 className="mb-1 mt-5 text-lg font-medium">{NAME}</h1>
-          <h3 className="relative w-3/4 text-gray-400 text-sm italic">
+          <h2 className="relative w-3/4 dark:text-gray-400 text-gray-500 text-sm italic">
             {CAPTION}
-          </h3>
+          </h2>
         </div>
         <div className="flex flex-col justify-between mt-14 h-full">
           <section className="space-y-8">
             <div className="space-y-1">
-              <h2 className="text-gray-400 text-sm">Buku</h2>
+              <h2 className="dark:text-gray-400 text-gray-500 text-sm">Buku</h2>
               <div className="flex items-center justify-between">
                 <h3 className="w-20 text-2xl font-bold tracking-tighter">
                   {data.length}
@@ -44,7 +44,9 @@ export default function Sidebar({ data }) {
               </div>
             </div>
             <div className="space-y-1">
-              <h2 className="text-gray-400 text-sm">Halaman</h2>
+              <h2 className="dark:text-gray-400 text-gray-500 text-sm">
+                Halaman
+              </h2>
               <div className="flex items-center justify-between">
                 <h3 className="inline-flex items-center w-20 text-2xl font-bold tracking-tighter">
                   {totalPage.toString().slice(0, 1)}K{' '}

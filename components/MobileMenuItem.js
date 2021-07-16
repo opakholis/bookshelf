@@ -7,7 +7,10 @@ import { List, X } from 'phosphor-react';
 export default function MobileMenuItem() {
   return (
     <Popover className="relative">
-      <Popover.Button className="inline-flex items-center justify-center w-full focus:outline-none">
+      <Popover.Button
+        className="inline-flex items-center justify-center w-full focus:outline-none"
+        aria-label="Menu"
+      >
         <List size={22} />
       </Popover.Button>
 

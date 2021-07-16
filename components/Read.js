@@ -35,18 +35,17 @@ export default function Read({ book }) {
               </p>
             </TruncateMarkup>
             <TruncateMarkup lines={2}>
-              <p className="text-[13px] text-gray-500">{book.author}</p>
+              <p className="text-[13px] dark:text-gray-300 text-gray-500">
+                {book.author}
+              </p>
             </TruncateMarkup>
           </div>
           <div className="space-y-1">
-            <Rating
-              rating={book.rating}
-              className="md:pb-1 md:text-gray-500 md:text-sm lg:flex"
-            />
+            <Rating rating={book.rating} />
             <TimeAgo
               datetime={book.date}
               locale="id"
-              className="text-gray-500 text-xs"
+              className="dark:text-gray-400 text-gray-500 text-xs"
             />
           </div>
         </div>
