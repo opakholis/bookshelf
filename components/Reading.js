@@ -18,13 +18,12 @@ export default function Reading({ data }) {
               slidesPerView: 1,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 'auto',
             },
             1024: {
               slidesPerView: 'auto',
             },
           }}
-          className="w-full"
         >
           {data
             .sort(
