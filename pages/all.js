@@ -1,12 +1,24 @@
 import Container from '@/components/Container';
 import Read from '@/components/Read';
+import twemoji from '@/components/Twemoji';
 
 export default function All({ books, finished }) {
   return (
-    <Container books={books}>
-      <div className="flex flex-col items-center justify-center mb-12 mt-10">
-        <h1 className="text-3xl font-bold">Buku-Buku</h1>
-        <p className="text-gray-400">Yang telah dibaca</p>
+    <Container
+      books={books}
+      title="Semua Buku - Opa Kholis Majid"
+      description="Halaman ini berisi resensi, catatan, dan ulasan terhadap Buku yang
+          sudah saya baca."
+    >
+      <div className="flex flex-col items-center justify-center mb-12 mt-10 text-center space-y-3">
+        <h1 className="inline-flex items-end text-3xl font-bold">
+          {twemoji('📚')}
+          Buku-Buku
+        </h1>
+        <p className="dark:gray-400 w-10/12 text-gray-500 xl:w-2/5">
+          Halaman ini berisi resensi, catatan, dan ulasan terhadap Buku yang
+          sudah saya baca.
+        </p>
       </div>
       <div>
         <div className="grid gap-7 grid-cols-1 lg:gap-x-5 lg:grid-cols-2 xl:grid-cols-3">

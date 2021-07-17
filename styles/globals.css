@@ -50,3 +50,7 @@ html {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.twemoji > img {
+  @apply !mx-2 inline drop-shadow-lg;
+}
