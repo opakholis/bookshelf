@@ -3,10 +3,11 @@ import { Activity } from 'phosphor-react';
 export default function MobileAnalytics() {
   return (
     <button
-      className="inline-flex items-center justify-center w-full"
+      className="flex flex-col items-center justify-center w-full text-xs"
       aria-label="Analytics"
     >
       <Activity size={22} />
+      Analytics
     </button>
   );
 }

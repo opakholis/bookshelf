@@ -59,11 +59,12 @@ export default function ThemeChanger() {
       {/* mobile */}
       <section className="md:hidden">
         <button
-          aria-label="Switch themes"
-          className="inline-flex items-center justify-center w-full focus:outline-none"
+          aria-label="Switch theme"
+          className="flex flex-col items-center justify-center w-full text-xs focus:outline-none"
           onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
         >
           {resolvedTheme === 'dark' ? <SunDim size={22} /> : <Moon size={22} />}
+          {resolvedTheme === 'dark' ? 'Light' : 'Dark'} Mode
         </button>
       </section>
     </>
