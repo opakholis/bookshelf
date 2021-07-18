@@ -1,21 +1,14 @@
 import Avatar from '@/components/icons/Avatar';
 import ProgressBar from '@/components/ProgressBar';
 import ThemeChanger from '@/components/ThemeChanger';
+
 import { CAPTION, NAME } from '@/utils/constant';
+import { currentPage, totalPage, wasRead } from '@/utils/count-pages-books';
 
 export default function Sidebar({ data }) {
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-  // get all pages
-  const getAllCurrentPage = data.map((page) => page.current_page);
-  const getAllTotalPage = data.map((page) => page.total_page);
-
-  const totalPage = getAllTotalPage.reduce(reducer);
-  const currentPage = getAllCurrentPage.reduce(reducer);
-
-  // get finished books
-  const wasRead = data.map((book) => book.status);
-  const finishedBook = wasRead.filter((item) => item == 'Finished').length;
+  const _totalPage = totalPage(data);
+  const _currentPage = currentPage(data);
+  const _wasRead = wasRead(data);
 
   return (
     <aside className="h-[95vh] min-w-[255px] border-gray-100/90 fixed bottom-5 left-5 top-5 hidden dark:bg-primary-dark bg-white border dark:border-gray-700 rounded-3xl md:block">
@@ -36,7 +29,7 @@ export default function Sidebar({ data }) {
                   {data.length}
                 </h3>
                 <ProgressBar
-                  current={finishedBook}
+                  current={_wasRead}
                   total={data.length}
                   color="#FE8957"
                   height={8}
@@ -49,12 +42,12 @@ export default function Sidebar({ data }) {
               </h2>
               <div className="flex items-center justify-between">
                 <h3 className="inline-flex items-center w-20 text-2xl font-bold tracking-tighter">
-                  {totalPage.toString().slice(0, 1)}K{' '}
+                  {_totalPage.toString().slice(0, 1)}K{' '}
                   <span className="text-[16px] font-normal">++</span>
                 </h3>
                 <ProgressBar
-                  current={currentPage}
-                  total={totalPage}
+                  current={_currentPage}
+                  total={_totalPage}
                   color="#FECA07"
                   height={8}
                 />
