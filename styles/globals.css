@@ -45,6 +45,14 @@ html {
   scroll-behavior: smooth;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 #__next {
   display: flex;
   flex-direction: column;
