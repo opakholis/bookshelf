@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { formatDate } from '@/utils/format-date';
+
 import Rating from './Rating';
 
 export default function BookCard({ book }) {
@@ -48,7 +50,7 @@ export default function BookCard({ book }) {
               <Rating rating={book.rating} />
             </dd>
             <dt className="relative float-left w-32 md:w-44">Selesai Dibaca</dt>
-            <dd className="p-0.5">{book.date}</dd>
+            <dd className="p-0.5">{formatDate(book.date)}</dd>
           </dl>
         </section>
       </div>
