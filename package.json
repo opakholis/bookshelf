@@ -20,10 +20,12 @@
     "react-easy-emoji": "^1.5.0",
     "react-notion": "^0.9.3",
     "react-rough-notation": "^1.0.1",
+    "slugify": "^1.6.0",
     "swiper": "^6.7.1",
     "timeago-react": "^3.0.3"
   },
   "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
     "autoprefixer": "^10.2.6",
     "eslint": "^7.29.0",
     "eslint-config-next": "^11.0.1",
