@@ -63,6 +63,6 @@ a {
   @apply !mx-2 inline drop-shadow-lg;
 }
 
-.notion .notion-text {
-  @apply dark:text-gray-100 text-gray-900;
+.notion-text {
+  @apply dark:text-gray-100 text-gray-900 leading-7;
 }
