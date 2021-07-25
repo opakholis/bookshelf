@@ -2,7 +2,7 @@ import { Star } from 'phosphor-react';
 
 const MAX_RATING = 5;
 
-export default function Rating({ rating, className }) {
+export function Rating({ rating, className }) {
   return (
     <div className={className}>
       <section className="flex">
@@ -18,6 +18,17 @@ export default function Rating({ rating, className }) {
             }
           />
         ))}
+      </section>
+    </div>
+  );
+}
+
+export function RatingAlt({ rating, className }) {
+  return (
+    <div className={className}>
+      <section className="flex items-center">
+        <Star size={16} weight="fill" className="w-5 text-groovy-orange" />
+        <span className="ml-1">{rating}</span>/{MAX_RATING}
       </section>
     </div>
   );
