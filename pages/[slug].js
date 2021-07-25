@@ -3,15 +3,22 @@ import { NotionRenderer } from 'react-notion';
 
 import Container from '@/components/Container';
 import BookCard from '@/components/BookCard';
+import { NAME } from '@/utils/constant';
+import { formatDate } from '@/utils/format-date';
 
 export default function DetailBook({ book, books, page }) {
-  console.log(`book`, book);
-
   return (
     <Container books={books}>
       <BookCard book={book} />
       <div className="pt-5">
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto w-full max-w-2xl">
+          <section className="mb-6">
+            <h3 className="dark:text-gray-400 text-gray-600 text-sm">
+              {NAME} <span className="mx-1">/</span>
+              {formatDate(book.date)}
+            </h3>
+            <hr className="mt-6 w-full border-gray-200 dark:border-gray-700" />
+          </section>
           {page && <NotionRenderer blockMap={page} />}
         </div>
       </div>
