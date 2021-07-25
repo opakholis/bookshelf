@@ -4,7 +4,7 @@ import slugify from 'slugify';
 import TimeAgo from 'timeago-react';
 import * as timeago from 'timeago.js';
 
-import Rating from '@/components/Rating';
+import { Rating } from '@/components/Rating';
 import id from 'timeago.js/lib/lang/id_ID';
 
 export default function Read({ book }) {
