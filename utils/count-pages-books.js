@@ -1,4 +1,4 @@
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const reducer = (acc, currentValue) => acc + currentValue;
 
 export const totalPage = (data) => {
   const getAllTotalPage = data.map((page) => page.total_page);
