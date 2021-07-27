@@ -5,7 +5,6 @@ import { NAME } from '@/utils/constant';
 import { formatDate } from '@/utils/format-date';
 
 export default function ReviewHeader({ book }) {
-  console.log(`book`, book);
   return (
     <header>
       <div className="flex items-center justify-between">

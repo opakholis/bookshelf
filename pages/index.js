@@ -7,11 +7,9 @@ import { NAME } from '@/utils/constant';
 import Link from 'next/link';
 
 export default function Home({ books, reading, finished }) {
-  console.log(`finished`, finished);
   return (
     <Container>
       <div className="h-[420px] absolute -top-20 w-full bg-groovy-red" />
-
       <section className="relative z-50 mt-20 mx-auto p-6 w-full max-w-screen-md bg-white rounded-2xl">
         <div className="space-y-3">
           <Image src="/static/me.png" width={100} height={100} alt={NAME} />

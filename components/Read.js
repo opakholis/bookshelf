@@ -26,7 +26,7 @@ export default function Read({ book, featured }) {
               objectFit="cover"
               className="rounded-t-lg"
             />
-            <div className="absolute -bottom-3 left-3 px-1 py-0.5 bg-white border border-gray-50 rounded">
+            <div className="absolute z-10 -bottom-3 left-3 px-1 py-0.5 bg-white border border-gray-50 rounded">
               <Rating rating={book.rating} className="text-sm font-medium" />
             </div>
           </section>
