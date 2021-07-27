@@ -31,9 +31,11 @@ module.exports = {
         },
         groovy: {
           purple: '#A78BFA',
+          violet: '#ac39fe',
           blue: '#00C4CF',
-          red: '#FE8957',
-          orange: '#FECA07',
+          orange: '#FE8957',
+          red: '#FF5381',
+          yellow: '#FECA07',
         },
       },
     },
