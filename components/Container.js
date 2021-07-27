@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Footer from './Footer';
 
-import Sidebar from './Sidebar';
-import Pattern from './icons/Pattern';
-import MobileNavbar from './MobileNavbar';
+import Nav from './Nav';
 
-export default function Container({ books, children, ...customMeta }) {
+export default function Container({ children, ...customMeta }) {
   const router = useRouter();
   const meta = {
     title: 'Buku - Opa Kholis Majid',
@@ -38,16 +37,9 @@ export default function Container({ books, children, ...customMeta }) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <section className="relative">
-        <Sidebar data={books} />
-        <MobileNavbar />
-        <Pattern />
-        <main className="pb-[68px] md:pl-[324px] md:pb-0">
-          <section className="mx-auto px-6 w-full max-w-screen-xl">
-            {children}
-          </section>
-        </main>
-      </section>
+      <Nav />
+      <main className="relative w-full">{children}</main>
+      <Footer />
     </>
   );
 }
