@@ -2,26 +2,26 @@ import slugify from 'slugify';
 import { NotionRenderer } from 'react-notion';
 
 import Container from '@/components/Container';
-import BookCard from '@/components/BookCard';
-import { NAME } from '@/utils/constant';
-import { formatDate } from '@/utils/format-date';
+import ReviewHeader from '@/components/ReviewHeader';
 
-export default function DetailBook({ book, books, page }) {
+export default function DetailBook({ book, page }) {
+  const { name: title, author, date, thumbnail } = book;
+
+  const seoTitle = `Resensi Buku ${title} - Opa Kholis Majid`;
+  const seoDesc = `Catatan, ulasan, dan resensi buku ${title}-nya ${author}`;
+
   return (
-    <Container books={books}>
-      <BookCard book={book} />
-      <div className="pt-5">
-        <div className="mx-auto w-full max-w-2xl">
-          <section className="mb-6">
-            <h3 className="dark:text-gray-400 text-gray-600 text-sm">
-              {NAME} <span className="mx-1">/</span>
-              {formatDate(book.date)}
-            </h3>
-            <hr className="mt-6 w-full border-gray-200 dark:border-gray-700" />
-          </section>
-          {page && <NotionRenderer blockMap={page} />}
-        </div>
-      </div>
+    <Container
+      type="article"
+      title={seoTitle}
+      image={thumbnail[0].url}
+      description={seoDesc}
+      date={new Date(date).toISOString()}
+    >
+      <article className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-2xl">
+        <ReviewHeader book={book} />
+        {page && <NotionRenderer blockMap={page} />}
+      </article>
     </Container>
   );
 }
@@ -60,7 +60,7 @@ export async function getStaticProps(context) {
   const pageData = await pageRes.json();
 
   return {
-    props: { book, books: bookData, page: pageData },
+    props: { book, page: pageData },
     revalidate: 1,
   };
 }

@@ -4,48 +4,66 @@ import slugify from 'slugify';
 import TimeAgo from 'timeago-react';
 import * as timeago from 'timeago.js';
 
-import { Rating } from '@/components/Rating';
+import Rating from '@/components/Rating';
 import id from 'timeago.js/lib/lang/id_ID';
 
-export default function Read({ book }) {
+export default function Read({ book, featured }) {
   const slug = slugify(book.name, { lower: true });
 
   timeago.register('id', id);
 
   return (
-    <Link href="/[slug]" as={`/${slug}`}>
-      <a className="h-[8.8rem] border-gray-100/90 flex flex-row p-3 w-full dark:bg-primary-dark bg-white border dark:border-gray-700 rounded-xl hover:-translate-y-1 transition-transform duration-300 md:rounded-2xl lg:p-4">
-        <section className="relative">
-          <div className="rounded-md md:rounded-xl">
-            <div className="w-[92px] h-[138px] absolute bottom-1 left-1 mr-4 rounded-lg drop-shadow-md md:rounded-xl">
-              <Image
-                src={book.cover[0].url}
-                alt={book.name}
-                width={400 / 4}
-                height={600 / 4}
-                layout="responsive"
-                objectFit="cover"
-                className="w-[92px] h-[138px] rounded-lg"
+    <Link href={`/${slug}`}>
+      <a className="rounded-md hover:-translate-y-1 transition duration-500">
+        {featured && (
+          <section className="relative">
+            <Image
+              src={book.thumbnail[0].url}
+              alt={book.name}
+              width={768}
+              height={500}
+              layout="responsive"
+              objectFit="cover"
+              className="rounded-t-lg"
+            />
+            <div className="absolute z-10 -bottom-3 left-3 px-1 py-0.5 bg-white border border-gray-50 rounded">
+              <Rating
+                rating={book.rating}
+                className="text-base font-medium md:text-sm"
               />
             </div>
-          </div>
-        </section>
-        <section className="ml-[7rem]">
+          </section>
+        )}
+        <section
+          className={`h-[7rem] md:h-[7.7rem] p-3 border border-gray-50 relative overflow-hidden ${
+            featured ? 'rounded-b-lg' : 'rounded-lg'
+          }`}
+        >
+          {!featured && (
+            <div className="rotate-[40deg] absolute -bottom-20 -right-20 w-32 h-32 transform">
+              <Image
+                src={book.thumbnail[0].url}
+                alt={book.name}
+                width={768 / 2}
+                height={500 / 2}
+                layout="responsive"
+                objectFit="cover"
+                className="rounded-md"
+              />
+            </div>
+          )}
           <div className="flex flex-col justify-between h-full">
-            <div className="space-y-1">
-              <p className="lg:text-[17px] text-base font-medium leading-tight">
-                {book.name}
-              </p>
-              <p className="text-[14px] dark:text-gray-300 text-gray-500">
+            <div className="text-base md:text-sm">
+              <p className="mb-1 mt-1.5 font-medium leading-tight">
                 {book.author}
               </p>
+              <span className="link-custom text-gray-600">{book.name}</span>
             </div>
             <div className="space-y-1">
-              <Rating rating={book.rating} />
               <TimeAgo
                 datetime={book.date}
                 locale="id"
-                className="dark:text-gray-400 text-gray-500 text-xs"
+                className="text-gray-500 text-xs"
               />
             </div>
           </div>
