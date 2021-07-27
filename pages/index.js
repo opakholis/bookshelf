@@ -40,7 +40,7 @@ export default function Home({ books, reading, finished }) {
                   <Read book={book} key={book.id} featured />
                 ))}
               </div>
-              <div className="hidden gap-7 mt-3 md:grid">
+              <div className="hidden gap-7 mt-3 md:grid md:grid-cols-4">
                 {finished.slice(4, 7).map((book) => (
                   <Read book={book} key={book.id} />
                 ))}
