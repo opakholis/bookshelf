@@ -6,7 +6,8 @@ import Read from '@/components/Read';
 import { NAME } from '@/utils/constant';
 import Link from 'next/link';
 
-export default function Home({ books, reading, finished }) {
+export default function Home({ books, reading, finished, bookmarks }) {
+  console.log(`bookmarks`, bookmarks);
   return (
     <Container>
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-red" />
@@ -67,7 +68,12 @@ export async function getStaticProps() {
   );
   const dataBooks = await resBooks.json();
 
-  if (!dataBooks) {
+  const resBookmarks = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKMARKS}`
+  );
+  const dataBookmarks = await resBookmarks.json();
+
+  if (!dataBooks || !dataBookmarks) {
     return {
       notFound: true,
     };
@@ -82,12 +88,16 @@ export async function getStaticProps() {
       (a, b) =>
         Number(new Date(b.last_updated)) - Number(new Date(a.last_updated))
     );
+  const bookmarks = dataBookmarks
+    .filter((mark) => mark.published)
+    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
 
   return {
     props: {
       books: dataBooks,
       finished,
       reading,
+      bookmarks,
     },
     revalidate: 1,
   };
