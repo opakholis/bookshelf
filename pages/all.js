@@ -1,36 +1,39 @@
 import Container from '@/components/Container';
 import Read from '@/components/Read';
-import twemoji from '@/components/Twemoji';
+import FormSuggestion from '@/components/FormSuggestion';
 
-export default function All({ books, finished }) {
+export default function All({ finished }) {
   return (
     <Container
-      books={books}
       title="Semua Buku - Opa Kholis Majid"
       description="Halaman ini berisi resensi, catatan, dan ulasan terhadap Buku yang
           sudah saya baca."
     >
-      <div className="flex flex-col items-center justify-center mb-12 mt-10 text-center space-y-3">
-        <h1 className="inline-flex items-end text-3xl font-bold">
-          {twemoji('📚')}
-          Buku-Buku
-        </h1>
-        <p className="dark:gray-400 w-10/12 text-gray-500 xl:w-2/5">
-          Halaman ini berisi resensi, catatan, dan ulasan terhadap Buku yang
-          sudah saya baca.
-        </p>
-      </div>
-      <div>
-        <div className="grid gap-7 grid-cols-1 lg:gap-x-5 lg:grid-cols-2 xl:grid-cols-3">
-          {finished
-            .sort(
-              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-            )
-            .map((book, idx) => {
-              return <Read book={book} key={idx} />;
-            })}
+      <div className="h-[420px] absolute -top-20 w-full bg-groovy-orange" />
+
+      <section className="relative z-50 mt-20 mx-auto p-6 w-full max-w-screen-md bg-white rounded-2xl">
+        <div className="leading-7 space-y-3">
+          <h1 className="pb-3 text-gray-900 text-2xl font-bold">
+            Koleksi Buku
+          </h1>
+          <p>
+            Mulai gemar membaca di awal tahun 2021, dengan didasari oleh hasutan
+            teman yang berhasil membuka minat saya terhadap dunia literatur.
+          </p>
+          <p>
+            Dan hei, halaman ini berisi buku-buku yang telah saya baca dengan
+            resensi dan ulasan terhadap buku tersebut. Enjoy!
+          </p>
         </div>
-      </div>
+        <div className="my-6">
+          <FormSuggestion />
+        </div>
+        <div className="grid gap-7 grid-cols-1 pt-3 lg:gap-x-5 lg:grid-cols-2 xl:grid-cols-3">
+          {finished.map((book) => (
+            <Read book={book} key={book.id} featured />
+          ))}
+        </div>
+      </section>
     </Container>
   );
 }
