@@ -62,21 +62,21 @@ export default function Home({ books, reading, finished }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
+  const resBooks = await fetch(
     `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKS}`
   );
-  const books = await res.json();
+  const dataBooks = await resBooks.json();
 
-  if (!books) {
+  if (!dataBooks) {
     return {
       notFound: true,
     };
   }
 
-  const finished = books
+  const finished = dataBooks
     .filter((book) => book.status == 'Finished')
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
-  const reading = books
+  const reading = dataBooks
     .filter((book) => book.status == 'Reading')
     .sort(
       (a, b) =>
@@ -85,7 +85,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      books,
+      books: dataBooks,
       finished,
       reading,
     },
