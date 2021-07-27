@@ -60,19 +60,10 @@ a {
 }
 
 .link-custom {
-  @apply hover:bg-groovy-violet/20;
+  @apply hover:bg-groovy-violet/20 transition-all duration-200 ease-in-out;
   box-shadow: inset 0 -2px 0 #ac39fe;
 }
 
 .twemoji > img {
   @apply !mx-2 inline drop-shadow-lg;
-}
-
-.notion-text,
-.notion-callout-text {
-  @apply dark:text-gray-100 text-gray-900 leading-7;
-}
-
-.notion-callout {
-  @apply dark:bg-groovy-purple/10 dark:border-gray-700;
 }
