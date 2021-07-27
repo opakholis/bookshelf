@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.js', './components/**/*.js'],
-  darkMode: 'class',
+  darkMode: false,
   theme: {
     colors: {
       transparent: 'transparent',
@@ -43,5 +43,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/custom-forms')],
+  plugins: [],
 };
