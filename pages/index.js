@@ -10,7 +10,7 @@ export default function Home({ books, reading, finished }) {
   return (
     <Container>
       <div className="h-[420px] absolute -top-20 w-full bg-groovy-red" />
-      <section className="relative z-50 mt-20 mx-auto p-6 w-full max-w-screen-md bg-white rounded-2xl">
+      <section className="relative z-50 mt-4 mx-auto p-6 w-full max-w-screen-md bg-white rounded-lg md:mt-20 md:rounded-2xl">
         <div className="space-y-3">
           <Image src="/static/me.png" width={100} height={100} alt={NAME} />
           <h1 className="text-gray-900 text-2xl font-bold">{NAME}</h1>
@@ -35,12 +35,12 @@ export default function Home({ books, reading, finished }) {
             <h2 className="text-gray-600">Selesai Dibaca</h2>
 
             <div className="pt-3">
-              <div className="grid gap-7 grid-cols-1 lg:gap-x-5 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-7 grid-cols-1 pt-3 md:grid-cols-3">
                 {finished.slice(0, 3).map((book) => (
                   <Read book={book} key={book.id} featured />
                 ))}
               </div>
-              <div className="hidden gap-7 mt-3 md:grid lg:gap-x-5 lg:grid-cols-4">
+              <div className="hidden gap-7 mt-3 md:grid">
                 {finished.slice(4, 7).map((book) => (
                   <Read book={book} key={book.id} />
                 ))}

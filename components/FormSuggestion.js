@@ -20,20 +20,22 @@ export default function FormSuggestion() {
   };
   return (
     <div className="border-groovy-orange/30 bg-groovy-orange/10 p-4 w-full border rounded-md">
-      <h3 className="mb-2.5">Punya rekomendasi buku? here we go</h3>
+      <h3 className="mb-2.5 text-sm md:text-base">
+        Punya rekomendasi buku? here we go
+      </h3>
       <form onSubmit={submitForm} className="relative flex">
         <input
           id="title"
           type="text"
           placeholder="Judul buku - Penulis"
-          className="border-groovy-orange/20 focus:border-groovy-orange/50 px-4 py-1.5 w-full bg-white border rounded-md focus:outline-none"
+          className="border-groovy-orange/20 focus:border-groovy-orange/50 pl-4 pr-28 py-1.5 w-full text-sm bg-white border rounded-md focus:outline-none"
           value={title}
           onChange={({ target }) => setTitle(target.value)}
           required
         />
         <button
           type="submit"
-          className={`absolute right-3.5 top-[5px] bg-groovy-violet -mr-2 py-0.5 w-24 text-white font-medium rounded ${
+          className={`absolute right-3.5 top-[3px] bg-groovy-violet -mr-2.5 py-0.5 w-24 text-white font-medium rounded ${
             isEmpty && 'cursor-default opacity-50'
           }`}
           disabled={isEmpty}

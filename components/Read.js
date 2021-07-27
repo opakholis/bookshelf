@@ -27,12 +27,15 @@ export default function Read({ book, featured }) {
               className="rounded-t-lg"
             />
             <div className="absolute z-10 -bottom-3 left-3 px-1 py-0.5 bg-white border border-gray-50 rounded">
-              <Rating rating={book.rating} className="text-sm font-medium" />
+              <Rating
+                rating={book.rating}
+                className="text-base font-medium md:text-sm"
+              />
             </div>
           </section>
         )}
         <section
-          className={`h-[7.7rem] p-3 border border-gray-50 relative overflow-hidden ${
+          className={`h-[7rem] md:h-[7.7rem] p-3 border border-gray-50 relative overflow-hidden ${
             featured ? 'rounded-b-lg' : 'rounded-lg'
           }`}
         >
@@ -50,8 +53,10 @@ export default function Read({ book, featured }) {
             </div>
           )}
           <div className="flex flex-col justify-between h-full">
-            <div className="text-sm space-y-1">
-              <p className="mt-1.5 font-medium leading-tight">{book.author}</p>
+            <div className="text-base md:text-sm">
+              <p className="mb-1 mt-1.5 font-medium leading-tight">
+                {book.author}
+              </p>
               <span className="link-custom text-gray-600">{book.name}</span>
             </div>
             <div className="space-y-1">
