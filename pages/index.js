@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function Home({ books, reading, finished }) {
   return (
     <Container>
-      <div className="h-[420px] absolute -top-20 w-full bg-groovy-red" />
+      <div className="h-[420px] absolute -top-24 w-full bg-groovy-red" />
       <section className="relative z-50 mt-4 mx-auto p-6 w-full max-w-screen-md bg-white rounded-lg md:mt-20 md:rounded-2xl">
         <div className="space-y-3">
           <Image src="/static/me.png" width={100} height={100} alt={NAME} />
