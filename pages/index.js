@@ -1,13 +1,13 @@
+import Link from 'next/link';
 import Image from 'next/image';
 
 import Container from '@/components/Container';
 import Read from '@/components/Read';
+import Bookmarks from '@/components/Bookmarks';
 
 import { NAME } from '@/utils/constant';
-import Link from 'next/link';
 
 export default function Home({ books, reading, finished, bookmarks }) {
-  console.log(`bookmarks`, bookmarks);
   return (
     <Container>
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-red" />
@@ -34,26 +34,33 @@ export default function Home({ books, reading, finished, bookmarks }) {
           <section className="py-6 space-y-1">
             <h1 className="text-2xl font-bold">Buku</h1>
             <h2 className="text-gray-600">Selesai Dibaca</h2>
+            <div className="grid gap-7 grid-cols-1 pt-6 md:grid-cols-3">
+              {finished.slice(0, 3).map((book) => (
+                <Read book={book} key={book.id} featured />
+              ))}
+            </div>
+            <div className="hidden gap-7 mt-3 md:grid md:grid-cols-4">
+              {finished.slice(4, 7).map((book) => (
+                <Read book={book} key={book.id} />
+              ))}
+              <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 text-sm rounded-lg">
+                <h3 className="mb-2 text-center">Tampilkan lebih banyak?</h3>
+                <Link href="/all">
+                  <a className="text-groovy-violet bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet px-4 py-1.5 font-medium rounded-md transition-all duration-300 focus:ring focus:ring-opacity-40">
+                    Lihat Semua
+                  </a>
+                </Link>
+              </section>
+            </div>
+          </section>
 
-            <div className="pt-3">
-              <div className="grid gap-7 grid-cols-1 pt-3 md:grid-cols-3">
-                {finished.slice(0, 3).map((book) => (
-                  <Read book={book} key={book.id} featured />
-                ))}
-              </div>
-              <div className="hidden gap-7 mt-3 md:grid md:grid-cols-4">
-                {finished.slice(4, 7).map((book) => (
-                  <Read book={book} key={book.id} />
-                ))}
-                <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 text-sm rounded-lg">
-                  <h3 className="mb-2 text-center">Tampilkan lebih banyak?</h3>
-                  <Link href="/all">
-                    <a className="text-groovy-violet bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet px-4 py-1.5 font-medium rounded-md transition-all duration-300 focus:ring focus:ring-opacity-40">
-                      Lihat Semua
-                    </a>
-                  </Link>
-                </section>
-              </div>
+          <section className="py-6 space-y-1">
+            <h1 className="text-2xl font-bold">Bookmarks</h1>
+            <h2 className="text-gray-600">Yang cukup menarik untuk dibaca</h2>
+            <div className="pt-6">
+              {bookmarks.map((x) => (
+                <Bookmarks data={x} key={x.id} />
+              ))}
             </div>
           </section>
         </div>
