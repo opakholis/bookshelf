@@ -42,7 +42,7 @@ export default function All({ finished }) {
               Urutkan Berdasarkan:{' '}
             </Listbox.Label>
             <div className="relative w-64">
-              <Listbox.Button className="focus-visible:ring-groovy-blue/20 inline-flex items-center ml-1 px-1 text-groovy-blue font-medium rounded focus:outline-none focus-visible:ring-2">
+              <Listbox.Button className="focus-visible:ring-groovy-violet/20 inline-flex items-center ml-1 px-1 text-groovy-violet font-medium rounded focus:outline-none focus-visible:ring-2">
                 {sorting}
                 <CaretDown size={19} weight="bold" className="pl-1" />
               </Listbox.Button>
@@ -54,7 +54,7 @@ export default function All({ finished }) {
                     className={({ active }) =>
                       `${
                         active
-                          ? 'text-groovy-blue bg-groovy-blue/10'
+                          ? 'text-groovy-violet bg-groovy-violet/10'
                           : 'text-gray-900'
                       }
                           select-none relative py-2 pl-10 pr-4 flex items-center`
@@ -66,7 +66,9 @@ export default function All({ finished }) {
                         {selected ? (
                           <span
                             className={`${
-                              active ? 'text-groovy-blue' : 'text-groovy-blue'
+                              active
+                                ? 'text-groovy-violet'
+                                : 'text-groovy-violet'
                             } absolute inset-y-0 left-0 pl-3 flex items-center`}
                           >
                             <CheckCircle size={20} weight="regular" />
