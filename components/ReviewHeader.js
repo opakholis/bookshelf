@@ -40,11 +40,11 @@ export default function ReviewHeader({ book }) {
           <Image
             src={book.thumbnail[0].url}
             alt={book.name}
-            width={500}
-            height={500}
+            width={500 / 2}
+            height={500 / 2}
             layout="responsive"
             objectFit="cover"
-            className="rounded-lg"
+            className="w-[75px] h-[75px] md:w-[150px] md:h-[150px] rounded-lg"
           />
         </div>
       </div>

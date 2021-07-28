@@ -18,7 +18,7 @@ export default function All({ finished }) {
           sudah saya baca."
     >
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-orange" />
-      <section className="relative z-50 mt-4 mx-auto p-6 w-full max-w-screen-md bg-white rounded-2xl md:mt-20">
+      <section className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-2xl md:mt-20">
         <div className="leading-7 space-y-3">
           <h1 className="pb-3 text-gray-900 text-2xl font-bold">
             Koleksi Buku

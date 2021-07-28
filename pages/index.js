@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -6,6 +7,7 @@ import Read from '@/components/Read';
 import Bookmarks from '@/components/Bookmarks';
 
 import { NAME } from '@/utils/constant';
+import { persentase } from '@/utils/persentase';
 
 export default function Home({ books, reading, finished, bookmarks }) {
   const seeMore = finished.length - 3;
@@ -13,7 +15,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
   return (
     <Container>
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-red" />
-      <section className="relative z-50 mt-4 mx-auto p-6 w-full max-w-screen-md bg-white rounded-lg md:mt-20 md:rounded-2xl">
+      <section className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-lg md:mt-20 md:rounded-2xl">
         <div className="space-y-3">
           <Image src="/static/me.png" width={100} height={100} alt={NAME} />
           <h1 className="text-gray-900 text-2xl font-bold">{NAME}</h1>
@@ -26,9 +28,11 @@ export default function Home({ books, reading, finished, bookmarks }) {
             {reading.map((book) => (
               <div
                 key={book.id}
-                className="px-6 py-2.5 hover:bg-gray-50 border border-gray-100 rounded-full"
+                className="px-4 py-2.5 text-sm font-semibold hover:bg-gray-50 border border-gray-100 rounded-full"
               >
-                <span className="text-gray-800">{book.name}</span>
+                {persentase(book)}
+                <span className="mx-0.5 text-gray-500">&bull;</span>
+                {book.name}
               </div>
             ))}
           </section>
