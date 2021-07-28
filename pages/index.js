@@ -8,6 +8,8 @@ import Bookmarks from '@/components/Bookmarks';
 import { NAME } from '@/utils/constant';
 
 export default function Home({ books, reading, finished, bookmarks }) {
+  const seeMore = finished.length - 3;
+
   return (
     <Container>
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-red" />
@@ -34,19 +36,25 @@ export default function Home({ books, reading, finished, bookmarks }) {
           <section className="py-6 space-y-1">
             <h1 className="text-2xl font-bold">Buku</h1>
             <h2 className="text-gray-600">Selesai Dibaca</h2>
-            <div className="grid gap-7 grid-cols-1 pt-6 md:grid-cols-3">
+            <div className="grid gap-5 grid-cols-1 pt-6 md:grid-cols-3">
               {finished.slice(0, 3).map((book) => (
                 <Read book={book} key={book.id} featured />
               ))}
             </div>
-            <div className="hidden gap-7 pt-6 md:grid md:grid-cols-4">
+            <div className="grid gap-5 pt-4 md:grid-cols-4">
               {finished.slice(4, 7).map((book) => (
-                <Read book={book} key={book.id} />
+                <Read book={book} key={book.id} className="hidden md:block" />
               ))}
-              <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 text-sm rounded-lg">
-                <h3 className="mb-2 text-center">Tampilkan lebih banyak?</h3>
+              <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 rounded-lg">
+                <h2 className="font-semibold md:hidden">
+                  <strong className="link-custom">+{seeMore}</strong> buku
+                  tersembunyi
+                </h2>
+                <h3 className="mb-2 py-1 text-center text-gray-500 text-base md:text-gray-800 md:text-sm">
+                  Ingin menampilkan lebih banyak?
+                </h3>
                 <Link href="/all">
-                  <a className="text-groovy-violet bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet px-4 py-1.5 text-sm font-medium rounded-md transition-all duration-300 focus:ring focus:ring-opacity-40">
+                  <a className="text-groovy-violet bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet/40 px-4 py-1.5 text-sm font-medium rounded-md transition-all duration-300 focus:ring">
                     Lihat Semua
                   </a>
                 </Link>

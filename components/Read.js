@@ -7,14 +7,16 @@ import * as timeago from 'timeago.js';
 import Rating from '@/components/Rating';
 import id from 'timeago.js/lib/lang/id_ID';
 
-export default function Read({ book, featured }) {
+export default function Read({ book, featured, className }) {
   const slug = slugify(book.name, { lower: true });
 
   timeago.register('id', id);
 
   return (
     <Link href={`/${slug}`}>
-      <a className="rounded-md hover:-translate-y-1 transition duration-500">
+      <a
+        className={`rounded-md hover:-translate-y-1 transition duration-500 ${className}`}
+      >
         {featured && (
           <section className="relative">
             <Image
@@ -35,7 +37,7 @@ export default function Read({ book, featured }) {
           </section>
         )}
         <section
-          className={`h-[7rem] md:h-[7.7rem] p-3 border border-gray-200/75 relative overflow-hidden ${
+          className={`h-[7.7rem] p-3 border border-gray-200/75 relative overflow-hidden ${
             featured ? 'rounded-b-lg' : 'rounded-lg'
           }`}
         >
