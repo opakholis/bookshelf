@@ -12,11 +12,6 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.blueGray,
-      purple: {
-        light: '#D8B4FE',
-        DEFAULT: '#C084FC',
-        dark: '#A855F7',
-      },
     },
     extend: {
       fontFamily: {
@@ -36,6 +31,7 @@ module.exports = {
           orange: '#FE8957',
           red: '#FF5381',
           yellow: '#FECA07',
+          green: '#22C55E',
         },
       },
     },
