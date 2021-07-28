@@ -39,14 +39,14 @@ export default function Home({ books, reading, finished, bookmarks }) {
                 <Read book={book} key={book.id} featured />
               ))}
             </div>
-            <div className="hidden gap-7 mt-3 md:grid md:grid-cols-4">
+            <div className="hidden gap-7 pt-6 md:grid md:grid-cols-4">
               {finished.slice(4, 7).map((book) => (
                 <Read book={book} key={book.id} />
               ))}
               <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 text-sm rounded-lg">
                 <h3 className="mb-2 text-center">Tampilkan lebih banyak?</h3>
                 <Link href="/all">
-                  <a className="text-groovy-violet bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet px-4 py-1.5 font-medium rounded-md transition-all duration-300 focus:ring focus:ring-opacity-40">
+                  <a className="text-groovy-violet bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet px-4 py-1.5 text-sm font-medium rounded-md transition-all duration-300 focus:ring focus:ring-opacity-40">
                     Lihat Semua
                   </a>
                 </Link>

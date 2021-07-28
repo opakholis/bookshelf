@@ -35,7 +35,7 @@ export default function Read({ book, featured }) {
           </section>
         )}
         <section
-          className={`h-[7rem] md:h-[7.7rem] p-3 border border-gray-50 relative overflow-hidden ${
+          className={`h-[7rem] md:h-[7.7rem] p-3 border border-gray-200/75 relative overflow-hidden ${
             featured ? 'rounded-b-lg' : 'rounded-lg'
           }`}
         >
