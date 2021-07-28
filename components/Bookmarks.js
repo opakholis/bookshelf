@@ -2,7 +2,7 @@ import { formatDate } from '@/utils/format-date';
 
 export default function Bookmarks({ data }) {
   return (
-    <div className="feed-item border-groovy-blue/30 relative pb-5 pl-6 border-l-2 last:border-transparent">
+    <div className="feed-item border-groovy-blue/30 relative pb-12 pl-6 border-l-2 last:border-transparent">
       <time
         className="absolute -top-0.5 left-6 pb-5 text-gray-500 text-xs md:text-sm"
         dateTime={data.date}

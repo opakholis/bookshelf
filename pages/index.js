@@ -55,7 +55,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
           </section>
 
           <section className="py-6 space-y-1">
-            <h1 className="text-2xl font-bold">Bookmarks</h1>
+            <h1 className="mt-2 text-2xl font-bold">Bookmarks</h1>
             <h2 className="text-gray-600">Yang cukup menarik untuk dibaca</h2>
             <div className="pt-6">
               {bookmarks.map((x) => (
