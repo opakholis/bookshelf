@@ -25,11 +25,11 @@ export default function Bookmarks({ data }) {
         href={data.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:border-groovy-violet/50 border-[2.5px] flex flex-col items-start py-2 -mx-2 w-full border-dashed border-transparent rounded transition-all duration-300 md:flex-row md:items-center"
+        className="hover:border-groovy-violet/50 border-[2.5px] flex flex-col items-start -mx-2 py-2 w-full border-dashed border-transparent rounded focus:outline-none transition duration-300 focus-visible:ring md:flex-row md:items-center"
       >
         <p className="relative pl-2">{data.title}</p>
         <span className="hidden mx-2 text-gray-400 md:block">&#8226;</span>
-        <span className="ml-2 md:ml-0 link-custom mt-1 text-gray-600 text-sm md:mt-0 md:text-base">
+        <span className="link-custom ml-2 mt-1 text-gray-600 text-sm md:ml-0 md:mt-0 md:text-base">
           {data.prefix}
         </span>
       </a>

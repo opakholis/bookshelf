@@ -42,7 +42,7 @@ export default function All({ finished }) {
               Urutkan Berdasarkan:{' '}
             </Listbox.Label>
             <div className="relative w-64">
-              <Listbox.Button className="inline-flex items-center ml-1 text-groovy-blue font-medium">
+              <Listbox.Button className="focus-visible:ring-groovy-blue/20 inline-flex items-center ml-1 px-1 text-groovy-blue font-medium rounded focus:outline-none focus-visible:ring-2">
                 {sorting}
                 <CaretDown size={19} weight="bold" className="pl-1" />
               </Listbox.Button>

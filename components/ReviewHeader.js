@@ -28,7 +28,7 @@ export default function ReviewHeader({ book }) {
           <section className="flex gap-2">
             {book.genres.map((genre) => (
               <div
-                className="bg-groovy-purple/10 text-groovy-violet px-4 py-1 text-sm font-medium tracking-wide rounded"
+                className="bg-groovy-purple/10 px-4 py-1 text-groovy-violet text-sm font-medium tracking-wide rounded"
                 key={genre}
               >
                 {genre}
@@ -55,7 +55,7 @@ export default function ReviewHeader({ book }) {
             href="https://opakholis.dev/whoami"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-custom"
+            className="link-custom focus:outline-black"
           >
             {NAME}
           </a>

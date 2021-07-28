@@ -15,14 +15,14 @@ export default function Read({ book, featured, className }) {
   return (
     <Link href={`/${slug}`}>
       <a
-        className={`rounded-md hover:-translate-y-1 transition duration-500 ${className}`}
+        className={`rounded-lg hover:-translate-y-1 transition duration-500 focus:outline-none focus-visible:ring ${className}`}
       >
         {featured && (
           <section className="relative">
             <Image
               src={book.thumbnail[0].url}
               alt={book.name}
-              width={768}
+              width={765}
               height={500}
               layout="responsive"
               objectFit="cover"
@@ -37,7 +37,7 @@ export default function Read({ book, featured, className }) {
           </section>
         )}
         <section
-          className={`h-[7.7rem] p-3 border border-gray-200/75 relative overflow-hidden ${
+          className={`h-[7.7rem] p-3 border border-gray-200/75 relative overflow-hidden bg-white ${
             featured ? 'rounded-b-lg' : 'rounded-lg'
           }`}
         >

@@ -5,7 +5,7 @@ export default function Footer() {
         Sumber kode
         <a
           href="https://github.com/opxop/bookshelf"
-          className="link-custom ml-1"
+          className="link-custom mx-1 focus:outline-black"
         >
           Github
         </a>

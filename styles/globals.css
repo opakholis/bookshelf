@@ -75,3 +75,7 @@ a {
 .notion-callout > div {
   @apply mb-auto;
 }
+
+a.notion-link {
+  @apply focus:outline-black;
+}
