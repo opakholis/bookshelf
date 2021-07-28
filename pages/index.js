@@ -54,7 +54,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
                   Ingin menampilkan lebih banyak?
                 </h3>
                 <Link href="/all">
-                  <a className="bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet/40 px-4 py-1.5 text-groovy-violet text-sm font-medium rounded-md focus:outline-none transition duration-300 focus:ring">
+                  <a className="bg-groovy-purple/10 hover:bg-groovy-purple/20 focus:ring-groovy-violet/40 px-10 py-3 text-groovy-violet text-base font-medium rounded-md focus:outline-none transition duration-300 focus:ring md:px-4 md:py-1.5 md:text-sm">
                     Lihat Semua
                   </a>
                 </Link>

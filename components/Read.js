@@ -65,7 +65,7 @@ export default function Read({ book, featured, className }) {
               <TimeAgo
                 datetime={book.date}
                 locale="id"
-                className="text-gray-500 text-xs"
+                className="text-gray-500 text-base md:text-xs"
               />
             </div>
           </div>
