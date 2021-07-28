@@ -46,7 +46,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
                 <Read book={book} key={book.id} className="hidden md:block" />
               ))}
               <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 rounded-lg">
-                <h2 className="font-semibold md:hidden">
+                <h2 className="text-md font-semibold md:hidden">
                   <strong className="link-custom">+{seeMore}</strong> buku
                   tersembunyi
                 </h2>
