@@ -10,7 +10,7 @@ export default function Bookmarks({ data }) {
         {formatDate(data.date)}
       </time>
 
-      <section className="pt-[1.6rem] flex gap-2">
+      <section className="pt-[1.6rem] flex gap-2 mb-1">
         {data.types.map((type) => (
           <div
             className="bg-groovy-red/10 px-3 py-1 text-groovy-red text-xs font-medium rounded md:text-sm"
@@ -21,18 +21,18 @@ export default function Bookmarks({ data }) {
         ))}
       </section>
 
-      <section className="flex flex-col items-start pt-2 md:flex-row md:items-center">
-        <p className="relative">{data.title}</p>
+      <a
+        href={data.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:border-groovy-violet/50 border-[2.5px] flex flex-col items-start py-2 -mx-2 w-full border-dashed border-transparent rounded transition-all duration-300 md:flex-row md:items-center"
+      >
+        <p className="relative pl-2">{data.title}</p>
         <span className="hidden mx-2 text-gray-400 md:block">&#8226;</span>
-        <a
-          href={data.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link-custom mt-1 text-gray-600 text-sm md:mt-0 md:text-base"
-        >
+        <span className="ml-2 md:ml-0 link-custom mt-1 text-gray-600 text-sm md:mt-0 md:text-base">
           {data.prefix}
-        </a>
-      </section>
+        </span>
+      </a>
     </div>
   );
 }
