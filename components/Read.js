@@ -15,7 +15,7 @@ export default function Read({ book, featured, className }) {
   return (
     <Link href={`/${slug}`}>
       <a
-        className={`rounded-lg hover:-translate-y-1 transition duration-500 focus:outline-none focus-visible:ring ${className}`}
+        className={`rounded-lg hover:-translate-y-1 transition duration-300 focus:outline-none focus-visible:ring ${className}`}
       >
         {featured && (
           <section className="relative">
