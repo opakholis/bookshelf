@@ -11,7 +11,7 @@ export default function Nav() {
           </a>
         </Link>
         <Link href="/all">
-          <a className="bg-groovy-violet/90 px-9 py-4 text-white text-sm font-semibold hover:bg-groovy-violet rounded-lg focus:outline-none transition duration-300 focus:ring focus:ring-groovy-purple md:px-16 md:rounded-xl">
+          <a className="bg-groovy-violet/90 px-9 py-4 text-white text-sm font-semibold hover:bg-groovy-violet rounded-lg focus:outline-none transition duration-300 focus:ring focus:ring-groovy-purple md:px-16">
             Koleksi Buku
           </a>
         </Link>
