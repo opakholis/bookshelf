@@ -77,6 +77,12 @@ a {
   @apply mb-auto;
 }
 
-a.notion-link {
+.notion-link {
   @apply focus:outline-black;
+  text-decoration: none;
+}
+
+.notion-text,
+.notion-callout-text {
+  @apply leading-7;
 }
