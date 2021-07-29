@@ -15,7 +15,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
   return (
     <Container>
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-red" />
-      <section className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-lg md:mt-20 md:rounded-2xl">
+      <main className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-xl md:mt-20">
         <div className="space-y-3">
           <Image src="/static/me.png" width={100} height={100} alt={NAME} />
           <h1 className="text-gray-900 text-2xl font-bold">{NAME}</h1>
@@ -76,7 +76,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
             </div>
           </section>
         </div>
-      </section>
+      </main>
     </Container>
   );
 }
