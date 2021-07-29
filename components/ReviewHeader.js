@@ -1,12 +1,9 @@
 import Image from 'next/image';
 import Rating from './Rating';
 
-import { NAME } from '@/utils/constant';
-import { formatDate } from '@/utils/format-date';
-
 export default function ReviewHeader({ book }) {
   return (
-    <header>
+    <header className="mx-auto p-6 w-full max-w-screen-md">
       <div className="flex flex-col-reverse items-center justify-between md:flex-row">
         <div className="w-full space-y-4">
           <section className="w-10/12 space-y-1">
@@ -47,21 +44,6 @@ export default function ReviewHeader({ book }) {
             className="w-[75px] h-[75px] md:w-[150px] md:h-[150px] rounded-lg"
           />
         </div>
-      </div>
-      <div className="flex items-center mb-3 mt-8 md:mt-16">
-        <Image src="/static/me.png" width={35} height={35} alt={NAME} />
-        <h3 className="ml-2 text-gray-600 text-sm">
-          <a
-            href="https://opakholis.dev/whoami"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-custom focus:outline-black"
-          >
-            {NAME}
-          </a>
-          <span className="mx-1">/</span>
-          {formatDate(book.date)}
-        </h3>
       </div>
     </header>
   );

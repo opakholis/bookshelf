@@ -38,7 +38,7 @@ export default function Container({ children, ...customMeta }) {
         )}
       </Head>
       <Nav />
-      <main className="relative w-full">{children}</main>
+      <section className="relative w-full">{children}</section>
       <Footer />
     </>
   );

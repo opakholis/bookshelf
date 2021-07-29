@@ -1,8 +1,12 @@
+import Image from 'next/image';
 import slugify from 'slugify';
 import { NotionRenderer } from 'react-notion';
 
 import Container from '@/components/Container';
 import ReviewHeader from '@/components/ReviewHeader';
+
+import { NAME } from '@/utils/constant';
+import { formatDate } from '@/utils/format-date';
 
 export default function DetailBook({ book, page }) {
   const { name: title, author, date, thumbnail } = book;
@@ -18,10 +22,27 @@ export default function DetailBook({ book, page }) {
       description={seoDesc}
       date={new Date(date).toISOString()}
     >
-      <article className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-2xl">
-        <ReviewHeader book={book} />
-        {page && <NotionRenderer blockMap={page} />}
-      </article>
+      <ReviewHeader book={book} />
+      {page && (
+        <div className="relative mx-auto px-6 max-w-screen-sm">
+          <div className="flex items-center mb-3 mt-4 mb:mt-8">
+            <Image src="/static/me.png" width={35} height={35} alt={NAME} />
+            <h3 className="ml-2 text-gray-600 text-sm">
+              <a
+                href="https://opakholis.dev/whoami"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-custom focus:outline-black"
+              >
+                {NAME}
+              </a>
+              <span className="mx-1">/</span>
+              {formatDate(book.date)}
+            </h3>
+          </div>
+          <NotionRenderer blockMap={page} />
+        </div>
+      )}
     </Container>
   );
 }
