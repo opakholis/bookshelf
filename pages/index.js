@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -8,6 +7,7 @@ import Bookmarks from '@/components/Bookmarks';
 
 import { NAME } from '@/utils/constant';
 import { persentase } from '@/utils/persentase';
+import { getBooksTable, getBookmarksTable } from '@/config/notion';
 
 export default function Home({ books, reading, finished, bookmarks }) {
   const seeMore = finished.length - 3;
@@ -82,38 +82,25 @@ export default function Home({ books, reading, finished, bookmarks }) {
 }
 
 export async function getStaticProps() {
-  const resBooks = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKS}`
-  );
-  const dataBooks = await resBooks.json();
+  const booksTable = await getBooksTable();
+  const bookmarksTable = await getBookmarksTable();
 
-  const resBookmarks = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKMARKS}`
-  );
-  const dataBookmarks = await resBookmarks.json();
-
-  if (!dataBooks || !dataBookmarks) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const finished = dataBooks
-    .filter((book) => book.status == 'Finished')
+  const finished = booksTable
+    .filter(({ status }) => status == 'Finished')
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
-  const reading = dataBooks
-    .filter((book) => book.status == 'Reading')
+  const reading = booksTable
+    .filter(({ status }) => status == 'Reading')
     .sort(
       (a, b) =>
         Number(new Date(b.last_updated)) - Number(new Date(a.last_updated))
     );
-  const bookmarks = dataBookmarks
-    .filter((mark) => mark.published)
+  const bookmarks = bookmarksTable
+    .filter(({ published }) => published)
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
 
   return {
     props: {
-      books: dataBooks,
+      books: booksTable,
       finished,
       reading,
       bookmarks,
