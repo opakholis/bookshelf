@@ -75,6 +75,6 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: { book, page },
-    revalidate: 1,
+    revalidate: 10,
   };
 }

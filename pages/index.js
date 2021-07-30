@@ -105,6 +105,6 @@ export async function getStaticProps() {
       reading,
       bookmarks,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 }
