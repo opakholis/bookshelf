@@ -9,6 +9,15 @@ export default function Footer() {
         >
           Github
         </a>
+        &#8226;
+        <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-custom mx-1 focus:outline-black"
+        >
+          CC BY-NC-SA 4.0
+        </a>
       </p>
     </footer>
   );
