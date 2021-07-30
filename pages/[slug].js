@@ -11,7 +11,7 @@ import { formatDate } from '@/utils/format-date';
 export default function DetailBook({ book, page }) {
   const { name: title, author, date, thumbnail } = book;
 
-  const seoTitle = `Resensi Buku ${title} - Opa Kholis Majid`;
+  const seoTitle = `Resensi Buku ${title}: ${author}`;
   const seoDesc = `Catatan, ulasan, dan resensi buku ${title}-nya ${author}`;
 
   return (
@@ -25,7 +25,7 @@ export default function DetailBook({ book, page }) {
       <ReviewHeader book={book} />
       {page && (
         <div className="relative mx-auto px-6 max-w-screen-sm">
-          <div className="flex items-center mb-3 mt-4 mb:mt-8">
+          <section className="flex items-center mb-3 mt-4 mb:mt-8">
             <Image src="/static/me.png" width={35} height={35} alt={NAME} />
             <h3 className="ml-2 text-gray-600 text-sm">
               <a
@@ -39,8 +39,16 @@ export default function DetailBook({ book, page }) {
               <span className="mx-1">/</span>
               {formatDate(book.date)}
             </h3>
-          </div>
+          </section>
           <NotionRenderer blockMap={page} />
+          <section className="mb-6 mt-12">
+            <p className="text-gray-600 text-sm">
+              Tulisan ini diperbarui pada tanggal:
+              <span className="ml-1 font-medium">
+                {formatDate(book?.last_updated)}
+              </span>
+            </p>
+          </section>
         </div>
       )}
     </Container>
