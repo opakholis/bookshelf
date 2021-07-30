@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import slugify from 'slugify';
 import { NotionRenderer } from 'react-notion';
 
 import Container from '@/components/Container';
@@ -7,12 +6,13 @@ import ReviewHeader from '@/components/ReviewHeader';
 
 import { NAME } from '@/utils/constant';
 import { formatDate } from '@/utils/format-date';
+import { getBooksTable, getPageBlocks, slugByName } from '@/config/notion';
 
 export default function DetailBook({ book, page }) {
   const { name: title, author, date, thumbnail } = book;
 
   const seoTitle = `Resensi Buku ${title}: ${author}`;
-  const seoDesc = `Catatan, ulasan, dan resensi buku ${title}-nya ${author}`;
+  const seoDesc = `Catatan dan ulasan dari buku ${title} oleh ${author}`;
 
   return (
     <Container
@@ -56,40 +56,25 @@ export default function DetailBook({ book, page }) {
 }
 
 export async function getStaticPaths() {
-  const bookRes = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKS}`
-  );
-  const bookData = await bookRes.json();
-  const paths = bookData
-    .filter(({ status }) => status === 'Finished')
-    .map(({ name }) => `/${slugify(name, { lower: true })}`);
+  const booksTable = await getBooksTable();
 
   return {
-    paths,
+    paths: booksTable
+      .filter(({ status }) => status === 'Finished')
+      .map(({ name }) => `/${slugByName(name)}`),
     fallback: false,
   };
 }
 
-export async function getStaticProps(context) {
-  const bookRes = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKS}`
-  );
-  const bookData = await bookRes.json();
+export async function getStaticProps({ params: { slug } }) {
+  const booksTable = await getBooksTable();
 
-  if (!bookData) return { notFound: true };
+  const book = booksTable.find(({ name }) => slugByName(name) === slug);
 
-  const { slug } = context.params;
-  const book = bookData.find(
-    ({ name }) => slugify(name, { lower: true }) === slug
-  );
-
-  const pageRes = await fetch(
-    `https://notion-api.splitbee.io/v1/page/${book.id}`
-  );
-  const pageData = await pageRes.json();
+  const page = await getPageBlocks(book.id);
 
   return {
-    props: { book, page: pageData },
-    revalidate: 1,
+    props: { book, page },
+    revalidate: 10,
   };
 }

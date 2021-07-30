@@ -6,6 +6,8 @@ import Container from '@/components/Container';
 import Read from '@/components/Read';
 import FormSuggestion from '@/components/FormSuggestion';
 
+import { getBooksTable } from '@/config/notion';
+
 const sortOptions = [{ name: 'Terbaru' }, { name: 'Rating' }];
 
 export default function All({ finished }) {
@@ -101,24 +103,15 @@ export default function All({ finished }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BOOKS}`
-  );
-  const books = await res.json();
+  const booksTable = await getBooksTable();
 
-  if (!books) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const finished = books.filter((book) => book.status == 'Finished');
+  const finished = booksTable.filter(({ status }) => status == 'Finished');
 
   return {
     props: {
-      books,
+      books: booksTable,
       finished,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 }
