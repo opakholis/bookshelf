@@ -6,7 +6,7 @@ export default function ReviewHeader({ book }) {
     <header className="mx-auto p-6 w-full max-w-screen-md">
       <div className="flex flex-col-reverse items-center justify-between md:flex-row">
         <div className="w-full space-y-4">
-          <section className="w-10/12 space-y-1">
+          <section className="w-10/12 space-y-1.5">
             <h1 className="font-medium">{book.author}</h1>
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               {book.name}

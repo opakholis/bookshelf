@@ -7,7 +7,7 @@ export default function Rating({ rating, className }) {
         <Star
           size={16}
           weight="fill"
-          className="text-groovy-yellow w-5 md:w-4"
+          className="w-5 text-groovy-yellow md:w-4"
         />
         <span className="pl-0.5">{rating}</span>
       </section>

@@ -24,7 +24,7 @@ export default function FormSuggestion() {
       setIsLoading(false);
       setTitle('');
       setMessage(
-        <div className="text-groovy-green flex items-center">
+        <div className="flex items-center text-groovy-green">
           <CheckCircle size={18} weight="fill" />
           <p className="ml-1">Hooray! Sekarang kembali kerja</p>
         </div>
