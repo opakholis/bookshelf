@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 import Nav from './Nav';
 
-export default function Container({ children, ...customMeta }) {
+export default function Container({ searchBar, children, ...customMeta }) {
   const router = useRouter();
   const meta = {
     title: 'Buku - Opa Kholis Majid',
@@ -37,7 +37,7 @@ export default function Container({ children, ...customMeta }) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <Nav />
+      <Nav inputSearchBar={searchBar} />
       <section className="relative w-full">{children}</section>
       <Footer />
     </>

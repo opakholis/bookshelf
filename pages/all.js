@@ -12,15 +12,30 @@ const sortOptions = [{ name: 'Terbaru' }, { name: 'Rating' }];
 
 export default function All({ finished }) {
   const [sorting, setSorting] = useState(sortOptions[0].name);
+  const [searchValue, setSearchValue] = useState('');
+
+  const filteredBooks = finished
+    .sort((a, b) => {
+      if (sorting === 'Terbaru') {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      }
+      return b.rating - a.rating;
+    })
+    .filter(
+      (f) =>
+        f.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+        f.author.toLowerCase().includes(searchValue.toLowerCase())
+    );
 
   return (
     <Container
       title="Koleksi Buku - Opa Kholis Majid"
       description="Halaman ini berisi resensi, catatan, dan ulasan terhadap Buku yang
           sudah saya baca."
+      searchBar={(e) => setSearchValue(e.target.value)}
     >
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-orange" />
-      <main className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-xl md:mt-20">
+      <main className="relative z-40 mx-auto p-6 w-full max-w-screen-md bg-white rounded-xl md:mt-20">
         <div className="leading-7 space-y-3">
           <h1 className="pb-3 text-gray-900 text-2xl font-bold">
             Koleksi Buku
@@ -85,17 +100,16 @@ export default function All({ finished }) {
           </Listbox>
         </div>
 
+        {!filteredBooks.length && (
+          <p className="my-10 font-medium">
+            Sayang sekali buku yang kamu cari tidak ditemukan 😿
+          </p>
+        )}
+
         <div className="grid gap-7 grid-cols-1 pt-3 md:grid-cols-3">
-          {finished
-            ?.sort((a, b) => {
-              if (sorting === 'Terbaru') {
-                return new Date(b.date).getTime() - new Date(a.date).getTime();
-              }
-              return b.rating - a.rating;
-            })
-            .map((book) => (
-              <Read book={book} key={book.id} featured />
-            ))}
+          {filteredBooks.map((book) => (
+            <Read book={book} key={book.id} featured />
+          ))}
         </div>
       </main>
     </Container>

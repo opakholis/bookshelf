@@ -1,7 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Fragment, useState } from 'react';
+import { useRouter } from 'next/router';
+import { Transition } from '@headlessui/react';
+import { MagnifyingGlass, X } from 'phosphor-react';
 
-export default function Nav() {
+export default function Nav({ inputSearchBar }) {
+  const router = useRouter();
+  const searchBar = router.pathname === '/all';
+
+  const [mobileInput, setMobileInput] = useState(false);
+
   return (
     <nav className="z-50 mx-auto px-5 w-full md:px-6">
       <div className="flex items-center justify-between w-full h-20">
@@ -10,11 +19,64 @@ export default function Nav() {
             <Image src="/static/logo.png" width={44} height={44} alt="Book" />
           </a>
         </Link>
-        <Link href="/all">
-          <a className="bg-groovy-violet/90 px-9 py-4 text-white text-sm font-semibold hover:bg-groovy-violet rounded-lg focus:outline-none transition duration-300 focus:ring focus:ring-groovy-purple md:px-16">
-            Koleksi Buku
-          </a>
-        </Link>
+        <section className="flex">
+          {searchBar && (
+            <>
+              <div className="relative hidden items-center mr-4 md:flex">
+                <input
+                  autoComplete="off"
+                  aria-label="Cari buku"
+                  placeholder="Cari buku..."
+                  onChange={inputSearchBar}
+                  className="p-4 pr-11 w-80 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-groovy-violet"
+                />
+                <MagnifyingGlass
+                  size={22}
+                  className="insety-y-1/2 absolute right-4 text-gray-400"
+                />
+              </div>
+              <button
+                className="mr-2 p-4 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-groovy-violet md:hidden"
+                onClick={() => setMobileInput(true)}
+              >
+                <MagnifyingGlass size={22} className="text-gray-400" />
+              </button>
+            </>
+          )}
+          <Link href="/all">
+            <a className="bg-groovy-violet/90 focus:ring-white/50 px-9 py-4 text-white text-sm font-semibold hover:bg-groovy-violet rounded-lg focus:outline-none transition duration-300 focus:ring-2 md:px-16">
+              Koleksi Buku
+            </a>
+          </Link>
+        </section>
+        <Transition
+          as={Fragment}
+          show={mobileInput}
+          enter="transition duration-500 ease-out"
+          enterFrom="transform -translate-y-full"
+          leave="transition duration-500 ease-out"
+          leaveFrom="transform -translate-y-full"
+          leaveTo="transform -translate-y-24"
+        >
+          <section className="fixed z-50 inset-0 flex items-center p-4 w-full h-24 bg-white">
+            <div className="relative flex flex-1 items-center">
+              <input
+                autoComplete="off"
+                aria-label="Cari buku"
+                placeholder="Cari buku..."
+                onChange={inputSearchBar}
+                className="p-4 w-full border border-gray-200 rounded-full focus:outline-none"
+              />
+              <MagnifyingGlass
+                size={22}
+                className="insety-y-1/2 absolute right-4 text-gray-400"
+              />
+            </div>
+            <button className="ml-2" onClick={() => setMobileInput(false)}>
+              <X size={22} />
+            </button>
+          </section>
+        </Transition>
       </div>
     </nav>
   );
