@@ -1,15 +1,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Transition } from '@headlessui/react';
 import { MagnifyingGlass, X } from 'phosphor-react';
 
 export default function Nav({ inputSearchBar }) {
+  const ref = useRef();
   const router = useRouter();
-  const searchBar = router.pathname === '/all';
 
+  const isPageCollectionBooks = router.pathname === '/all';
   const [isInputMobile, setIsInputMobile] = useState(() => false);
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (isInputMobile && ref.current && !ref.current.contains(e.target)) {
+        setIsInputMobile(false);
+      }
+    };
+    document.addEventListener('mousedown', checkIfClickedOutside);
+
+    return () => {
+      // clean up eventListener
+      document.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  }, [isInputMobile]);
 
   return (
     <nav className="z-50 mx-auto px-5 w-full md:px-6">
@@ -21,7 +38,7 @@ export default function Nav({ inputSearchBar }) {
         </Link>
         <section className="flex">
           {/* display seacrhbar only on page /all */}
-          {searchBar && (
+          {isPageCollectionBooks && (
             <>
               <div className="relative hidden items-center mr-4 md:flex">
                 <input
@@ -54,34 +71,37 @@ export default function Nav({ inputSearchBar }) {
         </section>
 
         {/* will appear when clicking the search button */}
-        <Transition
-          as={Fragment}
-          show={isInputMobile}
-          enter="transition duration-500 ease-out"
-          enterFrom="transform -translate-y-full"
-          leave="transition duration-500 ease-out"
-          leaveFrom="transform -translate-y-full"
-          leaveTo="transform -translate-y-24"
-        >
-          <section className="fixed z-50 inset-0 flex items-center p-4 w-full h-24 bg-white">
-            <div className="relative flex flex-1 items-center">
-              <input
-                autoComplete="off"
-                aria-label="Cari buku"
-                placeholder="Cari buku..."
-                onChange={inputSearchBar}
-                className="p-4 w-full border border-gray-200 rounded-full focus:outline-none"
-              />
-              <MagnifyingGlass
-                size={22}
-                className="insety-y-1/2 absolute right-4 text-gray-400"
-              />
-            </div>
-            <button className="ml-2" onClick={() => setIsInputMobile(false)}>
-              <X size={22} />
-            </button>
-          </section>
-        </Transition>
+
+        <span ref={ref} className="absolute">
+          <Transition
+            as={Fragment}
+            show={isInputMobile}
+            enter="transition duration-500 ease-out"
+            enterFrom="transform -translate-y-full"
+            leave="transition duration-500 ease-out"
+            leaveFrom="transform -translate-y-full"
+            leaveTo="transform -translate-y-24"
+          >
+            <section className="fixed z-50 inset-0 flex items-center p-4 w-full h-24 bg-white">
+              <div className="relative flex flex-1 items-center">
+                <input
+                  autoComplete="off"
+                  aria-label="Cari buku"
+                  placeholder="Cari buku..."
+                  onChange={inputSearchBar}
+                  className="p-4 w-full border border-gray-200 rounded-full focus:outline-none"
+                />
+                <MagnifyingGlass
+                  size={22}
+                  className="insety-y-1/2 absolute right-4 text-gray-400"
+                />
+              </div>
+              <button className="ml-2" onClick={() => setIsInputMobile(false)}>
+                <X size={22} />
+              </button>
+            </section>
+          </Transition>
+        </span>
       </div>
     </nav>
   );
