@@ -33,7 +33,13 @@ export default function Nav({ inputSearchBar }) {
       <div className="flex items-center justify-between w-full h-20">
         <Link href="/" passHref>
           <a className="flex items-center focus:outline-none">
-            <Image src="/static/logo.png" width={44} height={44} alt="Book" />
+            <Image
+              src="/static/images/logo.png"
+              width={48}
+              height={48}
+              alt="Books"
+              priority
+            />
           </a>
         </Link>
         <section className="flex">
@@ -71,7 +77,6 @@ export default function Nav({ inputSearchBar }) {
         </section>
 
         {/* will appear when clicking the search button */}
-
         <span ref={ref} className="absolute">
           <Transition
             as={Fragment}

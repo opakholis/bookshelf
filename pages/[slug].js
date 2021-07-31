@@ -26,7 +26,13 @@ export default function DetailBook({ book, page }) {
       {page && (
         <div className="relative mx-auto px-6 max-w-screen-sm">
           <section className="flex items-center mb-3 mt-4 mb:mt-8">
-            <Image src="/static/me.png" width={35} height={35} alt={NAME} />
+            <Image
+              src="/static/images/me.png"
+              width={35}
+              height={35}
+              alt={NAME}
+              priority
+            />
             <h3 className="ml-2 text-gray-600 text-sm">
               <a
                 href="https://opakholis.dev/whoami"

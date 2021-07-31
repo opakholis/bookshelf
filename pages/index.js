@@ -14,10 +14,16 @@ export default function Home({ books, reading, finished, bookmarks }) {
 
   return (
     <Container>
-      <div className="h-[420px] absolute -top-24 w-full bg-groovy-red" />
-      <main className="relative z-50 mx-auto p-6 w-full max-w-screen-md bg-white rounded-xl md:mt-20">
+      <div className="h-[420px] absolute -top-24 w-full bg-groovy-blue" />
+      <main className="relative z-50 mx-auto p-6 w-full max-w-screen-sm bg-white rounded-xl md:mt-20 md:max-w-screen-md">
         <div className="space-y-3">
-          <Image src="/static/me.png" width={100} height={100} alt={NAME} />
+          <Image
+            src="/static/images/me.png"
+            width={100}
+            height={100}
+            alt={NAME}
+            priority
+          />
           <h1 className="text-gray-900 text-2xl font-bold">{NAME}</h1>
           <h2 className="text-gray-500">
             {books.length} Buku
