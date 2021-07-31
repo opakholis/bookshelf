@@ -33,7 +33,8 @@ NOTION_BOOK_SUGGESTIONS=
 yarn dev
 ```
 
-## 🦄 Icon
+## 🦄 Assets
 
-- Logo - [Flaticon](https://www.freepik.com)
-- Other things - [Phosphor](https://phosphoricons.com/)
+- Icons - [Phosphor](https://phosphoricons.com/)
+- Nav Logo - [Flaticon](https://www.freepik.com)
+- 404 Illustrations - [Story Set](https://storyset.com/web)
