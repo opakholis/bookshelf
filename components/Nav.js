@@ -9,7 +9,7 @@ export default function Nav({ inputSearchBar }) {
   const router = useRouter();
   const searchBar = router.pathname === '/all';
 
-  const [mobileInput, setMobileInput] = useState(false);
+  const [isInputMobile, setIsInputMobile] = useState(() => false);
 
   return (
     <nav className="z-50 mx-auto px-5 w-full md:px-6">
@@ -20,6 +20,7 @@ export default function Nav({ inputSearchBar }) {
           </a>
         </Link>
         <section className="flex">
+          {/* display seacrhbar only on page /all */}
           {searchBar && (
             <>
               <div className="relative hidden items-center mr-4 md:flex">
@@ -35,9 +36,11 @@ export default function Nav({ inputSearchBar }) {
                   className="insety-y-1/2 absolute right-4 text-gray-400"
                 />
               </div>
+
+              {/* will only appear on mobile devices */}
               <button
                 className="mr-2 p-4 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-groovy-violet md:hidden"
-                onClick={() => setMobileInput(true)}
+                onClick={() => setIsInputMobile(true)}
               >
                 <MagnifyingGlass size={22} className="text-gray-400" />
               </button>
@@ -49,9 +52,11 @@ export default function Nav({ inputSearchBar }) {
             </a>
           </Link>
         </section>
+
+        {/* will appear when clicking the search button */}
         <Transition
           as={Fragment}
-          show={mobileInput}
+          show={isInputMobile}
           enter="transition duration-500 ease-out"
           enterFrom="transform -translate-y-full"
           leave="transition duration-500 ease-out"
@@ -72,7 +77,7 @@ export default function Nav({ inputSearchBar }) {
                 className="insety-y-1/2 absolute right-4 text-gray-400"
               />
             </div>
-            <button className="ml-2" onClick={() => setMobileInput(false)}>
+            <button className="ml-2" onClick={() => setIsInputMobile(false)}>
               <X size={22} />
             </button>
           </section>
