@@ -24,7 +24,7 @@ export default function FormSuggestion() {
       setIsLoading(false);
       setTitle('');
       setMessage(
-        <div className="flex items-center text-groovy-green">
+        <div className="text-groovy-green/90 flex items-center">
           <CheckCircle size={18} weight="fill" />
           <p className="ml-1">Hooray! Sekarang kembali kerja</p>
         </div>
@@ -55,7 +55,7 @@ export default function FormSuggestion() {
         />
         <button
           type="submit"
-          className={`absolute right-4 top-[4px] bg-groovy-violet -mr-2.5 py-1 w-24 text-white font-medium rounded focus:outline-none hover:bg-groovy-violet focus:ring-1 transition duration-300 focus:ring-offset-groovy-purple ${
+          className={`absolute right-0 inset-y-0 bg-groovy-violet py-1 w-24 text-white font-medium rounded-md focus:outline-none hover:bg-groovy-violet focus:ring-1 transition duration-300 focus:ring-offset-groovy-purple ${
             isEmpty && 'cursor-not-allowed opacity-50'
           }`}
           disabled={isEmpty}
