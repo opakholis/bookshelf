@@ -1,10 +1,19 @@
 import { formatDate } from '@/utils/format-date';
+import { ClockAfternoon } from 'phosphor-react';
 
 export default function Bookmarks({ data }) {
   return (
-    <div className="feed-item border-groovy-blue/30 relative pb-12 pl-6 border-l-2 last:border-transparent">
+    <div className="relative pb-12 pl-6 border-l-2 border-gray-300 last:border-transparent">
+      <section className="left-[-11.2px] top-[-7px] md:top-[-5px] absolute">
+        <ClockAfternoon
+          size={21}
+          weight="fill"
+          className="p-0.5 text-gray-300 bg-white rounded-full"
+        />
+      </section>
+
       <time
-        className="absolute -top-0.5 left-6 pb-5 text-gray-500 text-xs md:text-sm"
+        className="absolute -top-1 left-6 pb-5 text-gray-500 text-xs md:text-sm"
         dateTime={data.date}
       >
         {formatDate(data.date)}

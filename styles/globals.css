@@ -64,15 +64,6 @@ a {
   box-shadow: inset 0 -2px 0 #ac39fe;
 }
 
-.feed-item::after {
-  @apply absolute -left-1.5 top-0 block w-3 h-3 bg-white border border-groovy-blue rounded-full;
-  content: ' ';
-}
-
-.twemoji > img {
-  @apply !mx-2 inline drop-shadow-lg;
-}
-
 .notion-callout > div {
   @apply mb-auto;
 }
