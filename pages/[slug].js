@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'phosphor-react';
 import { NotionRenderer } from 'react-notion';
 
+import BookCard from '@/components/BookCard';
 import Container from '@/components/Container';
 import ReviewHeader from '@/components/ReviewHeader';
 
@@ -8,7 +11,7 @@ import { NAME } from '@/utils/constant';
 import { formatDate } from '@/utils/format-date';
 import { getBooksTable, getPageBlocks, slugByName } from '@/config/notion';
 
-export default function DetailBook({ book, page }) {
+export default function DetailBook({ book, page, moreBooks }) {
   const { name: title, author, date, thumbnail } = book;
 
   const seoTitle = `Resensi Buku ${title}: ${author}`;
@@ -47,13 +50,31 @@ export default function DetailBook({ book, page }) {
             </h3>
           </section>
           <NotionRenderer blockMap={page} />
-          <section className="mb-6 mt-12">
+          <section className="mb-4 mt-20">
             <p className="text-gray-600 text-sm">
               Tulisan ini diperbarui pada tanggal:
               <span className="ml-1 font-medium">
                 {formatDate(book?.last_updated)}
               </span>
             </p>
+          </section>
+          <section className="mb-16 py-4 border-t border-gray-200">
+            <div className="flex items-center justify-between">
+              <h3 className="text-[14.5px] text-gray-500 font-semibold uppercase">
+                Lanjutkan Membaca
+              </h3>
+              <Link href="/all">
+                <a className="link-custom inline-flex items-center">
+                  Koleksi{' '}
+                  <ArrowRight size={14} weight="bold" className="ml-0.5" />
+                </a>
+              </Link>
+            </div>
+            <div className="grid gap-5 grid-cols-1 pt-4 sm:grid-cols-2">
+              {moreBooks.map((book) => (
+                <BookCard key={book.id} book={book} />
+              ))}
+            </div>
           </section>
         </div>
       )}
@@ -66,7 +87,7 @@ export async function getStaticPaths() {
 
   return {
     paths: booksTable
-      .filter(({ status }) => status === 'Finished')
+      .filter(({ status }) => status == 'Finished')
       .map(({ name }) => `/${slugByName(name)}`),
     fallback: false,
   };
@@ -75,12 +96,22 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const booksTable = await getBooksTable();
 
+  const finished = booksTable
+    .filter(({ status }) => status == 'Finished')
+    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
+
   const book = booksTable.find(({ name }) => slugByName(name) === slug);
+  const bookIndex = finished.findIndex(({ name }) => slugByName(name) === slug);
+
+  const moreBooks = [...finished, ...finished].slice(
+    bookIndex + 1,
+    bookIndex + 3
+  );
 
   const page = await getPageBlocks(book.id);
 
   return {
-    props: { book, page },
+    props: { book, page, moreBooks, bookIndex, finished },
     revalidate: 10,
   };
 }
