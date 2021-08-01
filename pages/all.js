@@ -3,7 +3,7 @@ import { Listbox } from '@headlessui/react';
 import { CaretDown, CheckCircle } from 'phosphor-react';
 
 import Container from '@/components/Container';
-import Read from '@/components/Read';
+import BookCard from '@/components/BookCard';
 import FormSuggestion from '@/components/FormSuggestion';
 
 import { getBooksTable } from '@/config/notion';
@@ -34,7 +34,7 @@ export default function All({ finished }) {
           sudah saya baca."
       searchBar={(e) => setSearchValue(e.target.value)}
     >
-      <div className="h-[420px] bg-groovy-lilac absolute -top-24 w-full" />
+      <div className="h-[420px] absolute -top-24 w-full bg-groovy-lilac" />
       <main className="relative z-40 mx-auto p-6 w-full max-w-screen-sm bg-white rounded-xl md:mt-20 md:max-w-screen-md">
         <div className="leading-7 space-y-3">
           <h1 className="pb-3 text-gray-900 text-2xl font-bold">
@@ -108,7 +108,7 @@ export default function All({ finished }) {
 
         <div className="grid gap-7 grid-cols-1 pt-3 md:grid-cols-3">
           {filteredBooks.map((book) => (
-            <Read book={book} key={book.id} featured />
+            <BookCard book={book} key={book.id} featured />
           ))}
         </div>
       </main>

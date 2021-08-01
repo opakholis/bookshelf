@@ -1,19 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import slugify from 'slugify';
 import TimeAgo from 'timeago-react';
 import * as timeago from 'timeago.js';
 
-import Rating from '@/components/Rating';
 import id from 'timeago.js/lib/lang/id_ID';
+import Rating from '@/components/Rating';
+import { slugByName } from '@/config/notion';
 
-export default function Read({ book, featured, className }) {
-  const slug = slugify(book.name, { lower: true });
+export default function BookCard({ book, featured, className }) {
+  const slug = slugByName(book.name);
 
   timeago.register('id', id);
 
   return (
-    <Link href={`/${slug}`}>
+    <Link href={`/[slug]`} as={`/${slug}`}>
       <a
         className={`rounded-lg hover:-translate-y-1 transition duration-300 focus:outline-none focus-visible:ring ${className}`}
       >
