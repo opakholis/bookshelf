@@ -42,6 +42,13 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
+          <script
+            async
+            defer
+            data-website-id="3d5d9120-bd3b-4113-89df-a6534133c7a9"
+            src="https://u.opakholis.dev/umami.js"
+            data-do-not-track="true"
+          />
         </Head>
         <body className="text-gray-900 bg-white">
           <Main />
