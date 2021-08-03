@@ -61,7 +61,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
               ))}
               <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 rounded-lg">
                 <h2 className="text-md font-semibold md:hidden">
-                  <strong className="link-custom">+{seeMore}</strong> buku
+                  <strong className="fancy-link">+{seeMore}</strong> buku
                   tersembunyi
                 </h2>
                 <h3 className="mb-2 py-1 text-center text-gray-500 text-base md:text-gray-800 md:text-sm">

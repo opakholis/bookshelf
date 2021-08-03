@@ -23,7 +23,7 @@ export default function NotFound() {
             tidak ditemukan
           </p>
           <Link href="/">
-            <a className="link-custom">Kembali ke Home</a>
+            <a className="fancy-link">Kembali ke Home</a>
           </Link>
         </div>
       </main>

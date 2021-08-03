@@ -45,7 +45,7 @@ a {
   @apply absolute -top-8 left-24 focus:top-4 px-4 py-2 transform -translate-y-12 focus:translate-y-1 transition-transform duration-200;
 }
 
-.link-custom,
+.fancy-link,
 .notion-link {
   @apply hover:bg-groovy-violet/20 transition-all duration-200 ease-in-out;
   box-shadow: inset 0 -2px 0 #ac39fe;

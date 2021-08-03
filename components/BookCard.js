@@ -56,7 +56,7 @@ export default function BookCard({ book, featured, className }) {
               <p className="mb-1 mt-1.5 font-medium leading-tight">
                 {book.author}
               </p>
-              <span className="link-custom text-gray-600">{book.name}</span>
+              <span className="fancy-link text-gray-600">{book.name}</span>
             </div>
             <div className="space-y-1">
               <TimeAgo

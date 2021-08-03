@@ -38,7 +38,7 @@ export default function Bookmarks({ data }) {
       >
         <p className="relative pl-2">{data.title}</p>
         <span className="hidden mx-2 text-gray-400 md:block">&#8226;</span>
-        <span className="link-custom ml-2 mt-1 text-gray-600 text-sm md:ml-0 md:mt-0 md:text-base">
+        <span className="fancy-link ml-2 mt-1 text-gray-600 text-sm md:ml-0 md:mt-0 md:text-base">
           {data.prefix}
         </span>
       </a>

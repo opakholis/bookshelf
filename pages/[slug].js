@@ -41,7 +41,7 @@ export default function DetailBook({ book, page, moreBooks }) {
                 href="https://opakholis.dev/whoami"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-custom focus:outline-black"
+                className="fancy-link focus:outline-black"
               >
                 {NAME}
               </a>
@@ -64,7 +64,7 @@ export default function DetailBook({ book, page, moreBooks }) {
                 Lanjutkan Membaca
               </h3>
               <Link href="/all">
-                <a className="link-custom inline-flex items-center">
+                <a className="fancy-link inline-flex items-center">
                   Koleksi{' '}
                   <ArrowRight size={14} weight="bold" className="ml-0.5" />
                 </a>

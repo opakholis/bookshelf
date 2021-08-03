@@ -5,7 +5,7 @@ export default function Footer() {
         Sumber kode
         <a
           href="https://github.com/opxop/bookshelf"
-          className="link-custom mx-1 focus:outline-black"
+          className="fancy-link mx-1 focus:outline-black"
         >
           Github
         </a>
@@ -14,7 +14,7 @@ export default function Footer() {
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id"
           target="_blank"
           rel="noopener noreferrer"
-          className="link-custom mx-1 focus:outline-black"
+          className="fancy-link mx-1 focus:outline-black"
         >
           CC BY-NC-SA 4.0
         </a>
