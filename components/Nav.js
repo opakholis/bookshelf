@@ -1,6 +1,6 @@
+import { Fragment, useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Fragment, useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Transition } from '@headlessui/react';
 import { MagnifyingGlass, X } from 'phosphor-react';
@@ -34,7 +34,7 @@ export default function Nav({ inputSearchBar }) {
         <a href="#skip" className="skip-nav">
           Skip to content
         </a>
-        <Link href="/" passHref>
+        <Link href="/" prefetch={false}>
           <a className="flex items-center focus:outline-none">
             <Image
               src="/static/images/logo.png"

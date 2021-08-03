@@ -22,11 +22,13 @@ export default function BookCard({ book, featured, className }) {
             <Image
               src={book.thumbnail[0].url}
               alt={book.name}
-              width={765}
-              height={500}
+              width={765 / 2}
+              height={500 / 2}
               layout="responsive"
               objectFit="cover"
               className="rounded-t-lg"
+              // placeholder="blur"
+              // blurDataURL
             />
             <div className="absolute z-10 -bottom-3 left-3 px-1 py-0.5 bg-white border border-gray-50 rounded">
               <Rating rating={book.rating} className="text-sm font-medium" />
