@@ -31,6 +31,9 @@ export default function Nav({ inputSearchBar }) {
   return (
     <nav className="z-50 mx-auto px-5 w-full md:px-6">
       <div className="flex items-center justify-between w-full h-20">
+        <a href="#skip" className="skip-nav">
+          Skip to content
+        </a>
         <Link href="/" passHref>
           <a className="flex items-center focus:outline-none">
             <Image
@@ -62,6 +65,7 @@ export default function Nav({ inputSearchBar }) {
 
               {/* will only appear on mobile devices */}
               <button
+                aria-label="Show searchbar"
                 className="mr-2 p-4 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-groovy-violet md:hidden"
                 onClick={() => setIsInputMobile(true)}
               >
@@ -70,7 +74,10 @@ export default function Nav({ inputSearchBar }) {
             </>
           )}
           <Link href="/all">
-            <a className="bg-groovy-violet/90 focus:ring-white/50 px-9 py-4 text-white text-sm font-semibold hover:bg-groovy-violet rounded-lg focus:outline-none transition duration-300 focus:ring-2 md:px-16">
+            <a
+              role="button"
+              className="bg-groovy-violet/90 focus:ring-white/50 px-9 py-4 text-white text-sm font-semibold hover:bg-groovy-violet rounded-lg focus:outline-none transition duration-300 focus:ring-2 md:px-16"
+            >
               Koleksi Buku
             </a>
           </Link>
@@ -101,7 +108,11 @@ export default function Nav({ inputSearchBar }) {
                   className="insety-y-1/2 absolute right-4 text-gray-400"
                 />
               </div>
-              <button className="ml-2" onClick={() => setIsInputMobile(false)}>
+              <button
+                aria-label="Hide searchbar"
+                className="ml-2"
+                onClick={() => setIsInputMobile(false)}
+              >
                 <X size={22} />
               </button>
             </section>

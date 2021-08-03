@@ -38,7 +38,9 @@ export default function Container({ searchBar, children, ...customMeta }) {
         )}
       </Head>
       <Nav inputSearchBar={searchBar} />
-      <section className="relative w-full">{children}</section>
+      <section id="skip" className="relative w-full">
+        {children}
+      </section>
       <Footer />
     </>
   );

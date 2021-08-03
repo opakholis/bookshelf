@@ -22,7 +22,7 @@ export default function Bookmarks({ data }) {
       <section className="pt-[1.6rem] flex gap-2 mb-1">
         {data.types.map((type) => (
           <div
-            className="bg-groovy-red/10 px-3 py-1 text-groovy-red text-xs font-medium rounded md:text-sm"
+            className="bg-groovy-red/10 px-3 py-1 text-groovy-red text-xs font-semibold rounded md:text-sm"
             key={type}
           >
             {type}

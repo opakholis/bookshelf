@@ -46,6 +46,7 @@ export default function FormSuggestion() {
         <input
           id="title"
           type="text"
+          aria-label="Rekomendasimu"
           placeholder="Rekomendasimu..."
           className="border-groovy-orange/20 focus:border-groovy-orange/50 pl-4 pr-28 py-2 w-full bg-white border rounded-md focus:outline-none"
           value={title}
