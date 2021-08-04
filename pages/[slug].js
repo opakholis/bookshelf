@@ -89,7 +89,7 @@ export async function getStaticPaths() {
     paths: booksTable
       .filter(({ status }) => status == 'Finished')
       .map(({ name }) => `/${slugByName(name)}`),
-    fallback: false,
+    fallback: false
   };
 }
 
@@ -112,6 +112,6 @@ export async function getStaticProps({ params: { slug } }) {
 
   return {
     props: { book, page, moreBooks, bookIndex, finished },
-    revalidate: 10,
+    revalidate: 10
   };
 }

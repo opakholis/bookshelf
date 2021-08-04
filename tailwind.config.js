@@ -11,18 +11,18 @@ module.exports = {
       current: 'currentColor',
       black: colors.black,
       white: colors.white,
-      gray: colors.blueGray,
+      gray: colors.blueGray
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         primary: {
           darkest: '#171923',
           dark: '#1A202C',
           light: '#FFFFFF',
-          lightest: '#F7FAFC',
+          lightest: '#F7FAFC'
         },
         groovy: {
           purple: '#A78BFA',
@@ -32,13 +32,13 @@ module.exports = {
           red: '#FF5381',
           lilac: '#FF68D4',
           yellow: '#FECA07',
-          green: '#22C55E',
-        },
-      },
-    },
+          green: '#22C55E'
+        }
+      }
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };
