@@ -18,12 +18,6 @@ module.exports = {
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        primary: {
-          darkest: '#171923',
-          dark: '#1A202C',
-          light: '#FFFFFF',
-          lightest: '#F7FAFC'
-        },
         groovy: {
           purple: '#A78BFA',
           violet: '#ac39fe',
