@@ -1,7 +1,18 @@
 {
-  "name": "with-tailwindcss",
-  "version": "0.1.0",
+  "name": "bookshelf",
+  "description": "My personal bookshelf.",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Opa Kholis Majid",
+    "email": "opakholis.id@gmail.com",
+    "url": "https://opakholis.dev"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opxop/bookshelf.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
