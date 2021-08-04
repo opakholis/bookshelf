@@ -113,8 +113,8 @@ export async function getStaticProps() {
       books: booksTable,
       finished,
       reading,
-      bookmarks,
+      bookmarks
     },
-    revalidate: 10,
+    revalidate: 10
   };
 }

@@ -12,7 +12,7 @@ export default function Container({ searchBar, children, ...customMeta }) {
     url: 'https://books.opakholis.dev',
     image: 'https://books.opakholis.dev/static/images/og.jpg',
     type: 'website',
-    ...customMeta,
+    ...customMeta
   };
   return (
     <>

@@ -16,7 +16,7 @@ export default function FormSuggestion() {
 
     const res = await fetch('/api/notion', {
       method: 'POST',
-      body: JSON.stringify({ title }),
+      body: JSON.stringify({ title })
     });
 
     // success if status code is 201
