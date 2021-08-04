@@ -1,2 +1,9 @@
+# *
 User-agent: *
-Disallow: /_next/
+Allow: /
+
+# Host
+Host: https://books.opakholis.dev
+
+# Sitemaps
+Sitemap: https://books.opakholis.dev/sitemap.xml
