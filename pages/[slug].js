@@ -14,8 +14,8 @@ import { getBooksTable, getPageBlocks, slugByName } from '@/config/notion';
 export default function DetailBook({ book, page, moreBooks }) {
   const { name: title, author, date, thumbnail } = book;
 
-  const seoTitle = `Resensi Buku ${title}: ${author}`;
-  const seoDesc = `Catatan dan ulasan dari buku ${title} oleh ${author}`;
+  const seoTitle = `Resensi Buku ${title} Karya ${author}`;
+  const seoDesc = `Catatan dan ulasan dari buku ${title} karya ${author}`;
 
   return (
     <Container
