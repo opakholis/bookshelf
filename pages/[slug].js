@@ -1,11 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'phosphor-react';
 import { NotionRenderer } from 'react-notion';
 
 import BookCard from '@/components/BookCard';
 import Container from '@/components/Container';
 import ReviewHeader from '@/components/ReviewHeader';
+import Subscribe from '@/components/Subscribe';
 
 import { NAME } from '@/utils/constant';
 import { formatDate } from '@/utils/format-date';
@@ -50,7 +51,12 @@ export default function DetailBook({ book, page, moreBooks }) {
             </h3>
           </section>
           <NotionRenderer blockMap={page} />
-          <section className="mb-4 mt-20">
+
+          <section className="mb-4 mt-24">
+            <Subscribe />
+          </section>
+
+          <section className="my-4">
             <p className="text-gray-600 text-sm">
               Tulisan ini diperbarui pada tanggal:
               <span className="ml-1 font-medium">
@@ -58,6 +64,7 @@ export default function DetailBook({ book, page, moreBooks }) {
               </span>
             </p>
           </section>
+
           <section className="mb-16 py-4 border-t border-gray-200">
             <div className="flex items-center justify-between">
               <h3 className="text-[14.5px] text-gray-500 font-semibold uppercase">
