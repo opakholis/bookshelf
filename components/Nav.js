@@ -49,18 +49,15 @@ export default function Nav({ inputSearchBar }) {
           {/* display seacrhbar only on page /all */}
           {isPageCollectionBooks && (
             <>
-              <div className="relative hidden items-center mr-4 md:flex">
+              <div className="relative hidden items-center mr-4 px-3 bg-white rounded-lg focus-within:ring-2 focus-within:ring-groovy-violet md:flex">
                 <input
                   autoComplete="off"
                   aria-label="Cari buku"
                   placeholder="Cari buku..."
                   onChange={inputSearchBar}
-                  className="p-4 pr-11 w-80 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-groovy-violet"
+                  className="pr-3 w-80 bg-transparent focus:outline-none appearance-none"
                 />
-                <MagnifyingGlass
-                  size={22}
-                  className="insety-y-1/2 absolute right-4 text-gray-400"
-                />
+                <MagnifyingGlass size={22} className="text-gray-400" />
               </div>
 
               {/* will only appear on mobile devices */}
@@ -95,18 +92,15 @@ export default function Nav({ inputSearchBar }) {
             leaveTo="transform -translate-y-24"
           >
             <section className="fixed z-50 inset-0 flex items-center p-4 w-full h-24 bg-white">
-              <div className="relative flex flex-1 items-center">
+              <div className="relative flex items-center p-4 w-full border border-gray-200 rounded-full">
                 <input
                   autoComplete="off"
                   aria-label="Cari buku"
                   placeholder="Cari buku..."
                   onChange={inputSearchBar}
-                  className="p-4 w-full border border-gray-200 rounded-full focus:outline-none"
+                  className="pr-2 w-full bg-transparent focus:outline-none appearance-none"
                 />
-                <MagnifyingGlass
-                  size={22}
-                  className="insety-y-1/2 absolute right-4 text-gray-400"
-                />
+                <MagnifyingGlass size={22} className="text-gray-400" />
               </div>
               <button
                 aria-label="Hide searchbar"

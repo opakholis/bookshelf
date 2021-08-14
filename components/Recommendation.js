@@ -48,7 +48,7 @@ export default function FormSuggestion() {
           autoComplete="off"
           aria-label="Rekomendasimu"
           placeholder="Rekomendasimu..."
-          className="pr-28 w-full bg-transparent focus:outline-none appearance-none"
+          className="pr-2 w-full bg-transparent focus:outline-none appearance-none"
           required
         />
         <button

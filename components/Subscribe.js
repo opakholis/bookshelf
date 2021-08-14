@@ -54,7 +54,7 @@ export default function Subscribe() {
           autoComplete="email"
           aria-label="Email untuk berlangganan"
           placeholder="einstein@labs.com"
-          className="pr-28 w-full bg-transparent focus:outline-none appearance-none"
+          className="pr-2 w-full bg-transparent focus:outline-none appearance-none"
           required
         />
         <button
