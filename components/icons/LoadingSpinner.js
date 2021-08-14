@@ -1,4 +1,4 @@
-export default function Spinner() {
+export default function LoadingSpinner() {
   return (
     <svg
       className="inline-flex w-5 h-5 text-white animate-spin"
