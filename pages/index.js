@@ -32,14 +32,15 @@ export default function Home({ books, reading, finished, bookmarks }) {
           </h2>
           <section className="flex flex-wrap gap-2 pt-6 w-full lg:w-3/4">
             {reading.map((book) => (
-              <div
+              <a
                 key={book.id}
+                href={book.link}
                 className="px-4 py-2.5 text-sm font-semibold hover:bg-gray-50 border border-gray-100 rounded-full"
               >
                 {persentase(book)}
                 <span className="mx-0.5 text-gray-500">&bull;</span>
                 {book.name}
-              </div>
+              </a>
             ))}
           </section>
 
