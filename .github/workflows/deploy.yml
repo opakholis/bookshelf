@@ -6,6 +6,7 @@ name: Deploy
 on:
   schedule:
     - cron: "0 6 * * 1" # will run every Monday at 6 am
+    - cron: "32 11 * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
