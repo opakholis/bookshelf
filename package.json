@@ -19,6 +19,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
+    "prepare": "husky install",
     "format": "prettier --write \"./**/*.{js,jsx}\""
   },
   "dependencies": {
@@ -36,9 +37,13 @@
     "timeago-react": "^3.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "autoprefixer": "^10.3.2",
     "eslint": "^7.29.0",
     "eslint-config-next": "^11.0.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.2",
     "next-sitemap": "^1.6.140",
     "postcss": "^8.3.6",
     "prettier": "^2.3.1",
@@ -50,5 +55,11 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "none"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,yml,yaml}": [
+      "eslint --cache --fix"
+    ],
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   }
 }
