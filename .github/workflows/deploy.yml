@@ -5,8 +5,7 @@ name: Deploy
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: "0 6 * * 1" # will run every Monday at 6 am
-    - cron: "*/5 * * * *"
+    - cron: '0 6 * * 1' # will run every Monday at 6 am
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -14,21 +13,13 @@ jobs:
     name: Scheduled Deployment
     if: github.repository == 'opxop/bookshelf'
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
-      # maybe do something eles first
-      
-      - name: Setup Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
 
-      - name: Install dependencies
-        run: yarn
-      
+      # maybe do something eles first
+
       - name: Deploy to Vercel Action
         uses: BetaHuhn/deploy-to-vercel-action@v1
         with:
