@@ -53,9 +53,7 @@ export default function BookCard({ book, featured, className }) {
           )}
           <div className="flex flex-col justify-between h-full">
             <div className="text-base md:text-sm">
-              <p className="mb-1 mt-1.5 font-medium leading-tight">
-                {book.author}
-              </p>
+              <p className="mb-1 mt-1.5 font-medium leading-tight">{book.author}</p>
               <span className="fancy-link text-gray-600">{book.name}</span>
             </div>
             <div className="space-y-1">

@@ -24,9 +24,7 @@ export default async function handler(req, res) {
 
     // return any errors
     if (response.status >= 400) {
-      return res
-        .status(400)
-        .json({ error: `There was an error subscribing to the newsletter.` });
+      return res.status(400).json({ error: `There was an error subscribing to the newsletter.` });
     }
 
     // happy days

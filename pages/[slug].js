@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight } from 'phosphor-react';
 import { NotionRenderer } from 'react-notion';
 
@@ -30,13 +30,7 @@ export default function DetailBook({ book, page, moreBooks }) {
       {page && (
         <div className="relative mx-auto px-6 max-w-screen-sm">
           <section className="flex items-center mb-3 mt-4 mb:mt-8">
-            <Image
-              src="/static/images/me.png"
-              width={35}
-              height={35}
-              alt={NAME}
-              priority
-            />
+            <Image src="/static/images/me.png" width={35} height={35} alt={NAME} priority />
             <h3 className="ml-2 text-gray-600 text-sm">
               <a
                 href="https://opakholis.dev/whoami"
@@ -59,9 +53,7 @@ export default function DetailBook({ book, page, moreBooks }) {
           <section className="my-4">
             <p className="text-gray-600 text-sm">
               Tulisan ini diperbarui pada tanggal:
-              <span className="ml-1 font-medium">
-                {formatDate(book?.last_updated)}
-              </span>
+              <span className="ml-1 font-medium">{formatDate(book?.last_updated)}</span>
             </p>
           </section>
 
@@ -72,8 +64,7 @@ export default function DetailBook({ book, page, moreBooks }) {
               </h3>
               <Link href="/all">
                 <a className="fancy-link inline-flex items-center">
-                  Koleksi{' '}
-                  <ArrowRight size={14} weight="bold" className="ml-0.5" />
+                  Koleksi <ArrowRight size={14} weight="bold" className="ml-0.5" />
                 </a>
               </Link>
             </div>
@@ -110,10 +101,7 @@ export async function getStaticProps({ params: { slug } }) {
   const book = booksTable.find(({ name }) => slugByName(name) === slug);
   const bookIndex = finished.findIndex(({ name }) => slugByName(name) === slug);
 
-  const moreBooks = [...finished, ...finished].slice(
-    bookIndex + 1,
-    bookIndex + 3
-  );
+  const moreBooks = [...finished, ...finished].slice(bookIndex + 1, bookIndex + 3);
 
   const page = await getPageBlocks(book.id);
 

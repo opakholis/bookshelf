@@ -37,12 +37,9 @@ export default function Subscribe() {
 
   return (
     <div className="border-groovy-orange/30 bg-groovy-orange/10 p-4 w-full border rounded-md">
-      <h3 className="mb-1 text-xl font-bold tracking-tight">
-        Suka dengan tulisan ini?
-      </h3>
+      <h3 className="mb-1 text-xl font-bold tracking-tight">Suka dengan tulisan ini?</h3>
       <p className="mb-2.5">
-        Dapatkan email dari saya untuk informasi terkait tulisan dan buku yang
-        saya baca.
+        Dapatkan email dari saya untuk informasi terkait tulisan dan buku yang saya baca.
       </p>
       <form
         onSubmit={subsribe}

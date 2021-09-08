@@ -36,13 +36,7 @@ export default function Nav({ inputSearchBar }) {
         </a>
         <Link href="/" prefetch={false}>
           <a className="flex items-center focus:outline-none">
-            <Image
-              src="/static/images/logo.png"
-              width={48}
-              height={48}
-              alt="Books"
-              priority
-            />
+            <Image src="/static/images/logo.png" width={48} height={48} alt="Books" priority />
           </a>
         </Link>
         <section className="flex">

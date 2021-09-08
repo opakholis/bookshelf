@@ -17,13 +17,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
       <div className="h-[420px] absolute -top-24 w-full bg-groovy-blue" />
       <main className="relative z-50 mx-auto p-6 w-full max-w-screen-sm bg-white rounded-xl md:mt-20 md:max-w-screen-md">
         <div className="space-y-3">
-          <Image
-            src="/static/images/me.png"
-            width={100}
-            height={100}
-            alt={NAME}
-            priority
-          />
+          <Image src="/static/images/me.png" width={100} height={100} alt={NAME} priority />
           <h1 className="text-gray-900 text-2xl font-bold">{NAME}</h1>
           <h2 className="text-gray-500">
             {books.length} Buku
@@ -54,16 +48,11 @@ export default function Home({ books, reading, finished, bookmarks }) {
             </div>
             <div className="grid gap-5 pt-4 md:grid-cols-4">
               {finished.slice(4, 7).map((book) => (
-                <BookCard
-                  book={book}
-                  key={book.id}
-                  className="hidden md:block"
-                />
+                <BookCard book={book} key={book.id} className="hidden md:block" />
               ))}
               <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 rounded-lg">
                 <h2 className="text-md font-semibold md:hidden">
-                  <strong className="fancy-link">+{seeMore}</strong> buku
-                  tersembunyi
+                  <strong className="fancy-link">+{seeMore}</strong> buku tersembunyi
                 </h2>
                 <h3 className="mb-2 py-1 text-center text-gray-500 text-base md:text-gray-800 md:text-sm">
                   Ingin menampilkan lebih banyak?
@@ -101,10 +90,7 @@ export async function getStaticProps() {
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
   const reading = booksTable
     .filter(({ status }) => status == 'Reading')
-    .sort(
-      (a, b) =>
-        Number(new Date(b.last_updated)) - Number(new Date(a.last_updated))
-    );
+    .sort((a, b) => Number(new Date(b.last_updated)) - Number(new Date(a.last_updated)));
   const bookmarks = bookmarksTable
     .filter(({ published }) => published)
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));

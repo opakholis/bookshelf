@@ -8,9 +8,7 @@ export default function ReviewHeader({ book }) {
         <div className="w-full space-y-4">
           <section className="w-10/12 space-y-1.5">
             <h1 className="font-medium">{book.author}</h1>
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              {book.name}
-            </h2>
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{book.name}</h2>
             <p className="text-gray-500">{book.summary}</p>
           </section>
 

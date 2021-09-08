@@ -3,6 +3,7 @@
   "rules": {
     "react/no-unescaped-entities": "off",
     "no-unused-vars": "error",
-    "indent": ["error", 2]
+    "indent": ["error", 2, { "ignoredNodes": ["TemplateLiteral"] }],
+    "template-curly-spacing": "off"
   }
 }

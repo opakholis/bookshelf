@@ -33,9 +33,7 @@ export default function Container({ searchBar, children, ...customMeta }) {
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
 
-        {meta.date && (
-          <meta property="article:published_time" content={meta.date} />
-        )}
+        {meta.date && <meta property="article:published_time" content={meta.date} />}
       </Head>
       <Nav inputSearchBar={searchBar} />
       <section id="skip" className="relative w-full">
