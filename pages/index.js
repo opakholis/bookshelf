@@ -7,7 +7,7 @@ import Bookmarks from '@/components/Bookmarks';
 
 import { NAME } from '@/utils/constant';
 import { persentase } from '@/utils/persentase';
-import { getBooksTable, getBookmarksTable } from '@/config/notion';
+import { getBooksTable, getBookmarksTable, slugByName } from '@/config/notion';
 
 export default function Home({ books, reading, finished, bookmarks }) {
   const seeMore = finished.length - 3;
@@ -42,14 +42,32 @@ export default function Home({ books, reading, finished, bookmarks }) {
             <h1 className="text-2xl font-bold">Buku</h1>
             <h2 className="text-gray-600">Selesai Dibaca</h2>
             <div className="grid gap-5 grid-cols-1 pt-6 md:grid-cols-3">
-              {finished.slice(0, 3).map((book) => (
-                <BookCard book={book} key={book.id} featured />
-              ))}
+              {finished.slice(0, 3).map((book) => {
+                const slug = slugByName(book.name);
+                return book.notes ? (
+                  <Link href={`/[slug]`} as={`/${slug}`} key={book.id}>
+                    <a className="rounded-lg focus:outline-none hover:-translate-y-1 transition duration-300 focus-visible:ring">
+                      <BookCard book={book} featured />
+                    </a>
+                  </Link>
+                ) : (
+                  <BookCard book={book} key={book.id} featured />
+                );
+              })}
             </div>
             <div className="grid gap-5 pt-4 md:grid-cols-4">
-              {finished.slice(4, 7).map((book) => (
-                <BookCard book={book} key={book.id} className="hidden md:block" />
-              ))}
+              {finished.slice(4, 7).map((book) => {
+                const slug = slugByName(book.name);
+                return book.notes ? (
+                  <Link href={`/[slug]`} as={`/${slug}`} key={book.id}>
+                    <a className="hidden rounded-lg focus:outline-none hover:-translate-y-1 transition duration-300 focus-visible:ring md:block">
+                      <BookCard book={book} />
+                    </a>
+                  </Link>
+                ) : (
+                  <BookCard book={book} key={book.id} />
+                );
+              })}
               <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 rounded-lg">
                 <h2 className="text-md font-semibold md:hidden">
                   <strong className="fancy-link">+{seeMore}</strong> buku tersembunyi

@@ -46,7 +46,7 @@ export default function DetailBook({ book, page, moreBooks }) {
           </section>
           <NotionRenderer blockMap={page} />
 
-          <section className="mb-4 mt-24">
+          <section className="mb-4 mt-12">
             <Subscribe />
           </section>
 
@@ -69,9 +69,16 @@ export default function DetailBook({ book, page, moreBooks }) {
               </Link>
             </div>
             <div className="grid gap-5 grid-cols-1 pt-4 sm:grid-cols-2">
-              {moreBooks.map((book) => (
-                <BookCard key={book.id} book={book} />
-              ))}
+              {moreBooks.map((book) => {
+                const slug = slugByName(book.name);
+                return (
+                  <Link href={`/[slug]`} as={`/${slug}`} key={book.id}>
+                    <a className="rounded-lg focus:outline-none hover:-translate-y-1 transition duration-300 focus-visible:ring">
+                      <BookCard book={book} />
+                    </a>
+                  </Link>
+                );
+              })}
             </div>
           </section>
         </div>
@@ -86,6 +93,7 @@ export async function getStaticPaths() {
   return {
     paths: booksTable
       .filter(({ status }) => status == 'Finished')
+      .filter(({ notes }) => notes == true)
       .map(({ name }) => `/${slugByName(name)}`),
     fallback: false
   };
@@ -94,19 +102,20 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const booksTable = await getBooksTable();
 
-  const finished = booksTable
+  const published = booksTable
     .filter(({ status }) => status == 'Finished')
+    .filter(({ notes }) => notes == true)
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
 
   const book = booksTable.find(({ name }) => slugByName(name) === slug);
-  const bookIndex = finished.findIndex(({ name }) => slugByName(name) === slug);
+  const bookIndex = published.findIndex(({ name }) => slugByName(name) === slug);
 
-  const moreBooks = [...finished, ...finished].slice(bookIndex + 1, bookIndex + 3);
+  const moreBooks = [...published, ...published].slice(bookIndex + 1, bookIndex + 3);
 
   const page = await getPageBlocks(book.id);
 
   return {
-    props: { book, page, moreBooks, bookIndex, finished },
+    props: { book, page, moreBooks, bookIndex, published },
     revalidate: 10
   };
 }
