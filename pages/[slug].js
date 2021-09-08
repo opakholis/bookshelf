@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'phosphor-react';
 import { NotionRenderer } from 'react-notion';
 
-import BookCard from '@/components/BookCard';
+import BookCard, { LinkWrapper } from '@/components/BookCard';
 import Container from '@/components/Container';
 import ReviewHeader from '@/components/ReviewHeader';
 import Subscribe from '@/components/Subscribe';
@@ -46,7 +46,7 @@ export default function DetailBook({ book, page, moreBooks }) {
           </section>
           <NotionRenderer blockMap={page} />
 
-          <section className="mb-4 mt-24">
+          <section className="mb-4 mt-12">
             <Subscribe />
           </section>
 
@@ -70,7 +70,9 @@ export default function DetailBook({ book, page, moreBooks }) {
             </div>
             <div className="grid gap-5 grid-cols-1 pt-4 sm:grid-cols-2">
               {moreBooks.map((book) => (
-                <BookCard key={book.id} book={book} />
+                <LinkWrapper book={book} key={book.id}>
+                  <BookCard book={book} />
+                </LinkWrapper>
               ))}
             </div>
           </section>
@@ -86,6 +88,7 @@ export async function getStaticPaths() {
   return {
     paths: booksTable
       .filter(({ status }) => status == 'Finished')
+      .filter(({ notes }) => notes == true)
       .map(({ name }) => `/${slugByName(name)}`),
     fallback: false
   };
@@ -94,19 +97,20 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const booksTable = await getBooksTable();
 
-  const finished = booksTable
+  const published = booksTable
     .filter(({ status }) => status == 'Finished')
+    .filter(({ notes }) => notes == true)
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
 
   const book = booksTable.find(({ name }) => slugByName(name) === slug);
-  const bookIndex = finished.findIndex(({ name }) => slugByName(name) === slug);
+  const bookIndex = published.findIndex(({ name }) => slugByName(name) === slug);
 
-  const moreBooks = [...finished, ...finished].slice(bookIndex + 1, bookIndex + 3);
+  const moreBooks = [...published, ...published].slice(bookIndex + 1, bookIndex + 3);
 
   const page = await getPageBlocks(book.id);
 
   return {
-    props: { book, page, moreBooks, bookIndex, finished },
+    props: { book, page, moreBooks, bookIndex, published },
     revalidate: 10
   };
 }

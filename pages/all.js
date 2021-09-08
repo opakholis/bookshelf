@@ -3,7 +3,7 @@ import { Listbox } from '@headlessui/react';
 import { CaretDown, CheckCircle } from 'phosphor-react';
 
 import Container from '@/components/Container';
-import BookCard from '@/components/BookCard';
+import BookCard, { LinkWrapper } from '@/components/BookCard';
 import Recommendation from '@/components/Recommendation';
 
 import { getBooksTable } from '@/config/notion';
@@ -95,9 +95,15 @@ export default function All({ finished }) {
         )}
 
         <div className="grid gap-7 grid-cols-1 pt-3 md:grid-cols-3">
-          {filteredBooks.map((book) => (
-            <BookCard book={book} key={book.id} featured />
-          ))}
+          {filteredBooks.map((book) =>
+            book.notes ? (
+              <LinkWrapper book={book} key={book.id}>
+                <BookCard book={book} featured />
+              </LinkWrapper>
+            ) : (
+              <BookCard book={book} key={book.id} featured />
+            )
+          )}
         </div>
       </main>
     </Container>
