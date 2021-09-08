@@ -1,13 +1,12 @@
-import Link from 'next/link';
 import { useState } from 'react';
 import { Listbox } from '@headlessui/react';
 import { CaretDown, CheckCircle } from 'phosphor-react';
 
 import Container from '@/components/Container';
-import BookCard from '@/components/BookCard';
+import BookCard, { LinkWrapper } from '@/components/BookCard';
 import Recommendation from '@/components/Recommendation';
 
-import { getBooksTable, slugByName } from '@/config/notion';
+import { getBooksTable } from '@/config/notion';
 
 const sortOptions = [{ name: 'Terbaru' }, { name: 'Rating' }];
 
@@ -96,18 +95,15 @@ export default function All({ finished }) {
         )}
 
         <div className="grid gap-7 grid-cols-1 pt-3 md:grid-cols-3">
-          {filteredBooks.map((book) => {
-            const slug = slugByName(book.name);
-            return book.notes ? (
-              <Link href={`/[slug]`} as={`/${slug}`} key={book.id}>
-                <a className="rounded-lg focus:outline-none hover:-translate-y-1 transition duration-300 focus-visible:ring">
-                  <BookCard book={book} featured />
-                </a>
-              </Link>
+          {filteredBooks.map((book) =>
+            book.notes ? (
+              <LinkWrapper book={book} key={book.id}>
+                <BookCard book={book} featured />
+              </LinkWrapper>
             ) : (
               <BookCard book={book} key={book.id} featured />
-            );
-          })}
+            )
+          )}
         </div>
       </main>
     </Container>

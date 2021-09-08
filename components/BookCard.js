@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import TimeAgo from 'timeago-react';
 import * as timeago from 'timeago.js';
@@ -5,6 +6,20 @@ import { Notepad } from 'phosphor-react';
 
 import id from 'timeago.js/lib/lang/id_ID';
 import Rating from '@/components/Rating';
+import { slugByName } from '@/config/notion';
+
+export function LinkWrapper({ children, book, className }) {
+  const slug = slugByName(book.name);
+  return (
+    <Link href={`/[slug]`} as={`/${slug}`}>
+      <a
+        className={`rounded-lg focus:outline-none hover:-translate-y-1 transition duration-300 focus-visible:ring ${className}`}
+      >
+        {children}
+      </a>
+    </Link>
+  );
+}
 
 export default function BookCard({ featured, book }) {
   timeago.register('id', id);

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'phosphor-react';
 import { NotionRenderer } from 'react-notion';
 
-import BookCard from '@/components/BookCard';
+import BookCard, { LinkWrapper } from '@/components/BookCard';
 import Container from '@/components/Container';
 import ReviewHeader from '@/components/ReviewHeader';
 import Subscribe from '@/components/Subscribe';
@@ -69,16 +69,11 @@ export default function DetailBook({ book, page, moreBooks }) {
               </Link>
             </div>
             <div className="grid gap-5 grid-cols-1 pt-4 sm:grid-cols-2">
-              {moreBooks.map((book) => {
-                const slug = slugByName(book.name);
-                return (
-                  <Link href={`/[slug]`} as={`/${slug}`} key={book.id}>
-                    <a className="rounded-lg focus:outline-none hover:-translate-y-1 transition duration-300 focus-visible:ring">
-                      <BookCard book={book} />
-                    </a>
-                  </Link>
-                );
-              })}
+              {moreBooks.map((book) => (
+                <LinkWrapper book={book} key={book.id}>
+                  <BookCard book={book} />
+                </LinkWrapper>
+              ))}
             </div>
           </section>
         </div>
