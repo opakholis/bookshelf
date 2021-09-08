@@ -88,8 +88,6 @@ export default function All({ finished }) {
               </Listbox.Options>
             </div>
           </Listbox>
-
-          <button>Hanya tampilkan yang sudah diresensi</button>
         </div>
 
         {!filteredBooks.length && (
