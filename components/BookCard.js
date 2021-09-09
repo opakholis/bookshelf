@@ -21,11 +21,11 @@ export function LinkWrapper({ children, book, className }) {
   );
 }
 
-export default function BookCard({ featured, book }) {
+export default function BookCard({ featured, book, className }) {
   timeago.register('id', id);
 
   return (
-    <div>
+    <div className={className}>
       {featured && (
         <section className="relative">
           <Image

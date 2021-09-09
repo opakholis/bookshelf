@@ -59,7 +59,7 @@ export default function Home({ books, reading, finished, bookmarks }) {
                     <BookCard book={book} />
                   </LinkWrapper>
                 ) : (
-                  <BookCard book={book} key={book.id} />
+                  <BookCard book={book} key={book.id} className="hidden md:block" />
                 )
               )}
               <section className="h-[7.7rem] flex flex-col items-center justify-center p-3 rounded-lg">
