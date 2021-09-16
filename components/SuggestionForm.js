@@ -12,17 +12,16 @@ export default function FormSuggestion() {
     e.preventDefault();
     setForm({ state: 'loading' });
 
-    const res = await fetch('/api/notion', {
-      body: JSON.stringify({ title: inputEl.current.value }),
+    const res = await fetch('/api/send-suggestion', {
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      method: 'POST'
+      body: JSON.stringify({ title: inputEl.current.value })
     });
 
-    const { error } = await res.json();
-    if (error) {
+    if (res.status === 500) {
       setForm({
         state: 'error',
-        message: error
+        message: 'Slow Down.. Kamu terdeteksi spam!'
       });
       return;
     }
