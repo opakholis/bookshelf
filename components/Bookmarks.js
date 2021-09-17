@@ -4,7 +4,7 @@ import { ClockAfternoon } from 'phosphor-react';
 export default function Bookmarks({ data }) {
   return (
     <div className="relative pb-12 pl-6 border-l-2 border-gray-300 last:border-transparent">
-      <section className="left-[-11.2px] top-[-7px] md:top-[-5px] absolute">
+      <section className="left-[-11.2px] top-[-5px] absolute">
         <ClockAfternoon
           size={21}
           weight="fill"
@@ -12,10 +12,7 @@ export default function Bookmarks({ data }) {
         />
       </section>
 
-      <time
-        className="absolute -top-1 left-6 pb-5 text-gray-500 text-xs md:text-sm"
-        dateTime={data.date}
-      >
+      <time className="absolute -top-1 left-6 pb-5 text-gray-500 text-sm" dateTime={data.date}>
         {formatDate(data.date)}
       </time>
 

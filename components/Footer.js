@@ -1,8 +1,14 @@
 export default function Footer() {
   return (
-    <footer className="mb-4 mt-8 px-4 w-full">
+    <footer className="flex flex-col items-center justify-center mb-12 mt-8 px-4 w-full space-y-2">
+      <p className="text-center text-gray-500 text-xs font-semibold tracking-wider uppercase">
+        Made with
+        <span className="px-1">🍔</span>
+        in
+        <span className="px-1">🇮🇩</span>
+      </p>
       <p className="text-center text-gray-500 text-sm">
-        Sumber kode
+        Source Code
         <a
           href="https://github.com/opxop/bookshelf"
           className="fancy-link mx-1 focus:outline-black"
@@ -11,7 +17,7 @@ export default function Footer() {
         </a>
         &#8226;
         <a
-          href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id"
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
           target="_blank"
           rel="noopener noreferrer"
           className="fancy-link mx-1 focus:outline-black"

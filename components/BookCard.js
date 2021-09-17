@@ -76,7 +76,7 @@ export default function BookCard({ featured, book, className }) {
             <TimeAgo
               datetime={book.date}
               locale="id"
-              className="text-gray-500 text-base md:text-xs"
+              className="text-gray-500 text-sm md:text-xs"
             />
           </div>
         </div>
