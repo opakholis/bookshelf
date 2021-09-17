@@ -30,16 +30,9 @@ export default function DetailBook({ book, page, moreBooks }) {
       {page && (
         <div className="relative mx-auto px-6 max-w-screen-sm">
           <section className="flex items-center mb-3 mt-4 mb:mt-8">
-            <Image src="/static/images/me.png" width={35} height={35} alt={NAME} priority />
+            <Image src="/static/images/me.png" width={30} height={30} alt="me" priority />
             <h3 className="ml-2 text-gray-600 text-sm">
-              <a
-                href="https://opakholis.dev/whoami"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="fancy-link focus:outline-black"
-              >
-                {NAME}
-              </a>
+              <span>{NAME}</span>
               <span className="mx-1">/</span>
               {formatDate(book.date)}
             </h3>
