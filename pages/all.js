@@ -4,7 +4,7 @@ import { CaretDown, CheckCircle } from 'phosphor-react';
 
 import Container from '@/components/Container';
 import BookCard, { LinkWrapper } from '@/components/BookCard';
-import Recommendation from '@/components/Recommendation';
+import SuggestionForm from '@/components/SuggestionForm';
 
 import { getBooksTable } from '@/config/notion';
 
@@ -48,7 +48,7 @@ export default function All({ finished }) {
           </p>
         </div>
         <div className="my-6">
-          <Recommendation />
+          <SuggestionForm />
         </div>
 
         <div className="my-6">
