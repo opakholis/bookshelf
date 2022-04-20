@@ -11,7 +11,7 @@ on:
 jobs:
   deploy:
     name: Scheduled Deployment
-    if: github.repository == 'opxop/bookshelf'
+    if: github.repository == 'opakholis/bookshelf'
     runs-on: ubuntu-latest
 
     steps:

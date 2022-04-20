@@ -10,7 +10,7 @@ export default function Footer() {
       <p className="text-center text-gray-500 text-sm">
         Source Code
         <a
-          href="https://github.com/opxop/bookshelf"
+          href="https://github.com/opakholis/bookshelf"
           className="fancy-link mx-1 focus:outline-black"
         >
           Github
